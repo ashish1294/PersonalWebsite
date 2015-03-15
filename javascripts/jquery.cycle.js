@@ -860,7 +860,7 @@ $.fn.cycle.ver = function() { return ver; };
 // override these globally if you like (they are all optional)
 $.fn.cycle.defaults = {
 	fx:			  'fade', // name of transition effect (or comma separated names, ex: 'fade,scrollUp,shuffle')
-	timeout:	   4000,  // milliseconds between slide transitions (0 to disable auto advance)
+	timeout:	   8000,  // milliseconds between slide transitions (0 to disable auto advance)
 	timeoutFn:     null,  // callback for determining per-slide timeout value:  function(currSlideElement, nextSlideElement, options, forwardFlag)
 	continuous:	   0,	  // true to start next transition immediately after current one completes
 	speed:		   1000,  // speed of the transition (any valid fx speed value)
@@ -895,7 +895,7 @@ $.fn.cycle.defaults = {
 	random:		   0,	  // true for random, false for sequence (not applicable to shuffle fx)
 	fit:		   0,	  // force slides to fit container
 	containerResize: 1,	  // resize container to fit largest slide
-	pause:		   0,	  // true to enable "pause on hover"
+	pause:		   1,	  // true to enable "pause on hover"
 	pauseOnPagerHover: 0, // true to pause when hovering over pager link
 	autostop:	   0,	  // true to end slideshow after X transitions (where X == slide count)
 	autostopCount: 0,	  // number of transitions (optionally used with autostop to define X)
