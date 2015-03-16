@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width"/>
+    <title>{% block title%}{%endblock%}</title>
+    <!-- CSS Files-->
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {%block head%}{%endblock%}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/skins/pink.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+</head>
+<body>
+    <!-- HIDDEN PANEL 
+    ================================================== -->
+    <div id="panel">
+        <div class="row">
+            <div class="twelve columns">
+                <img src="{% static 'images/info.png' %}" class="pics" alt="info">
+                <div class="infotext">
+                    Thank you for visiting my website. Hope you got what you were looking for :)
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="slide">
+        <a href="#" class="btn-slide"></a>
+    </p>
+
+    <!-- HEADER
+    ================================================== -->
+    <div class="row" style="">  
+        <div class="four columns">
+            <div class="logo">
+                <a href="/"><h4>Hi ! I'm Ashish Kedia</h4></a>
+            </div>
+        </div>
+        <div class="eight columns noleftmarg">      
+            <nav id="nav-wrap">
+                <ul class="nav-bar sf-menu">
+                    <li {% if page == 'home' %} class="current" {% endif %}> <a href="/">Home</a> </li>
+                    <li {% if page == 'portofolio' %} class="current" {% endif %}> <a href="/portofolio">Portfolio</a>
+                        <ul>
+                            <li><a href="/projects">Projects</a></li>
+                            <li><a href="/skills">Skills</a></li>
+                        </ul>
+                    </li>
+                    <li {% if page == 'career' %} class="current" {% endif %}> <a href="/career">Career</a>
+                        <ul>
+                            <li><a href="/education">Education</a></li>
+                            <li><a href="/experience">Experience</a></li>
+                        </ul>
+                    </li>
+                    <li {% if page == 'achievements' %} class="current" {% endif %}> <a href="/achievements">Achievements</a> </li>
+                    <li {% if page == 'blog' %} class="current" {% endif %}> <a href="/blog">Blog</a> </li>
+                    <li {% if page == 'contact' %} class="current" {% endif %}> <a href="contact.html">Contact</a> </li>
+                </ul>
+            </nav>
+        </div>  
+    </div>
+    <div class="clear">
+    </div>
+    {%block content%}{%endblock%}
+    <!-- TWITTER
+    ==================================================
+    <div class="tweetarea">
+        <div class="tweettext">
+            <div class="row">
+                <div class="twelve columns">
+                    <div class="tweet">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- FOOOTER 
+    ================================================== -->
+    <!--div id="footer">
+        <footer class="row">
+        <p class="back-top floatright">
+            <a href="#top"><span></span></a>
+        </p>
+        <div class="four columns">
+            <h1>THIS WEBSITE</h1>
+             This website is powered by django.
+        </div>
+        <div class="four columns">
+            <h1>GET SOCIAL</h1>
+            <div class="social facebook">
+                <a href="#"></a>
+            </div>
+            <div class="social twitter">
+                <a href="#"></a>
+            </div>
+            <div class="social deviantart">
+                <a href="#"></a>
+            </div>
+            <div class="social flickr">
+                <a href="#"></a>
+            </div>
+            <div class="social dribbble">
+                <a href="#"></a>
+            </div>
+        </div>
+        <div class="four columns">
+            <h1 class="newsmargin">NEWSLETTER</h1>
+            <div class="row collapse newsletter floatright">
+                <div class="ten mobile-three columns">
+                    <input type="text" class="nomargin" placeholder="Enter your e-mail address...">
+                </div>
+                <div class="two mobile-one columns">
+                    <a href="#" class="postfix button expand">GO</a>
+                </div>
+            </div>
+        </div>
+        </footer>
+    </div>-->
+    <div class="copyright">
+        <div class="row">
+            <div class="six columns">
+                 &copy;<span class="small"> 2015, Ashish Kedia</span>
+            </div>
+            <div class="six columns">
+                <span class="small floatright">This website is powered by django. <a href="http://www.github.com/ashish1294/PersonalWebsite" style="color: grey;">See Website Code</a></span>
+            </div>
+        </div>
+    </div>
+    <!-- JAVASCRIPTS 
+    ================================================== -->
+    <!-- Javascript files placed here for faster loading -->
+    <script src="{% static 'js/foundation.min.js' %}"></script>   
+    <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+    <script src="{% static 'js/elasticslideshow.js' %}"></script>
+    <script src="{% static 'js/jquery.carouFredSel-6.0.5-packed.js' %}"></script>
+    <script src="{% static 'js/jquery.cycle.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'js/modernizr.foundation.js' %}"></script>
+    <script src="{% static 'js/slidepanel.js' %}"></script>
+    <script src="{% static 'js/scrolltotop.js' %}"></script>
+    <script src="{% static 'js/hoverIntent.js' %}"></script>
+    <script src="{% static 'js/superfish.js' %}"></script>
+    <script src="{% static 'js/responsivemenu.js' %}"></script>
+    {%block scripts%}{%endblock%}
+</body>
+</html>

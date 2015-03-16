@@ -1,0 +1,244 @@
+{% extends "base.html"%}
+{%block title%}Ashish Kedia | Home{%endblock%}
+{% load staticfiles %}
+{%block head%}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/prettyphoto.css' %}"><!-- for gallery -->
+{%endblock%}
+{%block content%}
+    <!-- SUBHEADER
+    ================================================== -->
+    <div id="subheader">
+        <div class="row">
+            <div class="twelve columns">
+                <p>Past Work</p>
+            </div>
+        </div>
+    </div>
+    <div class="hr">
+    </div>
+    <!-- CONTENT 
+    ================================================== -->
+    <div class="row">
+        <div class="twelve columns">
+            <!-- CATEGORIES-->
+            <section id="options" class="clearfix">
+            <ul id="filters" class="option-set clearfix" data-option-key="filter">
+                <li><a href="#filter" data-option-value="*" class="portofoliobutton selected">Show all</a></li>
+                <li><a href="#filter" data-option-value=".course" class="portofoliobutton">Course Work</a></li>
+                <li><a href="#filter" data-option-value=".extra" class="portofoliobutton">Extra Work</a></li>
+                <li><a href="#filter" data-option-value=".industrial" class="portofoliobutton">Industrial</a></li>
+            </ul>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div id="portofolio">
+            <!-- Project 1-->
+            <div class="three columns category course">
+                <h5>DFC Query Builder</h5>
+                <p>
+                     A mini-scale Database Engine
+                </p>
+                <div class="portofoliothumb">
+                    <div class="portofoliothumboverlay fouroverlay">
+                        <div class="viewgallery fourgallery">
+                            <a data-gal="prettyPhoto[gallery]" href="{% static 'images/projects/dfc_query_builder/bptree.png' %}"><img src="{% static 'images/playgal.png' %}" class="left galleryicon" alt=""> More Info</a>
+                        </div>
+                        <div class="inner fourdetail">
+                            <a class="projectdetail" href="/projects/dfc_query_builder">+ Project Details</a>
+                        </div>
+                    </div>
+                    <img src="{% static 'images/projects/dfc_query_builder/bptree.png' %}" class="fourimage" alt="Screenshot of DFC Query Builder"/>
+                </div>
+            </div>
+            <!-- Project 2-->
+            <div class="three columns category course">
+                <h5>Web Service Retrieval</h5>
+                <p>
+                     Search Engine for Web Services
+                </p>
+                <div class="portofoliothumb">
+                    <div class="portofoliothumboverlay fouroverlay">
+                        <div class="viewgallery fourgallery">
+                            <a data-gal="prettyPhoto[gallery]" href="{% static 'images/projects/web_service_retrieval/vector.png' %}"><img src="{% static 'images/playgal.png' %}" class="left galleryicon" alt=""> More Info</a>
+                        </div>
+                        <div class="inner fourdetail">
+                            <a class="projectdetail" href="/projects/web_service_retrieval">+ Project Details</a>
+                        </div>
+                    </div>
+                    <img src="{% static 'images/projects/web_service_retrieval/vector.png' %}" class="fourimage" alt="Vector Space Method"/>
+                </div>
+            </div>
+            <!-- Project 3-->
+            <div class="three columns category nature">
+                <h5>Chess Game</h5>
+                <p>
+                     Java GUI Chess Game
+                </p>
+                <div class="portofoliothumb">
+                    <div class="portofoliothumboverlay fouroverlay">
+                        <div class="viewgallery fourgallery">
+                            <a data-gal="prettyPhoto[gallery]" href="images/temp/folio3.jpg"><img src="images/playgal.png" class="left galleryicon" alt=""> More Info</a>
+                        </div>
+                        <div class="inner fourdetail">
+                            <a class="projectdetail" href="portofoliodetail.html">+ Project Details</a>
+                        </div>
+                    </div>
+                    <img src="images/temp/folio3.jpg" class="fourimage" alt=""/>
+                </div>
+            </div>
+            <!-- Project 4-->
+            <div class="three columns category castles">
+                <h5>Defender</h5>
+                <p>
+                     Sandboxing for C/C++ Codes
+                </p>
+                <div class="portofoliothumb">
+                    <div class="portofoliothumboverlay fouroverlay">
+                        <div class="viewgallery fourgallery">
+                            <a data-gal="prettyPhoto[gallery]" href="images/temp/folio4.jpg"><img src="images/playgal.png" class="left galleryicon" alt=""> More Info</a>
+                        </div>
+                        <div class="inner fourdetail">
+                            <a class="projectdetail" href="portofoliodetail.html">+ Project Details</a>
+                        </div>
+                    </div>
+                    <img src="images/temp/folio4.jpg" class="fourimage" alt=""/>
+                </div>
+            </div>
+            <!-- Project 5-->
+            <div class="three columns category nature castles">
+                <h5>FLINT</h5>
+                <p>
+                     Linear Algebra using BLAS
+                </p>
+                <div class="portofoliothumb">
+                    <div class="portofoliothumboverlay fouroverlay">
+                        <div class="viewgallery fourgallery">
+                            <a data-gal="prettyPhoto[gallery]" href="images/temp/folio5.jpg"><img src="images/playgal.png" class="left galleryicon" alt=""> More Info</a>
+                        </div>
+                        <div class="inner fourdetail">
+                            <a class="projectdetail" href="portofoliodetail.html">+ Project Details</a>
+                        </div>
+                    </div>
+                    <img src="images/temp/folio5.jpg" class="fourimage" alt=""/>
+                </div>
+            </div>
+            <!-- Project 6-->
+            <div class="three columns category nature">
+                <h5>Galaxian</h5>
+                <p>
+                     OpenGL based 2D game
+                </p>
+                <div class="portofoliothumb">
+                    <div class="portofoliothumboverlay fouroverlay">
+                        <div class="viewgallery fourgallery">
+                            <a data-gal="prettyPhoto[gallery]" href="images/temp/folio6.jpg"><img src="images/playgal.png" class="left galleryicon" alt=""> More Info</a>
+                        </div>
+                        <div class="inner fourdetail">
+                            <a class="projectdetail" href="portofoliodetail.html">+ Project Details</a>
+                        </div>
+                    </div>
+                    <img src="images/temp/folio6.jpg" class="fourimage" alt=""/>
+                </div>
+            </div>
+            <!-- Project 7-->
+            <div class="three columns category nature">
+                <h5>Konnect</h5>
+                <p>
+                     A mini-scale TCP/IP Stack
+                </p>
+                <div class="portofoliothumb">
+                    <div class="portofoliothumboverlay fouroverlay">
+                        <div class="viewgallery fourgallery">
+                            <a data-gal="prettyPhoto[gallery]" href="images/temp/folio7.jpg"><img src="images/playgal.png" class="left galleryicon" alt=""> More Info</a>
+                        </div>
+                        <div class="inner fourdetail">
+                            <a class="projectdetail" href="portofoliodetail.html">+ Project Details</a>
+                        </div>
+                    </div>
+                    <img src="images/temp/folio7.jpg" class="fourimage" alt=""/>
+                </div>
+            </div>
+            <!-- Project 8-->
+            <div class="three columns category nature">
+                <h5>Digital Passbook</h5>
+                <p>
+                     Android App for Bank Transactions
+                </p>
+                <div class="portofoliothumb">
+                    <div class="portofoliothumboverlay fouroverlay">
+                        <div class="viewgallery fourgallery">
+                            <a data-gal="prettyPhoto[gallery]" href="images/temp/folio8.jpg"><img src="images/playgal.png" class="left galleryicon" alt=""> More Info</a>
+                        </div>
+                        <div class="inner fourdetail">
+                            <a class="projectdetail" href="portofoliodetail.html">+ Project Details</a>
+                        </div>
+                    </div>
+                    <img src="images/temp/folio8.jpg" class="fourimage" alt=""/>
+                </div>
+            </div>
+            <!-- Project 9-->
+            <div class="three columns category nature">
+                <h5>Online Banking</h5>
+                <p>
+                     Mini Scale Bank in PHP
+                </p>
+                <div class="portofoliothumb">
+                    <div class="portofoliothumboverlay fouroverlay">
+                        <div class="viewgallery fourgallery">
+                            <a data-gal="prettyPhoto[gallery]" href="images/temp/folio8.jpg"><img src="images/playgal.png" class="left galleryicon" alt=""> More Info</a>
+                        </div>
+                        <div class="inner fourdetail">
+                            <a class="projectdetail" href="portofoliodetail.html">+ Project Details</a>
+                        </div>
+                    </div>
+                    <img src="images/temp/folio8.jpg" class="fourimage" alt=""/>
+                </div>
+            </div>
+            <!-- Project 10-->
+            <div class="three columns category nature">
+                <h5>SGC APP</h5>
+                <p>
+                     Android App for AAC Club, NITK
+                </p>
+                <div class="portofoliothumb">
+                    <div class="portofoliothumboverlay fouroverlay">
+                        <div class="viewgallery fourgallery">
+                            <a data-gal="prettyPhoto[gallery]" href="images/temp/folio8.jpg"><img src="images/playgal.png" class="left galleryicon" alt=""> More Info</a>
+                        </div>
+                        <div class="inner fourdetail">
+                            <a class="projectdetail" href="portofoliodetail.html">+ Project Details</a>
+                        </div>
+                    </div>
+                    <img src="images/temp/folio8.jpg" class="fourimage" alt=""/>
+                </div>
+            </div>
+            <!-- Project 11-->
+            <div class="three columns category nature">
+                <h5>CodeChef Code Now</h5>
+                <p>
+                     Chrome Extension for Code-Chef
+                </p>
+                <div class="portofoliothumb">
+                    <div class="portofoliothumboverlay fouroverlay">
+                        <div class="viewgallery fourgallery">
+                            <a data-gal="prettyPhoto[gallery]" href="images/temp/folio8.jpg"><img src="images/playgal.png" class="left galleryicon" alt=""> More Info</a>
+                        </div>
+                        <div class="inner fourdetail">
+                            <a class="projectdetail" href="portofoliodetail.html">+ Project Details</a>
+                        </div>
+                    </div>
+                    <img src="images/temp/folio8.jpg" class="fourimage" alt=""/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hr">
+    </div>
+{% endblock %}
+
+{%block scripts %}
+    <script src="{% static 'js/jquery.isotope.min.js' %}"></script>
+    <script src="{% static 'js/jquery.prettyPhoto.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+{% endblock %}
