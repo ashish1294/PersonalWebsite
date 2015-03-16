@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mysite'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -64,7 +65,7 @@ TEMPLATE_DIRS = (
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'taj',
+        'NAME': 'personalwebsite',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '127.0.0.1',

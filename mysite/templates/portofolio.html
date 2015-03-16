@@ -26,49 +26,33 @@
                 <li><a href="#filter" data-option-value="*" class="portofoliobutton selected">Show all</a></li>
                 <li><a href="#filter" data-option-value=".course" class="portofoliobutton">Course Work</a></li>
                 <li><a href="#filter" data-option-value=".extra" class="portofoliobutton">Extra Work</a></li>
-                <li><a href="#filter" data-option-value=".industrial" class="portofoliobutton">Industrial</a></li>
+                <!--<li><a href="#filter" data-option-value=".industrial" class="portofoliobutton">Industrial</a></li>-->
             </ul>
             </section>
         </div>
     </div>
     <div class="row">
         <div id="portofolio">
-            <!-- Project 1-->
-            <div class="three columns category course">
-                <h5>DFC Query Builder</h5>
-                <p>
-                     A mini-scale Database Engine
-                </p>
-                <div class="portofoliothumb">
-                    <div class="portofoliothumboverlay fouroverlay">
-                        <div class="viewgallery fourgallery">
-                            <a data-gal="prettyPhoto[gallery]" href="{% static 'images/projects/dfc_query_builder/bptree.png' %}"><img src="{% static 'images/playgal.png' %}" class="left galleryicon" alt=""> More Info</a>
+            {% for project in project_list %}
+                <div class="three columns category {{project.style}}">
+                    <h5>{{project.name}}</h5>
+                    <p>
+                         {{project.tag}}
+                    </p>
+                    <div class="portofoliothumb">
+                        <div class="portofoliothumboverlay fouroverlay">
+                            <div class="viewgallery fourgallery">
+                                <a data-gal="prettyPhoto[gallery]" href="{% static 'images/projects/' %}{{project.folder}}/{{project.main_image}}"><img src="{% static 'images/playgal.png' %}" class="left galleryicon" alt="{{project.main_image_caption}}"> Enlarge</a>
+                            </div>
+                            <div class="inner fourdetail">
+                                <a class="projectdetail" href="/projects/{{project.folder}}">+ Project Details</a>
+                            </div>
                         </div>
-                        <div class="inner fourdetail">
-                            <a class="projectdetail" href="/projects/dfc_query_builder">+ Project Details</a>
-                        </div>
+                        <img src="{% static 'images/projects/' %}{{project.folder}}/{{project.main_image}}" class="fourimage" alt="{{project.alt_text}}"/>
                     </div>
-                    <img src="{% static 'images/projects/dfc_query_builder/bptree.png' %}" class="fourimage" alt="Screenshot of DFC Query Builder"/>
                 </div>
-            </div>
-            <!-- Project 2-->
-            <div class="three columns category course">
-                <h5>Web Service Retrieval</h5>
-                <p>
-                     Search Engine for Web Services
-                </p>
-                <div class="portofoliothumb">
-                    <div class="portofoliothumboverlay fouroverlay">
-                        <div class="viewgallery fourgallery">
-                            <a data-gal="prettyPhoto[gallery]" href="{% static 'images/projects/web_service_retrieval/vector.png' %}"><img src="{% static 'images/playgal.png' %}" class="left galleryicon" alt=""> More Info</a>
-                        </div>
-                        <div class="inner fourdetail">
-                            <a class="projectdetail" href="/projects/web_service_retrieval">+ Project Details</a>
-                        </div>
-                    </div>
-                    <img src="{% static 'images/projects/web_service_retrieval/vector.png' %}" class="fourimage" alt="Vector Space Method"/>
-                </div>
-            </div>
+            {% endfor %}
+           
             <!-- Project 3-->
             <div class="three columns category nature">
                 <h5>Chess Game</h5>
