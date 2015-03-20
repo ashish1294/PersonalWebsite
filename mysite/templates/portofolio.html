@@ -3,6 +3,16 @@
 {% load staticfiles %}
 {%block head%}
     <link rel="stylesheet" type="text/css" href="{% static 'css/prettyphoto.css' %}"><!-- for gallery -->
+    <style type="text/css">
+        .techskill p{
+            text-decoration: underline;
+            font-weight: bold;
+            font-size: larger;
+        }
+        .techskill span {
+            font-weight: 900;
+        }
+    </style>
 {%endblock%}
 {%block content%}
     <!-- SUBHEADER
@@ -10,7 +20,7 @@
     <div id="subheader">
         <div class="row">
             <div class="twelve columns">
-                <p>Past Work</p>
+                <p>My Projects, Skills and Research Work</p>
             </div>
         </div>
     </div>
@@ -18,20 +28,26 @@
     </div>
     <!-- CONTENT 
     ================================================== -->
+
+    <!--Projects-->
     <div class="row">
         <div class="twelve columns">
+            <div class="centersectiontitle" id="projects">
+                <h4>Significant Projects</h4>
+            </div>
             <!-- CATEGORIES-->
             <section id="options" class="clearfix">
             <ul id="filters" class="option-set clearfix" data-option-key="filter">
-                <li><a href="#filter" data-option-value="*" class="portofoliobutton selected">Show all</a></li>
-                <li><a href="#filter" data-option-value=".course" class="portofoliobutton">Course Work</a></li>
-                <li><a href="#filter" data-option-value=".extra" class="portofoliobutton">Extra Work</a></li>
+                <li><a href="#filter" data-option-value="*" class="portofoliobutton selected" onclick="set_footer_location();">Show all</a></li>
+                <li><a href="#filter" data-option-value=".course" class="portofoliobutton" onclick="set_footer_location();">Course Work</a></li>
+                <li><a href="#filter" data-option-value=".extra" class="portofoliobutton" onclick="set_footer_location();">Extra Work</a></li>
+                <li><a href="#filter" data-option-value=".ongoing" class="portofoliobutton" onclick="set_footer_location();">Ongoing</a></li>
                 <!--<li><a href="#filter" data-option-value=".industrial" class="portofoliobutton">Industrial</a></li>-->
             </ul>
             </section>
         </div>
     </div>
-    <div class="row">
+    <div class="row" style="padding-bottom: 20px;">
         <div id="portofolio">
             {% for project in project_list %}
                 <div class="three columns category {{project.style}}">
@@ -48,174 +64,91 @@
                                 <a class="projectdetail" href="/projects/{{project.folder}}">+ Project Details</a>
                             </div>
                         </div>
-                        <img src="{% static 'images/projects/' %}{{project.folder}}/{{project.main_image}}" class="fourimage" alt="{{project.alt_text}}"/>
+                        <img src="{% static 'images/projects/' %}{{project.folder}}/{{project.main_image}}" class="fourimage" alt="{{project.alt_text}}" style = "box-shadow: 0px 0px 5px 2px #888888;"/>
                     </div>
                 </div>
             {% endfor %}
-           
-            <!-- Project 3-->
-            <div class="three columns category nature">
-                <h5>Chess Game</h5>
-                <p>
-                     Java GUI Chess Game
-                </p>
-                <div class="portofoliothumb">
-                    <div class="portofoliothumboverlay fouroverlay">
-                        <div class="viewgallery fourgallery">
-                            <a data-gal="prettyPhoto[gallery]" href="images/temp/folio3.jpg"><img src="images/playgal.png" class="left galleryicon" alt=""> More Info</a>
-                        </div>
-                        <div class="inner fourdetail">
-                            <a class="projectdetail" href="portofoliodetail.html">+ Project Details</a>
-                        </div>
-                    </div>
-                    <img src="images/temp/folio3.jpg" class="fourimage" alt=""/>
+        </div>
+    </div>
+    <br/> <br/>
+    <div class="row techskill">
+        <div class="twelve columns">
+            <div class="centersectiontitle" id="skills">
+                <h4>Technical Skills</h4>
+            </div>
+            <div class="row">
+                <div class="twelve columns">
+                    This section outlines my technical ability. It is not an exhaustive list however I have tried to list
+                    most of the significant technical skills that I have learned throughout my life. While I love to expand
+                    my skill-set as much as possible, I also understand the importance of having a strong command over
+                    smaller set of tools than a weak command over larger set of tools<br/> <br/>
                 </div>
             </div>
-            <!-- Project 4-->
-            <div class="three columns category castles">
-                <h5>Defender</h5>
-                <p>
-                     Sandboxing for C/C++ Codes
-                </p>
-                <div class="portofoliothumb">
-                    <div class="portofoliothumboverlay fouroverlay">
-                        <div class="viewgallery fourgallery">
-                            <a data-gal="prettyPhoto[gallery]" href="images/temp/folio4.jpg"><img src="images/playgal.png" class="left galleryicon" alt=""> More Info</a>
-                        </div>
-                        <div class="inner fourdetail">
-                            <a class="projectdetail" href="portofoliodetail.html">+ Project Details</a>
-                        </div>
-                    </div>
-                    <img src="images/temp/folio4.jpg" class="fourimage" alt=""/>
+
+            <div class="row">
+                <div class="six columns">
+                    <p>Areas</p>
+                    <span>Databases, Data Structures and Algorithms </span>are among my strongest abilities. <br/>
+                    I also have an interest as well as sound knowledge in areas like <span>Applied Mathematics and Distributed Systems</span> 
+                </div>
+
+                <div class="six columns">
+                    <p>Favorite Tools</p>
+                    <span>Operating System</span> : Linux (Ubuntu 14.04 LTS), Windows 8.1 <br/>
+                    <span>IDE</span> : Eclipse, Netbeans, Codeblocks, Android Studio, Visual Studio<br/>
+                    <span>Text Editor</span> : Sublime Text, Geany, Emacs, Gedit, Vim <br/>
+                    <span>Other</span> : Git, Latex, Gnuplot, Valgrind, GNU Debugger, JUnit, Selenium
                 </div>
             </div>
-            <!-- Project 5-->
-            <div class="three columns category nature castles">
-                <h5>FLINT</h5>
-                <p>
-                     Linear Algebra using BLAS
-                </p>
-                <div class="portofoliothumb">
-                    <div class="portofoliothumboverlay fouroverlay">
-                        <div class="viewgallery fourgallery">
-                            <a data-gal="prettyPhoto[gallery]" href="images/temp/folio5.jpg"><img src="images/playgal.png" class="left galleryicon" alt=""> More Info</a>
-                        </div>
-                        <div class="inner fourdetail">
-                            <a class="projectdetail" href="portofoliodetail.html">+ Project Details</a>
-                        </div>
-                    </div>
-                    <img src="images/temp/folio5.jpg" class="fourimage" alt=""/>
+
+            <br />
+
+            <div class="row">
+                <div class="six columns">
+                    <p>Programming Languages</p>
+                    <span>Proficient</span> : C, C++, Java (inside-out)<br/>
+                    <span>Good Knowledge</span> : Python, PHP, Shell Scripting, HTML5, XML, CSS3<br/>
+                    <span>Still a lot to Learn</span> : C#, JS, ASM, R <br/>
+                    <i>Programming Language is just a tool, Logic is main art.</i>
                 </div>
-            </div>
-            <!-- Project 6-->
-            <div class="three columns category nature">
-                <h5>Galaxian</h5>
-                <p>
-                     OpenGL based 2D game
-                </p>
-                <div class="portofoliothumb">
-                    <div class="portofoliothumboverlay fouroverlay">
-                        <div class="viewgallery fourgallery">
-                            <a data-gal="prettyPhoto[gallery]" href="images/temp/folio6.jpg"><img src="images/playgal.png" class="left galleryicon" alt=""> More Info</a>
-                        </div>
-                        <div class="inner fourdetail">
-                            <a class="projectdetail" href="portofoliodetail.html">+ Project Details</a>
-                        </div>
-                    </div>
-                    <img src="images/temp/folio6.jpg" class="fourimage" alt=""/>
-                </div>
-            </div>
-            <!-- Project 7-->
-            <div class="three columns category nature">
-                <h5>Konnect</h5>
-                <p>
-                     A mini-scale TCP/IP Stack
-                </p>
-                <div class="portofoliothumb">
-                    <div class="portofoliothumboverlay fouroverlay">
-                        <div class="viewgallery fourgallery">
-                            <a data-gal="prettyPhoto[gallery]" href="images/temp/folio7.jpg"><img src="images/playgal.png" class="left galleryicon" alt=""> More Info</a>
-                        </div>
-                        <div class="inner fourdetail">
-                            <a class="projectdetail" href="portofoliodetail.html">+ Project Details</a>
-                        </div>
-                    </div>
-                    <img src="images/temp/folio7.jpg" class="fourimage" alt=""/>
-                </div>
-            </div>
-            <!-- Project 8-->
-            <div class="three columns category nature">
-                <h5>Digital Passbook</h5>
-                <p>
-                     Android App for Bank Transactions
-                </p>
-                <div class="portofoliothumb">
-                    <div class="portofoliothumboverlay fouroverlay">
-                        <div class="viewgallery fourgallery">
-                            <a data-gal="prettyPhoto[gallery]" href="images/temp/folio8.jpg"><img src="images/playgal.png" class="left galleryicon" alt=""> More Info</a>
-                        </div>
-                        <div class="inner fourdetail">
-                            <a class="projectdetail" href="portofoliodetail.html">+ Project Details</a>
-                        </div>
-                    </div>
-                    <img src="images/temp/folio8.jpg" class="fourimage" alt=""/>
-                </div>
-            </div>
-            <!-- Project 9-->
-            <div class="three columns category nature">
-                <h5>Online Banking</h5>
-                <p>
-                     Mini Scale Bank in PHP
-                </p>
-                <div class="portofoliothumb">
-                    <div class="portofoliothumboverlay fouroverlay">
-                        <div class="viewgallery fourgallery">
-                            <a data-gal="prettyPhoto[gallery]" href="images/temp/folio8.jpg"><img src="images/playgal.png" class="left galleryicon" alt=""> More Info</a>
-                        </div>
-                        <div class="inner fourdetail">
-                            <a class="projectdetail" href="portofoliodetail.html">+ Project Details</a>
-                        </div>
-                    </div>
-                    <img src="images/temp/folio8.jpg" class="fourimage" alt=""/>
-                </div>
-            </div>
-            <!-- Project 10-->
-            <div class="three columns category nature">
-                <h5>SGC APP</h5>
-                <p>
-                     Android App for AAC Club, NITK
-                </p>
-                <div class="portofoliothumb">
-                    <div class="portofoliothumboverlay fouroverlay">
-                        <div class="viewgallery fourgallery">
-                            <a data-gal="prettyPhoto[gallery]" href="images/temp/folio8.jpg"><img src="images/playgal.png" class="left galleryicon" alt=""> More Info</a>
-                        </div>
-                        <div class="inner fourdetail">
-                            <a class="projectdetail" href="portofoliodetail.html">+ Project Details</a>
-                        </div>
-                    </div>
-                    <img src="images/temp/folio8.jpg" class="fourimage" alt=""/>
-                </div>
-            </div>
-            <!-- Project 11-->
-            <div class="three columns category nature">
-                <h5>CodeChef Code Now</h5>
-                <p>
-                     Chrome Extension for Code-Chef
-                </p>
-                <div class="portofoliothumb">
-                    <div class="portofoliothumboverlay fouroverlay">
-                        <div class="viewgallery fourgallery">
-                            <a data-gal="prettyPhoto[gallery]" href="images/temp/folio8.jpg"><img src="images/playgal.png" class="left galleryicon" alt=""> More Info</a>
-                        </div>
-                        <div class="inner fourdetail">
-                            <a class="projectdetail" href="portofoliodetail.html">+ Project Details</a>
-                        </div>
-                    </div>
-                    <img src="images/temp/folio8.jpg" class="fourimage" alt=""/>
+                <div class="six columns">
+                    <p>Libraries &amp; Frameworks</p>
+                    <span>Web</span> : Django, Rails, NodeJS, JQuery, Bootstrap, MySQL <br/>
+                    <span>Libraries</span> : STL, Cuda, OpenMP, MPI, BLAS, Boost <br/>
+                    <span>Devices</span> : Android SDK, Microsoft SDK, Kinect SDK, PhoneGap <br/>
+                    <span>Others</span> : Map-Reduce (Hadoop), Storm, RabbitMQ, Celery, AdSense <br/><br/>
                 </div>
             </div>
         </div>
+    </div>
+    <br/> <br/>
+    <div class="row techskill">
+        <div class="twelve columns">
+            <div class="centersectiontitle" id="research">
+                <h4>Research Work</h4>
+            </div>
+            <h5>Past Publication</h5>
+            <hr/>
+            <span>Title</span> : Recommendation Techniques for Adaptive E-learning <br/>
+            <span>Authors</span> : Devanshu Jain, <span>Ashish Kedia</span>, Rakshit Singla, Sameer Sonawane <br/>
+            <span>Conference</span> : <a href="http://www.krishisanskriti.org/itcs_conference.html">Advances in Computer Sciences, Software Solutions, E-Learning, Information &amp; Communication Technology (ACSEICT)</a> <br/>
+            <span>Date</span> : 31<sup>st</sup> January - 1<sup>st</sup> February, 2015<br/>
+            <span>Venue</span> : Jawaharlal Nehru University, New Delhi, India <br/>
+            <span>Proceedings</span> : <a href="http://www.krishisanskriti.org/acsit.html">Advances in Computer Science and Information Technology, vol. 2, No. 1, 2015</a> <br/>
+            <span>Abstract</span> : Personalization of learning is the need of the hour. Technology can play an important role in achieving this
+personalization of learning. While today's Learning Management Systems (LMSs) do facilitate the instructor to make the content
+available on Internet, yet they don't have any functionality to personalize the learning of the user. The adaptive e-learning
+technology extends this traditional classroom environment to make the guidance, a one to one mechanism, i.e. single machine guiding a
+single user through the course material. This paper proposes recommendation techniques to offer courses to the user. <br/>
+            To access the full paper<a href="https://drive.google.com/file/d/0B6A-3_6rwie9bS1OaFdzbW9BZXM/view?usp=sharing"> click here</a>. <br/>
+            This publication was a result of my work during my internship at Indian Institute of Technology, Bombay, India. To know more about my internship <a href=""> click here</a>. <br/> <br/>
+
+
+            <h5>Current Research</h5>
+            <hr/>
+            Currently I am involved with 2 major research activities : Storage Engine similar to Graph Databases, Data Synchronization Mechnism for Android Client
+        </div>
+
     </div>
     <div class="hr">
     </div>

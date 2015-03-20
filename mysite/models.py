@@ -21,6 +21,7 @@ class project(models.Model) :
 	folder = models.CharField(max_length = 200, unique = True)
 	style = models.CharField(max_length = 200, choices = STYLE_CHOICES)
 	alt_text = models.CharField(max_length = 500)
+	link = models.CharField(max_length = 500)
 
 #Class to Model Tab section of each project
 class project_tab(models.Model) :

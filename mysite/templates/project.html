@@ -1,0 +1,69 @@
+{% extends "base.html"%}
+{%block title%}Ashish Kedia | {{project.name}}{%endblock%}
+{% load staticfiles %}
+{%block head%}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/nivoslider.css' %}"><!-- nivo slider stylesheet -->
+	<style type="text/css">
+		.tabbold {
+			font-weight: bolder;
+		}
+	</style>
+{%endblock%}
+{%block content%}
+<!-- SUBHEADER
+================================================== -->
+<div id="subheader">
+	<div class="row">
+		<div class="twelve columns">
+			<p class="left">
+				 Summary of {{project.name}}
+			</p>
+			<p class="right">
+				<a href="/portofolio">View more projects</a>
+			</p>
+		</div>
+	</div>
+</div>
+<div class="hr">
+</div>
+<div class="row">
+	<!-- PROJECT DESCRIPTION-->
+	<div class="six columns">
+		<div class="sectiontitle">
+			<h4>{{project.name}}</h4>
+		</div>
+			{% autoescape off%} {{project.description}} {% endautoescape %}
+			<p>For more details and source code <a href="{{project.link}}"> click here</a>.</p>
+			<p>To view the project gallery <a href="{{project.link}}"> click here</a> </p>
+		<dl class="tabs">
+			{% for tab in tabs %}
+				<dd {% if forloop.counter == 1 %} class="active" {% endif %}><a href="#simple{{forloop.counter}}">{{tab.name}}</a></dd>
+			{% endfor %}
+		</dl>
+		<ul class="tabs-content">
+			{% for tab in tabs %}
+				<li {% if foorloop.counter == 1 %} class="active" {% endif %} id="simple{{forloop.counter}}Tab">
+					{{tab.description | safe}}
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<!-- end main content-->
+	<!-- SLIDER-->
+	<div class="six columns">
+		<div class="slider-wrapper theme-default">
+			<div id="slider" class="nivoSlider detailslider">
+				{% for image in images %}
+					<img src="{{image}}" data-thumb="" alt=""/>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	<!-- end sliderr-->
+</div>
+<div class="hr">
+</div>
+{%endblock%}
+{%block scripts%}
+	<script src="{% static 'js/jquery.nivo.slider.pack.js' %}"></script>
+{%endblock%}

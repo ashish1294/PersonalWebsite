@@ -9,7 +9,9 @@ urlpatterns = patterns('',
 
     url(r'^$', home),
     url(r'^/$', home),
-    url(r'^portofolio', portofolio),
-    url(r'^portofolio/', portofolio),
+    url(r'^portofolio$', portofolio),
+    url(r'^portofolio/$', portofolio),
+    url(r'^projects/([a-zA-Z0-9_]+)$', project_handler),
+    url(r'^projects/([a-zA-Z0-9_]+)/$', project_handler),
     url(r'^admin/', include(admin.site.urls)),
 )

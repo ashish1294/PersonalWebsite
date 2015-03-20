@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" style="min-height: 100%;">
 <head>
     <meta charset="utf-8"/>
     <!-- Set the viewport width to device width for mobile -->
@@ -41,15 +41,16 @@
             <nav id="nav-wrap">
                 <ul class="nav-bar sf-menu">
                     <li {% if page == 'home' %} class="current" {% endif %}> <a href="/">Home</a> </li>
-                    <li {% if page == 'portofolio' %} class="current" {% endif %}> <a href="/portofolio">Portfolio</a>
+                    <li {% if page == 'portofolio' %} class="current" {% endif %}> <a href="/portofolio">Skills</a>
                         <ul>
-                            <li><a href="/projects">Projects</a></li>
-                            <li><a href="/skills">Skills</a></li>
+                            <li><a href="/portofolio#projects" name="projects">Past Projects</a></li>
+                            <li><a href="/portofolio#skills" name="skills">Technical Skills</a></li>
+                            <li><a href="/portofolio#research" name="research">Research Work</a></li>
                         </ul>
                     </li>
                     <li {% if page == 'career' %} class="current" {% endif %}> <a href="/career">Career</a>
                         <ul>
-                            <li><a href="/education">Education</a></li>
+                            <li><a href="/education">Academic Career</a></li>
                             <li><a href="/experience">Experience</a></li>
                         </ul>
                     </li>
@@ -75,9 +76,10 @@
             </div>
         </div>
     </div> -->
+    <!--<div class="fakeheight"></div>-->
     <!-- FOOOTER 
     ================================================== -->
-    <!--div id="footer">
+    <div id="footer">
         <footer class="row">
         <p class="back-top floatright">
             <a href="#top"><span></span></a>
@@ -88,7 +90,7 @@
         </div>
         <div class="four columns">
             <h1>GET SOCIAL</h1>
-            <div class="social facebook">
+            <!--<div class="social facebook">
                 <a href="#"></a>
             </div>
             <div class="social twitter">
@@ -102,7 +104,7 @@
             </div>
             <div class="social dribbble">
                 <a href="#"></a>
-            </div>
+            </div>-->
         </div>
         <div class="four columns">
             <h1 class="newsmargin">NEWSLETTER</h1>
@@ -116,8 +118,8 @@
             </div>
         </div>
         </footer>
-    </div>-->
-    <div class="copyright">
+    </div>
+    <div class="copyright" style="bottom: 0;">
         <div class="row">
             <div class="six columns">
                  &copy;<span class="small"> 2015, Ashish Kedia</span>
@@ -130,7 +132,7 @@
     <!-- JAVASCRIPTS 
     ================================================== -->
     <!-- Javascript files placed here for faster loading -->
-    <script src="{% static 'js/foundation.min.js' %}"></script>   
+    <script src="{% static 'js/foundation.min.js' %}" ></script>   
     <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
     <script src="{% static 'js/elasticslideshow.js' %}"></script>
     <script src="{% static 'js/jquery.carouFredSel-6.0.5-packed.js' %}"></script>
@@ -143,5 +145,21 @@
     <script src="{% static 'js/superfish.js' %}"></script>
     <script src="{% static 'js/responsivemenu.js' %}"></script>
     {%block scripts%}{%endblock%}
+    <script type="text/javascript">
+        function set_footer_location()
+        {
+            //alert('called');
+            body = document.getElementsByTagName('body')[0]
+            html = document.getElementsByTagName('html')[0]
+            bodybox = body.getBoundingClientRect();
+            htmlbox = html.getBoundingClientRect();
+            if (bodybox.bottom != htmlbox.bottom )
+            {
+                diff = (htmlbox.bottom - bodybox.bottom) + "px";
+                document.getElementsByClassName('fakeheight')[0].style.paddingTop = diff;
+            }
+        }
+        window.onload = set_footer_location();
+    </script>
 </body>
 </html>
