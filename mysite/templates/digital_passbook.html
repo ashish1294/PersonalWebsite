@@ -1,0 +1,32 @@
+{% extends "project.html" %}
+{% load staticfiles %}
+{% block description %}
+	<p>
+        A handy digital passbook application for android platform. It helps the user keep track of transactions made across multiple bank accounts. This project was done to demonstrate Android App Development skills.
+	</p>
+    <p>
+        This project was done as a part of 80-hr training sesssion on Android Application Development at Globsyn Finishing School, Kolkata in June 2013.
+    </p>
+    <p>
+        Eclipse IDE was used for designing GUI as well as coding. Custom styling for various GUI elements.
+    </p>
+    <p>
+        To view the full version of the final project report <a href="https://drive.google.com/open?id=0B6A-3_6rwie9b3ltWEZBRjNmdjQ&authuser=0" target="_blank">click here</a>.
+    </p>
+{% endblock %}
+{% block tabs %}
+	<dl class="tabs">
+        <dd class="active"><a href="#simple1">Features</a></dd>
+    </dl>
+    <ul class="tabs-content">
+        <li class="active" id="simple1Tab">
+            <ul class="disk">
+                <li>Search feature for transactions and accounts</li>
+                <li>Search with date, type, mode and transaction id</li>
+                <li>Uses SQLite Database for storing data in backend</li>
+                <li>Activity Transition animations</li>
+            </ul>
+        </li>
+        <!--<p> <br/> <br/> <br/> <br/> <br/> <br/> <br/><br/> <br/> <br/> <br/> <br/> <br/> <br/></p>-->
+    </ul>
+{% endblock %}

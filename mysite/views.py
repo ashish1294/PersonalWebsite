@@ -47,10 +47,18 @@ def project_handler(request, name) :
     except ObjectDoesNotExist :
 
         context = {
-            'message' : 'I have no knowledge about the project you are looking for !'
+            'message' : '<h1>I have no knowledge about this project ! </h1> <h3 class="subheader"><a href="/portofolio">Click here</a> to view all my projects ! </h3>'
         }
 
         return render(request, 'error.html', context)
+
+#View To Handle 404 Errors
+def anything(request) :
+
+    context = {
+        'message' : '<h1>The page doesn\'t seem to exist !</h1>'
+    }    
+    return render(request, 'error.html', context)
 
 def add_stuff(request) :
 

@@ -1,0 +1,41 @@
+{% extends "project.html" %}
+{% load staticfiles %}
+{% block description %}
+	<p>
+        It is an online Banking System using PHP, MySQL, HTML5, CSS and JavaScript. No backend framework has been used. This was made to demonstrate web-designing and database-programming skills.
+	</p>
+    <p>
+        This project was done as a part of an 80-hr training session on Web Development at Globsyn Finishing School, Kolkata during July 2013.
+    </p>
+    <p>
+        To access full version of the final project report with database design and implementation details <a href="https://drive.google.com/open?id=0B6A-3_6rwie9UkxDZG1oa3ZkcXc&authuser=0" target="_blank">click here</a>.
+    </p>
+{% endblock %}
+{% block tabs %}
+	<dl class="tabs">
+        <dd class="active"><a href="#simple1">Features</a></dd>
+        <dd><a href="#simple2">Tools Used</a></dd>
+    </dl>
+    <ul class="tabs-content">
+        <li class="active" id="simple1Tab">
+            <ul class='disk'>
+                <li>A few basic security Aspects - SQL Injection, Password Hash and stuff</li>
+                <li>Two different Login and Transaction Password for added security</li>
+                <li>All forms validated on Client Side using JS and on Server Side using PHP</li>
+                <li>Nice Looking WebPages and custom Web Fonts - All CSS3 animation</li>
+                <li>No libraries or framework. Everything from scratch</li>
+                <li>Ability to send mails to admin / other accout holders</li>
+            </ul>
+        </li>
+        <li id="simple2Tab">
+            <ul class="disk">
+                <li><b>Netbeans</b> was used as an IDE for the project</li>
+                <li><b>Dreamweaver</b> was used for HTML5 pages</li>
+                <li><b>XAMPP</b> was used for hosting and testing the website</li>
+                <li><b>MySQL</b> was used as a Database Management System</li>
+                <li><b>Photoshop</b> was used to edit images</li>
+                <li><b>Git</b> was used as a version control system</li>
+            </ul>
+        </li>
+    </ul>
+{% endblock %}

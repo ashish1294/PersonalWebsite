@@ -1,0 +1,36 @@
+{% extends "project.html" %}
+{% load staticfiles %}
+{% block description %}
+	<p>
+        A chrome/chromium plugin for CodeChef / SPOJ to instantly open user's Favorite IDE directly from the browser.
+	</p>
+    <p>
+        This application is meant to be used on Linux. It adds 3 button to every CodeChef / SPOJ Problem Page (one for each of C, C++ and Java). Clicking on each button will open up user's favorite IDE for that language instantly with a default template !! It is particularly useful during short contests.
+    </p>
+    <p>
+        User's can choose different IDEs for different Languages which is specified during installation. Templates can also be different for different Languages.
+    </p>
+    <p>
+        Chrome's Native Messaging Host was used for communication between web page and native application. Python's subprocess module was used to open IDEs.
+    </p>
+{% endblock %}
+{% block tabs %}
+	<dl class="tabs">
+        <dd class="active"><a href="#simple1">Problem</a></dd>
+        <dd><a href="#simple2">Methodology</a></dd>
+    </dl>
+    <ul class="tabs-content">
+        <li class="active" id="simple1Tab">
+            <p>
+                During participating in an online coding contest time is an essential factor. Participants have to read the problem in the browser and then open an IDE or Text editor to code the solution. All the codes generally have a common template (header files and main functions), typing which again takes a lot of time.
+            </p>
+        </li>
+        <li id="simple2Tab">
+            <ol>
+                <li>JS script runs on all problem pages. Extracts the problem information and adds the button. Click Listenors sends the data to native host.</li>
+                <li>Native host is a python script on local system. It reads the data and makes a new file, adds an appropriate template and then starts a the IDE on a separate thread.</li>
+                <li>Shell Script is useful to install the system. It checks for dependencies and configures the values used in python script.</li>
+            </ol>
+        </li>
+    </ul>
+{% endblock %}

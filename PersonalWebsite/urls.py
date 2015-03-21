@@ -14,4 +14,5 @@ urlpatterns = patterns('',
     url(r'^projects/([a-zA-Z0-9_]+)$', project_handler),
     url(r'^projects/([a-zA-Z0-9_]+)/$', project_handler),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^.*$', anything),
 )
