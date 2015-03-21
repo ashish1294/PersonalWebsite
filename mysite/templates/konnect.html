@@ -1,0 +1,36 @@
+{% extends "project.html" %}
+{% load staticfiles %}
+{% block description %}
+	<p>
+        Konnect is a mini TCP/IP stack implementation for file transfer from one system to the other over network.
+	</p>
+    <p>
+        This project was done as a part of the <i>Computer Communication and Networks Course</i> during my undergraduation in February 2014.
+    </p>
+        The objective behind this project was to learn the fundamentals of the computer networks and socket programming in C.
+    <p>
+
+    </p>
+{% endblock %}
+{% block tabs %}
+	<dl class="tabs">
+        <dd class="active"><a href="#simple1">Implementation</a></dd>
+        <dd><a href="#simple2">Features</a></dd>
+    </dl>
+    <ul class="tabs-content">
+        <li class="active" id="simple1Tab">
+            <p>
+                Each layer adds the corresponding header and writes the data to a temporary file which is passed to the next layer. A simple script is provided which takes the input file on the source machine and process it through each layer one my one. The same script also processes received data and processes it again through each layer to obtain original file on destination machine.
+            </p>
+        </li>
+        <li id="simple2Tab">
+            <ul class="disk">
+                <li>3-way Handshaking in Transport layer simulated using socket programming</li>
+                <li>32-bit CRC Error check in MAC Layer on sender and receiver side</li>
+                <li>Headers of each layer simulated using C Structures</li>
+                <li>In MAC layer all the data is kept in a single frame</li>
+                <li>Physical Layer simulated using sockets again</li>
+            </ul>
+        </li>
+    </ul>
+{% endblock %}

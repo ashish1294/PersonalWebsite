@@ -24,11 +24,9 @@ def portofolio(request) :
 #Function to display project details
 def project_handler(request, name) :
 
-    #Fetch project details and it's tabs from database
+    #Fetch project details from database
     try :
         proj = project.objects.get(folder = name)
-        tabs = project_tab.objects.filter(proj = proj)
-        print "Tabs = ", tabs
 
         images_folder = static('images/projects/' + name)
 
@@ -41,11 +39,10 @@ def project_handler(request, name) :
         context = {
             'page' : 'portofolio',
             'project' : proj,
-            'tabs' : tabs,
             'images' : images,
         }
 
-        return render(request, 'project.html', context)
+        return render(request, name + '.html', context)
 
     except ObjectDoesNotExist :
 

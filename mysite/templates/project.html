@@ -3,11 +3,7 @@
 {% load staticfiles %}
 {%block head%}
 	<link rel="stylesheet" type="text/css" href="{% static 'css/nivoslider.css' %}"><!-- nivo slider stylesheet -->
-	<style type="text/css">
-		.tabbold {
-			font-weight: bolder;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/prettyphoto.css' %}"><!-- for gallery -->
 {%endblock%}
 {%block content%}
 <!-- SUBHEADER
@@ -32,21 +28,17 @@
 		<div class="sectiontitle">
 			<h4>{{project.name}}</h4>
 		</div>
-			{% autoescape off%} {{project.description}} {% endautoescape %}
-			<p>For more details and source code <a href="{{project.link}}"> click here</a>.</p>
-			<p>To view the project gallery <a href="{{project.link}}"> click here</a> </p>
-		<dl class="tabs">
-			{% for tab in tabs %}
-				<dd {% if forloop.counter == 1 %} class="active" {% endif %}><a href="#simple{{forloop.counter}}">{{tab.name}}</a></dd>
-			{% endfor %}
-		</dl>
-		<ul class="tabs-content">
-			{% for tab in tabs %}
-				<li {% if foorloop.counter == 1 %} class="active" {% endif %} id="simple{{forloop.counter}}Tab">
-					{{tab.description | safe}}
-				</li>
-			{% endfor %}
-		</ul>
+			{% block description %}{% endblock %}
+
+		<p>For installation instructions, source code and other details<a href="{{project.link}}" target="_blank"> click here</a>.</p>
+		{% for image in images %}
+			{% if forloop.counter == 1%}
+				<p>To view the project gallery <a data-gal="prettyPhoto[gallery]" href="{{image}}"> click here</a>.</p>
+			{% else %}
+				<a data-gal="prettyPhoto[gallery]" href="{{image}}"></a>
+			{% endif%}
+		{% endfor %}
+		{% block tabs %}{% endblock %}
 	</div>
 	<!-- end main content-->
 	<!-- SLIDER-->
@@ -65,5 +57,8 @@
 </div>
 {%endblock%}
 {%block scripts%}
+	<script src="{% static 'js/jquery.isotope.min.js' %}"></script>
+    <script src="{% static 'js/jquery.prettyPhoto.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
 	<script src="{% static 'js/jquery.nivo.slider.pack.js' %}"></script>
 {%endblock%}

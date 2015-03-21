@@ -1,0 +1,33 @@
+{% extends "project.html" %}
+{% load staticfiles %}
+{% block description %}
+	<p>
+        A traveller of the skies - Guide your space-ship through the sea of cosmos. Galaxian is an Open-GL based "old-days" type classic 2D game.
+	</p>
+    <p>
+        This project was done as a part of the <i>Computer Graphics</i> course during my undergraduation between March 2014 to April 2014.
+    </p>
+    <p>
+        The project was made with an objective of learning 2D Animations and basic transformations. It has been written in C++ but can be converted to C without much effort (No Classes). This game is inspired by the classical DOS-era shooting games.
+    </p>
+{% endblock %}
+{% block tabs %}
+	<dl class="tabs">
+        <dd class="active"><a href="#simple1">Highlights</a></dd>
+        <dd><a href="#simple2">Basic Algorithms</a></dd>
+    </dl>
+    <ul class="tabs-content">
+        <li class="active" id="simple1Tab">
+            <ul class="disk">
+                <li>Collision-Detection Algorithm</li>
+                <li>Mouse Hovering Effect in all the Menu</li>
+                <li>Double Buffering to achieve flicker-free animation. High FPS (60 - 200)</li>
+                <li>All Basic OpenGl function has been used</li>
+                <li>Settings and highscore saved using files</li>
+            </ul>
+        </li>
+        <li id="simple2Tab">
+            Along with the main game, all the basic functions of a graphics engine like Line Drawing, Circle Drawing, Ellipse Drawing, Scan-Line Polygon Fill, Line Clipping, Polygon Clipping and 3-D transformations (translation, rotation and scaling) was also implemented.
+        </li>
+    </ul>
+{% endblock %}

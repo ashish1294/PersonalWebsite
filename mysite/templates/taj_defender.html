@@ -1,0 +1,26 @@
+{% extends "project.html" %}
+{% load staticfiles %}
+{% block description %}
+    <p>
+        A sand-boxing mechanism to run malicious/untrusted C and C++ codes. The main objective was to run a C/C++ code whose origin or content is not known as such such codes pose serious threats to system's security.
+    </p>
+    <p>
+        This project was done as a part of the <i>Operating Systems</i> course during my undergraduation between March 2014 to April 2014.
+    </p>
+    <p>
+        <h5>Basic Working</h5>
+        The excution of a typical C program is depicted in one of the images. Our program compiles the given code and prevents any system calls made by the function except read-write from standard input and standard output. For memory allocation we provide a custom implementation of malloc.h. If any system call is detected, the program is terminated with run time error.
+    </p>
+    <p>
+        <h5>Features</h5>
+        The main features of the projects are : <br/><br/>
+        <ul class='disk'>
+            <li>SECCOMP was used to prevent malicious system calls</li>
+            <li>Custom implementation of memory allocating functions in C/C++</li>
+            <li>Provides simple interface to load and excute a program in sandboxed environment via a script</li>
+            <li>Preprocessing the program for commanly known malicious signature</li>
+        </ul>
+    </p>
+{% endblock %}
+{% block tabs %}
+{% endblock %}

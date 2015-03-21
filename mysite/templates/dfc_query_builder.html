@@ -1,0 +1,57 @@
+{% extends "project.html" %}
+{% load staticfiles %}
+{% block description %}
+    <p> DFC Query Builder is a mini scale database management system. Originally planned as a SQL query builder, the project evolved into something more. All major parts of a DBMS like Buffer Management, Query Optimizer, File Storage, etc. were implemented</p>
+
+    <p> This project was done as a part of <i>Database Systems</i> course during my undergraduation in November 2014</p>
+
+    <p> A web-based GUI has been provided using which users can build queries in a few clicks. The web server is based on PHP and interacts with DBMS server using sockets. </p>
+{% endblock %}
+{% block tabs %}
+    <dl class="tabs">
+        <dd class="active" style = "width: 50%;"><a href="#simple1">Features</a></dd>
+        <dd><a href="#simple2" style = "width : 100%;">Queries and Operators</a></dd>
+    </dl>
+    <ul class="tabs-content">
+        <li class="active" id="simple1Tab">
+            <p>
+                <img src="{% static 'images/check.png' %}" alt=""><b>Custom Block Size</b> for each table which is always a multiple of record size which saves time and well as space in searching and storing records
+            </p>
+            <p>
+                <img src="{% static 'images/check.png' %}" alt=""><b>Muti-level B+ Tree</b> for indexing based on primary key
+            </p>
+            <p>
+                <img src="{% static 'images/check.png' %}" alt=""><b>Temporary Tables </b> for intermediate results
+            </p>
+            <p>
+                <img src="{% static 'images/check.png' %}" alt=""><b>Meta Data</b> for each table that provides data about table
+            </p>
+        </li>
+        <li id="simple2Tab">
+            <div class="six columns">
+                The Queries Supported are :
+                <ul>
+                    <li>CREATE Table</li>
+                    <li>SHOW Tables</li>
+                    <li>DESCRIBE Table</li>
+                    <li>DROP Table</li>
+                    <li>INSERT INTO Table</li>
+                    <li>SELECT Table</li>
+                    <li>QUIT Server</li>
+                </ul>
+            </div>
+            <div class="six columns">
+                The Operators Supported are :
+                <ul>
+                    <li>Greater Than or Equal (&gt;=)</li>
+                    <li>Less Than or Equal (&lt;=)</li>
+                    <li>Greater Than (&gt;)</li>
+                    <li>Less Than (&lt;)</li>
+                    <li>Equal (=)</li>
+                    <li>Not Equal (!=)</li>
+                    <li>Logical AND (&amp;&amp;)</li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+{% endblock %}
