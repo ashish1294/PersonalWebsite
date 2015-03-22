@@ -52,13 +52,22 @@ def project_handler(request, name) :
 
         return render(request, 'error.html', context)
 
-#View to handle Career
-def career(request) :
+#View to handle Academic Career Page
+def academic_career(request) :
 
-    context = {}
-    
-    return render(request, 'career.html', context)
+    context = {
+        'page' : 'career',
+    }
 
+    return render(request, 'academic_career.html', context)
+
+def professional_career(request) :
+
+    context = {
+        'page' : 'career',
+    }
+
+    return render(request, 'professional_career.html', context)    
 
 #View To Handle 404 Errors
 def anything(request) :
