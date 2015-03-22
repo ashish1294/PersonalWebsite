@@ -52,6 +52,14 @@ def project_handler(request, name) :
 
         return render(request, 'error.html', context)
 
+#View to handle Career
+def career(request) :
+
+    context = {}
+    
+    return render(request, 'career.html', context)
+
+
 #View To Handle 404 Errors
 def anything(request) :
 

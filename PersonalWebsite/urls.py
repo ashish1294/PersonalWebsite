@@ -13,6 +13,8 @@ urlpatterns = patterns('',
     url(r'^portofolio/$', portofolio),
     url(r'^projects/([a-zA-Z0-9_]+)$', project_handler),
     url(r'^projects/([a-zA-Z0-9_]+)/$', project_handler),
+    url(r'^career$', career),
+    url(r'^career/$', career),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^.*$', anything),
 )
