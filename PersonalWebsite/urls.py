@@ -17,6 +17,7 @@ urlpatterns = patterns('',
     url(r'^career/academic/$', academic_career),
     url(r'^career/professional$', professional_career),
     url(r'^career/professional/$', professional_career),
+    url(r'^charts/skill$', skill_chart),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^.*$', anything),
 )

@@ -1,0 +1,54 @@
+/*	Responsive Accordion v1.3, Copyright 2014, Joe Mottershaw, https://github.com/joemottershaw/
+//	============================================================================================ */
+
+/*	Table of Contents
+//	==================================================
+//		#Reset
+//		#Themes
+
+
+/*	#Reset
+//	================================================== */
+
+	.responsive-accordion {
+		margin: 0 0 20px 0;
+		padding: 0;
+		list-style-type: none;
+	}
+
+	.responsive-accordion li {
+		margin: 0 0 10px 0;
+		padding: 0;
+	}
+
+	.responsive-accordion li:last-child { margin-bottom: 0; }
+
+	.responsive-accordion li .responsive-accordion-head { cursor: pointer; }
+
+	.responsive-accordion li .responsive-accordion-head.active { font-weight: bold; }
+
+
+/*	#Themes
+//	================================================== */
+
+	.responsive-accordion-default.responsive-accordion li .responsive-accordion-head {
+		border: 1px solid #DDD;
+		padding: 10px 30px 10px 10px;
+		background: #FFF;
+		color: #0b8593;
+		line-height: normal;
+		position: relative;
+	}
+
+	.responsive-accordion-default.responsive-accordion li .responsive-accordion-head i {
+		position: absolute;
+		top: 12px;
+		right: 10px;
+	}
+
+	.responsive-accordion-default.responsive-accordion li .responsive-accordion-panel {
+		border: 1px solid #DDD;
+		border-top: 0;
+		padding: 20px;
+		background: #FFF;
+	}

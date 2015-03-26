@@ -16,7 +16,11 @@
         .techskill span {
             font-weight: 900;
         }
+        .title {
+            border : 1px solid #e9e9e9;
+        }
     </style>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive-accordion.css' %}">
 {% endblock %}
 {% block content%}
 <div id="subheader">
@@ -38,7 +42,7 @@
         <h1><b>Undergraduation <span style="float: right;">2012 - 2016</span></b></h1>
         <hr/>
         <p>
-            I am currently pursuing my undergraduate education at the National Institute of Technology, Karnataka, Surathkal, India. It is an institute of national importance and also one of the most prestigious engineering institutes in India. It is the only institute in India to have it's own private beach. <a href="http://beachsideblues.com/">BeachSideBlues</a> is a student website of my institute. The academic curriculum is pretty challenging and hectic. I attend 30+ hours of lectures and dedicate another 15+ hour for extra academic acticities each week. I have been able to maintain consistency in my academic performance at NITK.
+            I am currently pursuing my undergraduate education at the National Institute of Technology, Karnataka, Surathkal, India. It is an institute of national importance and also one of the most prestigious engineering institutes in India. It is the only institute in India to have it's own private beach. <a href="http://beachsideblues.com/">BeachSideBlues</a> is our student website. The academic curriculum is pretty challenging and hectic. I attend 30+ hours of lectures and dedicate another 15+ hour for extra academic acticities each week. I have been able to maintain consistency in my academic performance at NITK.
         </p>
         <p>
             I have tried to explored a lot of opportunities in NITK - Academic Research Work, Open Source Contribution, Freelancing, Competitive Programming, Start Ups and Multinational Companies. This has helped me discover myself.
@@ -59,75 +63,76 @@
             &#x2714; <b>Expected Date of Graduation</b> : 10<sup>th</sup> May, 2016
         </p>
         <p class="list_para">
-            &#x2714; <b>Cummulative GPA</b> : 9.47 / 10.00, after 5<sup>th</sup> Semester. <a href="https://drive.google.com/open?id=0B6A-3_6rwie9dmVqbWFEd3NUa2M&authuser=0" target="_blank">Click here</a> to view my Transcript.
+            &#x2714; <b>Cummulative GPA</b> : {{cgpa}} / 10.00, after 5<sup>th</sup> Semester. <a href="https://drive.google.com/open?id=0B6A-3_6rwie9dmVqbWFEd3NUa2M&authuser=0" target="_blank">Click here</a> to view my Transcript.
         </p>
         <p class="list_para">
             &#x2714; <b>Admission Test</b> : AIEEE 2012 (National Rank 5050), IIT-JEE 2012 (National Rank 5900)
         </p>
         <br/>
-        <div class="centersectiontitle">
-            <h4>Courses</h4>
-        </div>
-        <div class="row techskill">
-            <div class="six columns">
-                <ul>
-                    <li>IT 200 - Data Structures and Algorithms</li>
-                    <li>IT 201 - Digital Design and Computer Organization</li>
-                    <li>IT 202 - Unix Programming and Practice</li>
-                    <li>IT 203 - Computer Systems and Organization Lab</li>
-                    <li>IT 204 - Data Structures and Algorithms Lab</li>
-                    <li>IT 206 - Paradigms of Programming Part I</li>
-                    <li>MA 200 - Graph Theory, Probability and Statistics</li>
-                    <li>IT 250 - Operating Systems</li>
-                    <li>IT 251 - Computer Communication and Networking</li>
-                    <li>IT 252 - Design and Analysis of Algorithms</li>
-                    <li>IT 253 - Paradigms of Programming Part II</li>
-                    <li>IT 254 - Computer Graphics</li>
-                    <li>IT 306 - Object Oriented Analysis and Design</li>
-                    <li>IT 290 - Seminar</li>
-                </ul>
-            </div>
+        
+        <ul class="responsive-accordion accordion">
+            <li>
+                <div class="responsive-accordion-head title">
+                    <h5>List of Courses Completed
+                    <img src="{% static 'images/arrow.png' %}" style="width: 20px; float: right; vertical-align: center;" class="arrow"/></h5>
+                </div>
+                <div class="responsive-accordion-panel content">
+                    <div class="row techskill">
+                        <div class="six columns">
+                            <ul>
+                                {% for course in course_left %}
+                                    <li>{{course}}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
 
-            <div class="six columns">
-                <ul>
-                    <li>HU 300 - Engineering Economics</li>
-                    <li>IT 300 - Parallel Computing</li>
-                    <li>IT 301 - Database Systems</li>
-                    <li>IT 302 - Web Technologies and Applications</li>
-                    <li>IT 303 - Automata and Compiler Design</li>
-                    <li>IT 307 - Advance Computer Networks</li>
-                    <li>IT 360 - Distributed Computing System</li>
-                    <li>IT 350 - Software Engineering *</li>
-                    <li>HU 302 - Principles of Management *</li>
-                    <li>MA 204 - Linear Algebra anf Matrices *</li>
-                    <li>IT 351 - Human Computer Interaction *</li>
-                    <li>IT 352 - Information Assurance and Security *</li>
-                    <li>IT 399 - Minor Project *</li>
-                    <li>IT 450 - Web Services *</li>
-                </ul>
-            </div>
-            <div class="twelve columns"> * = <i>ongoing courses</i> </div>
-        </div>
-
-        <div class="centersectiontitle">
-            <h4>Clubs &amp; Socities</h4>
-        </div>
-        <div class="row">
-            <div class="four columns">
-                <ul>
-                    <li><a href="http://ewh.ieee.org/sb/bangalore/nitk/" target="_blank">NITK IEEE Student Branch</a></li>
-                    <li><a href="https://webclub-nitk.github.io/" target="_blank">Web Enthusiast's Club, NITK Surathkal</a></li>
-                    <li><a href="http://beachsideblues.com/clubs/hobbies/star-gazing-club/" target="_blank">Amatuer Astronomy Club</a></li>
-                    <li><a href="http://blog.codechef.com/2014/08/16/nitk-codechef-campus-chapter-we-learn-together/" target="_blank">NITK CodeChef Campus Chapter</a></li>
-                    <li><a href="https://www.facebook.com/NITKHackerrankClub" target="_blank">NITK Surathkal Hackerrank Club</a></li>
-                    <li>Student Member, ACM</li>
-                </ul>
-            </div>
-            <div class="eight columns" style = "border-left: 1px solid grey;">
-                I am actively involved with various clubs and societies managed by students. Like-minded people come together and discuss various technical problems that they are facing and possible solutions to those problems. There are regular talks where the speaker(s) shares his / her knowledge with the rest of the club members. It provides a perfect platforms for students to learn from their seniors and teach their juniors. Most of the discussion is beyond the academic curriculum of the institute. We occasionally hangout together and go for weekend trips to take a break from regular routine.
-            </div>
-        </div>
-        <br />
+                        <div class="six columns">
+                            <ul>
+                                {% for course in course_right %}
+                                    <li>{{course}}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="twelve columns"> * = <i>ongoing courses</i> </div>
+                    </div>
+                </div>
+            </li>
+            <br/>
+            <li>
+                <div class="responsive-accordion-head title">
+                    <h5>Clubs &amp; Socities
+                    <img src="{% static 'images/arrow.png' %}" style="float: right; width: 20px; vertical-align: center;" class="arrow"/> </h5>
+                </div>
+                <div class="responsive-accordion-panel content">
+                    <div class="row">
+                        <div class="four columns">
+                            <ul>
+                                <li><a href="http://ewh.ieee.org/sb/bangalore/nitk/" target="_blank">NITK IEEE Student Branch</a></li>
+                                <li><a href="https://webclub-nitk.github.io/" target="_blank">Web Enthusiast's Club, NITK Surathkal</a></li>
+                                <li><a href="http://beachsideblues.com/clubs/hobbies/star-gazing-club/" target="_blank">Amatuer Astronomy Club</a></li>
+                                <li><a href="http://blog.codechef.com/2014/08/16/nitk-codechef-campus-chapter-we-learn-together/" target="_blank">NITK CodeChef Campus Chapter</a></li>
+                                <li><a href="https://www.facebook.com/NITKHackerrankClub" target="_blank">NITK Surathkal Hackerrank Club</a></li>
+                                <li>Student Member, ACM</li>
+                            </ul>
+                        </div>
+                        <div class="eight columns" style = "border-left: 1px solid grey;">
+                            I am actively involved with various clubs and societies managed by undergraduate students in my institute. There are regular meetings as a part of these societies where like-minded people come together and discuss various technical problems that they are facing and possible solutions to those problems. There are regular talks where the speaker(s) shares his / her knowledge with the rest of the club members. It provides a perfect platforms for students to learn from their seniors and teach their juniors. Most of the discussion is beyond the academic curriculum of the institute. We also take up projects to learn more about upcoming state of the art technologies. We occasionally hangout together and go for weekend trips to take a break from regular routine.
+                        </div>
+                    </div> 
+                </div>
+            </li>
+            <br/>
+            <li>
+                <div class="responsive-accordion-head title" id="semwise">
+                    <h5>Semester Wise Academic Performance Analysis
+                    <img src="{% static 'images/arrow.png' %}" style="float: right; width: 20px; vertical-align: center;" class="arrow"/> </h5>
+                </div>
+                <div class="responsive-accordion-panel content">
+                    <div id="semwise_chart"></div>
+                </div>
+            </li>
+        </ul>
+        <br/>
         <h1><b>High School <span style="float: right;">2010 - 2012</span></b></h1>
         <hr/>
         <p>
@@ -154,21 +159,29 @@
         <p class="list_para">
             &#x2714; <b>Relevant Docs</b> : <a href="https://drive.google.com/open?id=0B6A-3_6rwie9TFE2bnRJSWlOQXc&authuser=0" target="_blank">CBSE Marsheet</a>, <a href="https://drive.google.com/open?id=0B6A-3_6rwie9cnZ4eTdYWktNZzg&authuser=0" target="_blank">12<sup>th</sup> Marksheet</a>, <a href="https://drive.google.com/open?id=0B6A-3_6rwie9ME5mN3FCOWRsSGc&authuser=0" target="_blank">11<sup>th</sup> Marsheet</a>, <a href="https://drive.google.com/open?id=0B6A-3_6rwie9Q3g2VXY0OWlXNUE&authuser=0" target="_blank">Character Certificate</a>
         </p>
-        <div class="centersectiontitle">
-            <h4>Extra Activities</h4>
-        </div>
-        <p class="list_para">
-            &#x2714; Attended worshop on Mathematics by University of Waterloo
-        </p>
-        <p class="list_para">
-            &#x2714; Participated in several olympiads - Cyber, Mathematics, Physics and Chemistry
-        </p>
-        <p class="list_para">
-            &#x2714; Attended personality development sessions
-        </p>
-        <p class="list_para">
-            &#x2714; Selected for prestigious KVPY Fellowship
-        </p>
+        <br/>
+        <ul class="responsive-accordion accordion">
+            <li>
+                <div class="responsive-accordion-head title">
+                    <h5>Extra Activities
+                    <img src="{% static 'images/arrow.png' %}" style="width: 20px; float: right; vertical-align: center;" class="arrow"/></h5>
+                </div>
+                <div class="responsive-accordion-panel content">
+                    <p class="list_para">
+                        &#x2714; Attended worshop on Mathematics by University of Waterloo
+                    </p>
+                    <p class="list_para">
+                        &#x2714; Participated in several olympiads - Cyber, Mathematics, Physics and Chemistry
+                    </p>
+                    <p class="list_para">
+                        &#x2714; Attended personality development sessions
+                    </p>
+                    <p class="list_para">
+                        &#x2714; Selected for prestigious KVPY Fellowship
+                    </p>
+                </div>
+            </li>
+        </ul>
         <br/>
         <h1><b>Primary School <span style="float: right;">2000 - 2010</span></b></h1>
         <hr/>
@@ -189,4 +202,175 @@
         </p>
     </div>
 </div>
+{% endblock%}
+{% block scripts %}
+    <script src="{% static 'js/responsive-accordion.js' %}"></script>
+    <script src="{% static 'js/highcharts.js'%}"></script>
+    <script type="text/javascript">
+        Highcharts.theme = {
+            colors: ["#f45b5b", "#8085e9", "#8d4654", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
+            "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
+            chart: {
+                backgroundColor: null,
+                style: {
+                    fontFamily: "Signika, serif"
+                }
+            },
+            title: {
+                style: {
+                    color: 'black',
+                    fontSize: '16px',
+                    fontWeight: 'bold'
+                }
+            },
+            subtitle: {
+                style: {
+                    color: 'black'
+                }
+            },
+            tooltip: {
+                borderWidth: 0
+            },
+            legend: {
+                itemStyle: {
+                    fontWeight: 'bold',
+                    fontSize: '13px'
+                }
+            },
+            xAxis: {
+                labels: {
+                    style: {
+                        color: '#6e6e70'
+                    }
+                }
+            },
+            yAxis: {
+                labels: {
+                    style: {
+                        color: '#6e6e70'
+                    }
+                }
+            },
+            plotOptions: {
+                series: {
+                    shadow: true
+                },
+                candlestick: {
+                    lineColor: '#404048'
+                },
+                map: {
+                    shadow: false
+                }
+            },
+
+            // Highstock specific
+            navigator: {
+                xAxis: {
+                    gridLineColor: '#D0D0D8'
+                }
+            },
+            rangeSelector: {
+                buttonTheme: {
+                    fill: 'white',
+                    stroke: '#C0C0C8',
+                    'stroke-width': 1,
+                    states: {
+                        select: {
+                            fill: '#D0D0D8'
+                        }
+                    }
+                }
+            },
+            scrollbar: {
+                trackBorderColor: '#C0C0C8'
+            },
+
+            // General
+            background2: '#E0E0E8'
+            
+        };
+
+        // Apply the theme
+        Highcharts.setOptions(Highcharts.theme);
+        function show_semwise_performance()
+        {
+            $('#semwise_chart').css('width', $('.responsive-accordion-head').first().width());
+            //$('#semwise_chart').css('background-image',"url({% static 'images/bg.png' %})");
+            $('#semwise_chart').highcharts({
+                chart: {
+                    type: 'column',
+                    plotBackgroundColor : '#F3E8FA',
+                    //plotBackgroundImage: "{% static 'images/bg.png' %}"
+
+                },
+                title: {
+                    text: 'Cummulative GPA : {{cgpa}}',
+                    style : {
+                        fontSize : '21px',
+                        fontWeight : 'bold', 
+                    }
+                },
+                xAxis: {
+                    categories: [
+                        {% for s in semwise %}
+                            'Semester {{forloop.counter}}',
+                        {% endfor %}
+                    ],
+                    title : {
+                        text : 'Semester',
+                        style : {
+                            fontSize : '17px',
+                            fontWeight : 'bold', 
+                        }
+                    },
+                },
+                yAxis: {
+                    min: 9,
+                    max : 10,
+                    title: {
+                        text: 'Semester Grade Point Assesment (SGPA)',
+                        style : {
+                            fontSize : '17px',
+                            fontWeight : 'bold', 
+                        }
+                    }
+                },
+                legend : {
+                    enabled : false
+                },
+                tooltip: {
+                    headerFormat: '<span style="font-size:15px; font-weight: bold;">{point.key}</span> <br/>',
+                    pointFormat: '<span style="color:{series.color};padding:0">SGPA : </span>' +
+                        '<span style="padding:0"><b>{point.y:.2f}</b></span> <br/>' + 
+                        '<span style="color:{series.color};padding:0">Credits : </span>' +
+                        '<span style="padding:0"><b>{point.credit}</b></span>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: 'Grade',
+                    data: [
+                        {% for s in semwise %}
+                            {
+                                y : {{s.0}},
+                                credit : {{s.1}},
+                            },
+                        {% endfor %}
+                    ],
+                    color : '#a534e6'
+                },
+                ]
+            });
+        }
+        $('#semwise').click(function() {
+            show_semwise_performance();
+        });
+    </script>
 {% endblock%}

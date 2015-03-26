@@ -16,7 +16,11 @@
         .techskill span {
             font-weight: 900;
         }
+        .title {
+            border : 1px solid #e9e9e9;
+        }
     </style>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive-accordion.css' %}">
 {% endblock %}
 {% block content%}
 <div id="subheader">
@@ -35,7 +39,8 @@
 </div>
 <div class="row">
     <div class="twelve columns">
-        <h1><b>Summer Internship <span style="float: right;">May - July, 2015</span></b></h1>
+        <!-- Summer Internship @ Google, 2015 -->
+        <h1><b>Summer Intern <span style="float: right;">May - July, 2015</span></b></h1>
         <hr/>
         <p>
             I will be interning at Google's San Francisco Office. Working for Google is like a dream come true for me. I am very excited and anxiously waiting for the summer.
@@ -56,10 +61,12 @@
             &#x2714; <b>Duration</b> : 12 weeks - 11<sup>th</sup> May, 2015 to 31<sup>st</sup> July, 2015
         </p>
         <br />
-        <h1><b>Winter Internship <span style="float: right;">Dec, 2014</span></b></h1>
+
+        <!--Winter Internship @ SimpleWealth, 2014-->
+        <h1><b>Winter Intern <span style="float: right;">Dec, 2014</span></b></h1>
         <hr/>
         <p>
-            During my short 1 month winter break, I interned at SimpleWealth, Bangalore. SimpleWealth is a fin-tech startup that helps users understand their finances, increase financial knowledge and grow wealth through simple steps. I had an opportunity to learn a lot during my internship. The experience exposed me to real-life problems in industry. My co-workers and mentors were extremely talented and I kept learning new things from them every day. The start-up was located in city downtown and we ate at different place 
+            During my short 1 month winter break, I interned at SimpleWealth, Bangalore. SimpleWealth is a fin-tech startup that helps users understand their finances, increase financial knowledge and grow wealth through simple steps. I had an opportunity to learn a lot during my internship. The experience exposed me to real-life problems in industry. My co-workers and mentors were extremely talented and I kept learning new things from them every day. The start-up was located in city downtown and we tried out new places to eat everday.
         </p>
         <p>
             <a href="https://drive.google.com/open?id=0B6A-3_6rwie9ZnYtVklVenlFVFU&authuser=0">Click here</a> to view the certificate of experience.
@@ -79,30 +86,127 @@
         <p class="list_para">
             &#x2714; <b>Project</b> : Design and Implementation of Cloud Data Synchronization on Android Platform
         </p>
-        <div class="centersectiontitle">
-            <h4>Project Details</h4>
-        </div>
-        <p>
-            My team consisted of 2 people. Our task was to implement methods to synchronize data between an android client and central server. 
+        <p class="list_para">
+            &#x2714; <b>Mentor</b> : <a href="https://plus.google.com/+RochanS">Rochan S</a>
         </p>
         <br/>
-        <h1><b>Primary School <span style="float: right;">2000 - 2010</span></b></h1>
+        <ul class="responsive-accordion accordion">
+            <li>
+                <div class="responsive-accordion-head title">
+                    <h5>Project Details
+                    <img src="{% static 'images/arrow.png' %}" style="width: 20px; float: right; vertical-align: center;" class="arrow"/></h5>
+                </div>
+                <div class="responsive-accordion-panel content">
+                    <p>
+                        My team consisted of 2 people. Our task was to implement methods to synchronize data between an android client and central server. Data on Android clients was stored using SQLite and on the server both MongoDB and MySQL was used. Both kinds of data was considered - Master Data (once single copy on server for all clients) as well as Transaction Data (one corresponding copy on server for each client). The objective was achieved using various audit fields. My main contributions were :
+                        <ul>
+                            <li>Carried out a brief literature survey related to best practices and available implementations</li>
+                            <li>Designed a server-side conflict resolution mechanism based on audit fields</li>
+                            <li>Optimation of synchronization mechanism for slow and erratic network by compressing data</li>
+                            <li>Developed an efficient mechanism to schedule synchronization</li>
+                            <li>Batching Network as well as I/O Operations</li>
+                            <li>Mesured performance under various simulated network condition (latency and rate of data transfer)</li>
+                        </ul>
+                    </p>
+                </div>
+            </li>
+        </ul>
+        <br/>
+
+        <!-- Summer Internship, 2014 @ IITB-->
+        <h1><b>Summer Research Intern <span style="float: right;">May - July, 2014</span></b></h1>
         <hr/>
         <p>
-            I attended Nopany High (formerly known as Shri Daulatram Nopany Vidyalaya). I studied there for 10 years at a stretch. Academically, I was always among the best performers in the class - especially in mathematics. I started learn advance mathematics and programming in my primary school itself. I also played a couple of leardership roles.
+            I interned at IIT Bombay during my summer break of 2014. It is one the finest research and engineering institute in India. I worked as a part of FRG, Dept. of CSE. I had a first-hand experience of theoretical computer science. I read a lot of research papers and also published one during the internship. I worked for 40+ hrs each week. My mentor always had interesting inputs for me which helped me learn a lot. I made some wonderful friends during the course of my internship. Mumbai is a city which never sleeps and I throughly enjoyed our frequent parties and outings.
         </p>
         <div class="centersectiontitle">
             <h4>Quick Facts</h4>
         </div>
         <p class="list_para">
-            &#x2714; <b>School</b> : <a href="http://www.nopanyhigh.com/" target="_blank">Nopany High, Kolkata</a> (formerly known as Shri Daulatram Nopany Vidyalaya)
+            &#x2714; <b>Organization</b> : <a href="http://iitb.ac.in/" target="_blank">Indian Institute of Technology, Bombay</a>
         </p>
         <p class="list_para">
-            &#x2714; <b>Affiliation</b> : <a href="http://www.wbbse.org/" target="_blank">West Bengal Board of Secondary Education (WBBSE)</a>
+            &#x2714; <b>Location</b> : Mumbai, India
         </p>
         <p class="list_para">
-            &#x2714; <b>Score</b> : 85%. <a href="https://drive.google.com/open?id=0B6A-3_6rwie9Rl9xR2JwSW80c2M&authuser=0" target="_blank">Click here</a> to view marksheet.
+            &#x2714; <b>Research Group</b> : <a href="http://www.it.iitb.ac.in/frg/wiki/index.php/Fundamental_Research_Group" target="_blank">Fundamental Research Group</a>, Dept. of CSE
+        </p>
+        <p class="list_para">
+            &#x2714; <b>Duration</b> :  8 weeks - 12<sup>th</sup> May, 2014 to 4<sup>th</sup> July, 2015.
+        </p>
+        <p class="list_para">
+            &#x2714; <b>Project</b> : Recommendation System for Adaptive E-Learning
+        </p>
+        <p class="list_para">
+            &#x2714; <b>Mentor</b> : <a href="http://www.cse.iitb.ac.in/~dbp/">Dr. Deepak B Phatak</a>, <a href="http://www.cse.iitb.ac.in/~nags/">Nagesh Karmali</a>
+        </p>
+        <br />
+        <ul class="responsive-accordion accordion">
+            <li>
+                <div class="responsive-accordion-head title">
+                    <h5>Research and Implementation Details
+                    <img src="{% static 'images/arrow.png' %}" style="width: 20px; float: right; vertical-align: center;" class="arrow"/></h5>
+                </div>
+                <div class="responsive-accordion-panel content">
+                    <p>
+                        My team consisted of 4 people - all 4 from different engineering institute in India. The main objective was to improve the way a student learns new concepts via an E-Learning platform (EdX and Moodle in particular). We realized than an effective E-Learning platform needs to adapt itself to the user's need. We explored the various ways of collecting, storing and finally utilizing useful information about the user, instructor and learning material to aid the process of personalization. My main responsibilities were :
+                        <ul>
+                            <li>Examined the Data available on <a href="https://moodle.org/">Moodle</a> and <a href="https://www.edx.org/">EdX</a></li>
+                            <li>Designed and Implemented a new user model to personate a user in terms of data</li>
+                            <li>Developed a semi-automatic concept mapping mechanism using question-concept relationship</li>
+                            <li>Implemented popular algorithms like Collaborative Filtering and Co-Sine Similarity to find similar concepts</li>
+                            <li>Developed a Directed Graph based polynomial-time algorithm to recommend next best concept to user</li>
+                            <li>Implemented a feedback mechanism and a Pershiva based System Evaluation with Recall and Precision parameters</li>
+                        </ul>
+                    </p>
+                    <p>
+                        All implementation was done using a django-app so that it can be easily integrated with EdX which is also powered by Django. We used tools like Celery and RabbitMQ to queue computationally demanding items. Standard MySQL was used as the database. A nice GUI was developed using bootstrap and JQuery. More details about our implementation can be found in the project report.
+                    </p>
+                </div>
+            </li>
+            <br/>
+            <li>
+                <div class="responsive-accordion-head title">
+                    <h5>Relevant Documents, Links and Source Code
+                    <img src="{% static 'images/arrow.png' %}" style="width: 20px; float: right; vertical-align: center;" class="arrow"/></h5>
+                </div>
+                <div class="responsive-accordion-panel content">
+                    <ul>
+                        <li>View <a href="https://github.com/fresearchgroup/Recommendation-System-for-Adaptive-E-Learning" target="_blank">Source Code</a> of our project. All our codes are open source.</li>
+                        <li>View <a href="https://drive.google.com/open?id=0B6A-3_6rwie9U3lqU0FpbjdOOVU&authuser=0">Project Report</a> which talks in detail about all the theory and implementation details</li>
+                        <li>View <a href="https://drive.google.com/open?id=0B6A-3_6rwie9WTVYUVcyZEdMWkU&authuser=0">Presentation</a> which gives a basic overview of techniques we have used</li>
+                        <li>View <a href="https://drive.google.com/open?id=0B6A-3_6rwie9Tzd6MzhmTTZGN1U&authuser=0">Certificate of Experience</a> issued by host institute (IIT Bombay)</li>
+                        <li>View <a href="https://drive.google.com/open?id=0B6A-3_6rwie9eldMQWliOGdrXzQ&authuser=0">Project Completion Certificate</a> issued by my mentor</li>
+                        <li>View <a href="/portofolio#reco_elearning">more details</a> about the publication authored by my team based on our work</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+
+        <!-- Summer Trainee @ Globsyn Finishing School, 2013-->
+        <h1><b>Summer Trainee <span style="float: right;">May - July, 2013</span></b></h1>
+        <hr/>
+        <p>
+            Summer Trainee
+        </p>
+        <div class="centersectiontitle">
+            <h4>Quick Facts</h4>
+        </div>
+        <p class="list_para">
+            &#x2714; <b>Organization</b> : <a href="http://www.simplewealth.in/" target="_blank">Globsyn Finishing School</a>
+        </p>
+        <p class="list_para">
+            &#x2714; <b>Location</b> : Kolkata, India
+        </p>
+        <p class="list_para">
+            &#x2714; <b>Duration</b> :  160 hrs - June, 2013 to July, 2013.
+        </p>
+        <p class="list_para">
+            &#x2714; <b>Area</b> : Web Development, Android Application Development
         </p>
     </div>
 </div>
+{% endblock%}
+{% block scripts %}
+    <script src="{% static 'js/responsive-accordion.js' %}"></script>
 {% endblock%}
