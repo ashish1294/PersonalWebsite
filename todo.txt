@@ -1,0 +1,8 @@
+Add D3 Sunburst for Portfolio
+Add Chart for Class-Wise Performance
+Add Competitive Programming
+Add Contact Page
+Add Blog Page
+Add About me Page
+Change Footer
+Add Globsyn Certificates
