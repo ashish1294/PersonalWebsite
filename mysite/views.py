@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.templatetags.static import static
+from django.http import HttpResponse
 from django.core.exceptions import ObjectDoesNotExist
 from django.template.context_processors import csrf
-from mysite.models import *
+from mysite.models import project, message
 import os
 
 # Create your views here.
@@ -132,6 +133,11 @@ def skill_chart(request):
 
     return render(request, 'sunburst.html', {})
 
+#View to Render the Blog
+def blog(request):
+
+    return render(request, 'blog.html', {})
+
 #Function to get IP Address of the request
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -157,7 +163,6 @@ def contact(request):
 def add_stuff(request):
 
     project.objects.all().remove()
-    project_tab.objects.all().remove()
 
     p = project(name = '')
     p.tag = ""
@@ -165,4 +170,4 @@ def add_stuff(request):
     p.main_image = ""
     p.style = project.COURSE
     p.alt_text = ""
-    return HTTPResponse("Added Stuff To Database Successfully")
+    return HttpResponse("Added Stuff To Database Successfully")
