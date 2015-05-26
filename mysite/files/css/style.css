@@ -884,3 +884,87 @@ a:focus { outline: none }
 	content: url('../images/social/email.ico');
 	padding-right: 20px;
 }
+.socialphone{
+  height: 30px;
+  vertical-align: middle;
+  content: url('../images/social/call.ico');
+  padding-right: 20px;
+}
+.socialirc{
+  height: 30px;
+  vertical-align: middle;
+  content: url('../images/social/irc.ico');
+  padding-right: 20px;
+}
+.socialhome{
+  height: 30px;
+  vertical-align: middle;
+  content: url('../images/social/home.ico');
+  padding-right: 20px;
+}
+.socialquora{
+  height: 30px;
+  vertical-align: middle;
+  content: url('../images/social/quora.ico');
+  padding-right: 20px;
+}
+.socialfacebook{
+  height: 30px;
+  vertical-align: middle;
+  content: url('../images/social/facebook.ico');
+  padding-right: 20px;
+}
+.socialgithub{
+  height: 30px;
+  vertical-align: middle;
+  content: url('../images/social/github.ico');
+  padding-right: 20px;
+}
+.socialskype{
+  height: 30px;
+  vertical-align: middle;
+  content: url('../images/social/skype.ico');
+  padding-right: 20px;
+}
+.socialgoogle{
+  height: 30px;
+  vertical-align: middle;
+  content: url('../images/social/google.ico');
+  padding-right: 20px;
+}
+.sociallinkedin{
+  height: 30px;
+  vertical-align: middle;
+  content: url('../images/social/linkedin.ico');
+  padding-right: 20px;
+}
+.socialacademia{
+  height: 30px;
+  vertical-align: middle;
+  content: url('../images/social/academia.ico');
+  padding-right: 20px;
+}
+.socialtwitter{
+  height: 30px;
+  vertical-align: middle;
+  content: url('../images/social/twitter.ico');
+  padding-right: 20px;
+}
+
+.webcontacttable{
+  margin: auto;
+  padding-left : 10px;
+  padding-right: 10px;
+}
+
+.webcontacttable td{
+  vertical-align: middle;
+}
+
+.webcontacttable a{
+  text-decoration: underline;
+}
+
+.webcontacttable a:hover{
+  text-decoration: none;
+}
