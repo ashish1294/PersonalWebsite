@@ -55,7 +55,7 @@ def project_handler(request, name) :
 #View to handle Academic Career Page
 def academic_career(request) :
 
-    sgpa = [9.32, 9.45, 9.83, 9.55, 9.20, 0.00]
+    sgpa = [9.32, 9.45, 9.83, 9.55, 9.20, 9.48]
     credits = [21, 20, 24, 23, 25, 23]
 
     semwise = []
@@ -90,13 +90,13 @@ def academic_career(request) :
         'IT 303 - Automata and Compiler Design',
         'IT 307 - Advance Computer Networks',
         'IT 360 - Distributed Computing System',
-        'IT 350 - Software Engineering *',
-        'HU 302 - Principles of Management *',
-        'MA 204 - Linear Algebra anf Matrices *',
-        'IT 351 - Human Computer Interaction *',
-        'IT 352 - Information Assurance and Security *',
-        'IT 399 - Minor Project *',
-        'IT 450 - Web Services *'
+        'IT 350 - Software Engineering',
+        'HU 302 - Principles of Management',
+        'MA 204 - Linear Algebra anf Matrices',
+        'IT 351 - Human Computer Interaction',
+        'IT 352 - Information Assurance and Security',
+        'IT 399 - Minor Project',
+        'IT 450 - Web Services'
     ]
 
     context = {
