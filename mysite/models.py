@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 #Class to Model Object
-class project(models.Model) :
+class project(models.Model):
 
 	COURSE = 'course'
 	EXTRA = 'extra'
@@ -21,3 +21,12 @@ class project(models.Model) :
 	style = models.CharField(max_length = 200, choices = STYLE_CHOICES)
 	alt_text = models.CharField(max_length = 500)
 	link = models.CharField(max_length = 500)
+
+class message(models.Model):
+
+	name = models.CharField(max_length=100)
+	email = models.CharField(max_length=500)
+	message = models.TextField()
+	created = models.DateTimeField(auto_now_add=True)
+	ip = models.CharField(max_length=25)
+	checked = models.BooleanField(default=False)

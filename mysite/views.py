@@ -1,17 +1,19 @@
 from django.shortcuts import render
 from django.templatetags.static import static
 from django.core.exceptions import ObjectDoesNotExist
+from django.template.context_processors import csrf
 from mysite.models import *
 import os
 
 # Create your views here.
+project 
 
 #Function to handle the home-page
-def home(request) :
+def home(request):
     return render(request, 'index.html', {'page' : 'home'})
 
 #Function to handle past-project page
-def portofolio(request) :
+def portofolio(request):
 
     #Fetch all projects from database and load in context
     context = {
@@ -22,17 +24,17 @@ def portofolio(request) :
     return render(request, 'portofolio.html', context)
 
 #Function to display project details
-def project_handler(request, name) :
+def project_handler(request, name):
 
     #Fetch project details from database
-    try :
+    try:
         proj = project.objects.get(folder = name)
 
         images_folder = static('images/projects/' + name)
 
         images = []
 
-        for image in os.listdir(images_folder) :
+        for image in os.listdir(images_folder):
             images.append(os.path.join(images_folder, image))
 
 
@@ -44,7 +46,7 @@ def project_handler(request, name) :
 
         return render(request, name + '.html', context)
 
-    except ObjectDoesNotExist :
+    except ObjectDoesNotExist:
 
         context = {
             'message' : '<h1>I have no knowledge about this project ! </h1> <h3 class="subheader"><a href="/portofolio">Click here</a> to view all my projects ! </h3>'
@@ -53,13 +55,13 @@ def project_handler(request, name) :
         return render(request, 'error.html', context)
 
 #View to handle Academic Career Page
-def academic_career(request) :
+def academic_career(request):
 
     sgpa = [9.32, 9.45, 9.83, 9.55, 9.20, 9.48]
     credits = [21, 20, 24, 23, 25, 23]
 
     semwise = []
-    for i, x in enumerate(sgpa) :
+    for i, x in enumerate(sgpa):
         temp = []
         temp.append(sgpa[i])
         temp.append(credits[i])
@@ -109,7 +111,7 @@ def academic_career(request) :
 
     return render(request, 'academic_career.html', context)
 
-def professional_career(request) :
+def professional_career(request):
 
     context = {
         'page' : 'career',
@@ -118,19 +120,41 @@ def professional_career(request) :
     return render(request, 'professional_career.html', context)    
 
 #View To Handle 404 Errors
-def anything(request) :
+def anything(request):
 
     context = {
         'message' : '<h1>The page doesn\'t seem to exist !</h1>'
     }    
     return render(request, 'error.html', context)
 
-
-def skill_chart(request) :
+#View to draw Sunburst of skills
+def skill_chart(request):
 
     return render(request, 'sunburst.html', {})
 
-def add_stuff(request) :
+#Function to get IP Address of the request
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
+
+#View to handle the contact page
+def contact(request):
+
+    context = {}
+
+    if 'submit' in request.POST:
+        msg = message(name=request.POST['name'], email=request.POST['email'], message=request.POST['message'], ip=get_client_ip(request))
+        msg.save()
+        context.update({'message' : 'Your message was recorded ! You will hear from me ASAP :)', 'messagetype' : 'success'})
+
+    context.update(csrf(request))
+    return render(request, 'contact.html', context)
+
+def add_stuff(request):
 
     project.objects.all().remove()
     project_tab.objects.all().remove()
@@ -141,4 +165,4 @@ def add_stuff(request) :
     p.main_image = ""
     p.style = project.COURSE
     p.alt_text = ""
-    return "Added Stuff To Database Successfully"
+    return HTTPResponse("Added Stuff To Database Successfully")

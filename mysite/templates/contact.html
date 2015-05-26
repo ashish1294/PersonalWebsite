@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Ashish Kedia | Contact Me{% endblock %}
+{% load staticfiles %}
+{% block head %}{% endblock %}
+{% block content %}
+    <div id="subheader">
+        <div class="row">
+            <div class="twelve columns">
+                <p class="left">
+                     Contact Me
+                </p>
+                <p class="right">
+                     Get in touch today !
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="hr"></div>
+    <div class="row">
+        <!-- CONTACT FORM -->
+        <div class="twelve columns">
+            <div class="wrapcontact">
+                <h5>Reach me via</h5>
+                <div class="sociallist">
+                    <span class="socialemail"></span>Email : <a href="mailto:ashish1294@gmail.com">ashish1294@gmail.com</a>
+                </div>
+                <div class="hr"></div>
+                <h5>Or Leave Me A Message</h5>
+                {% if message %}
+                    <div class="done alert-box {{messagetype}}">
+                        {{message}} <a href="" class="close">x</a>
+                    </div>
+                {% endif %}
+                <form method="post" action="/contact" id="contactform">
+                    {% csrf_token %}
+                    <div class="form">
+                        <div class="six columns noleftmargin">
+                            <label>Name</label>
+                            <input type="text" name="name" class="smoothborder" placeholder="Your name *"/ maxlength="100">
+                        </div>
+                        <div class="six columns">
+                            <label>E-mail address</label>
+                            <input type="text" name="email" class="smoothborder" placeholder="Your e-mail address *" maxlength="500"/>
+                        </div>
+                        <label>Message</label>
+                        <textarea id= "vvf" name="message" class="smoothborder ctextarea" rows="8" placeholder="Message, feedback, comments *"></textarea>
+                        <input type="submit" id="submit" class="readmore" value="Submit" name="submit">
+                    </div>
+                </form>
+
+                <div class="hr"></div>
+                <h5>Or Find Me on Web</h5>       
+            </div>
+        </div>                                
+    </div>
+    <div class="hr"></div>
+{% endblock %}
