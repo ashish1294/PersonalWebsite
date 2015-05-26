@@ -6,3 +6,4 @@ Add Blog Page
 Add About me Page
 Change Footer
 Add Globsyn Certificates
+Add Links for Google Maps in Contact Page

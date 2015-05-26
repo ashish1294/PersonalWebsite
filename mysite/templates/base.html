@@ -11,6 +11,7 @@
     {%block head%}{%endblock%}
     <link rel="stylesheet" type="text/css" href="{% static 'css/skins/pink.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/face.png' %}">
 </head>
 <body background="{% static 'images/bg.png' %}">
     <!-- HIDDEN PANEL 
@@ -86,7 +87,9 @@
         </p>
         <div class="four columns">
             <h1>THIS WEBSITE</h1>
-             This website is powered by django.
+             Powered by django. <br/>
+             Credits : <a href="https://jquery.com/">JQuery</a>, <a href="http://www.wowthemes.net/">WowThemes</a>, <a href="https://github.com/">GitHub</a>
+           
         </div>
         <div class="four columns">
             <h1>GET SOCIAL</h1>
@@ -119,13 +122,13 @@
         </div>
         </footer>
     </div>
-    <div class="copyright" style="bottom: 0;">
+    <div class="copyright" style="bottom: 0; color: white;">
         <div class="row">
             <div class="six columns">
-                 &copy;<span class="small"> 2015, Ashish Kedia</span>
+                 &copy;<span class="small" style="color: white;"> 2015, Ashish Kedia</span>
             </div>
             <div class="six columns">
-                <span class="small floatright">This website is powered by django. <a href="http://www.github.com/ashish1294/PersonalWebsite" style="color: grey;">See Website Code</a></span>
+                <span class="small floatright" style="color: white;">This website is powered by django. <a href="http://www.github.com/ashish1294/PersonalWebsite" class="">See Website Code</a></span>
             </div>
         </div>
     </div>

@@ -791,8 +791,9 @@ a:focus { outline: none }
 #testimonials blockquote {  font-family: Georgia, "Times New Roman", Times, serif; font-style: italic; color: #808080; display: block; }
 #testimonials blockquote p { margin: 0 !important; padding: 5px!important; }
 #testimonials blockquote cite { font-style: normal; display: block; text-transform: uppercase; font-weight: bold; font-style: italic; padding-left: 5px; margin-top: 10px; }
-#footer { background: #151515; color: #666; padding: 30px 0; margin-top: 36px; }
-#footer a { color: #666; font-size: 12px; }
+#footer { background: #303030; color: #fff; padding: 30px 0; margin-top: 36px; }
+#footer a { color: #fff; font-size: 12px; text-decoration: underline;}
+#footer a:hover {text-decoration: none;}
 #footer h1 { font-size: 16px; color: #ccc; margin-bottom: 20px; }
 .newsmargin { margin-left: 46px }
 #footer .button { box-shadow: none; width: auto; nowhitespace: afterproperty; background: #444; color: #999; cursor: pointer; display: inline-block; font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-size: 13px; font-weight: bold; line-height: 1; margin: 0; outline: none; padding: 10px 10px 11px; position: relative; text-align: center; text-decoration: none; -webkit-transition: background-color 0.15s ease-in-out; -moz-transition: background-color 0.15s ease-in-out; -o-transition: background-color 0.15s ease-in-out; transition: background-color 0.15s ease-in-out; }
