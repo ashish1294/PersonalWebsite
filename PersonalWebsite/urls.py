@@ -18,5 +18,5 @@ urlpatterns = patterns('',
     url(r'^sitemap/?$', site_map),
     url(r'^search/?', search),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^.*$', anything),
+    url(r'^(.*)$', anything),
 )

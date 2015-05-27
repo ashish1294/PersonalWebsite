@@ -3,20 +3,37 @@ from django.templatetags.static import static
 from django.http import HttpResponse
 from django.core.exceptions import ObjectDoesNotExist
 from django.template.context_processors import csrf
-from mysite.models import project, message
+from django.conf import settings
+from mysite.models import project, message, normal_visit, project_visit,\
+  error_404_visit
 import os
+from pip.download import user_agent
 
-# Create your views here.
+#Function to get IP Address of the request
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
+  
+def record_visit(request, page):
+    normal_visit.new_visit(get_client_ip(request), page, request.META.get('HTTP_USER_AGENT'))
+    return normal_visit.unique_visit(page)
+  
 def site_map(request):
     return render(request, 'sitemap.xml', {}, content_type='text/xml')
 
 def search(request) :
-    print "Rendering Search"
-    
+    print "Rendering Search"  
     return render(request, 'search.html', {})
 #Function to handle the home-page
 def home(request):
-    return render(request, 'index.html', {'page' : 'home'})
+    return render(request, 'index.html', {
+        'page' : 'home',
+        'visitors' : record_visit(request, normal_visit.HOME_PAGE)
+    })
 
 #Function to handle past-project page
 def portofolio(request):
@@ -25,6 +42,7 @@ def portofolio(request):
     context = {
         'page' : 'portofolio',
         'project_list' : project.objects.all(),
+        'visitors' : record_visit(request, normal_visit.PORTOFOLIO)
     }
 
     return render(request, 'portofolio.html', context)
@@ -35,27 +53,33 @@ def project_handler(request, name):
     #Fetch project details from database
     try:
         proj = project.objects.get(folder = name)
-
-        images_folder = static('images/projects/' + name)
+        temp = os.path.join(os.path.join(settings.STATICFILES_DIRS[0], 'images'), 'projects')
+        images_folder = os.path.join(temp, name)
 
         images = []
 
         for image in os.listdir(images_folder):
             images.append(os.path.join(images_folder, image))
 
-
+        project_visit(ip=get_client_ip(request), user_agent=request.META.get('HTTP_USER_AGENT'), project=proj)
+        project_visit.save()
+        
         context = {
             'page' : 'portofolio',
             'project' : proj,
             'images' : images,
+            'visitors' : project_visit.objects.filter(project=proj).values('ip').distinct().count()
         }
 
         return render(request, name + '.html', context)
 
     except ObjectDoesNotExist:
-
+        
+        error_404_visit.record_error(get_client_ip(request), request.META.get('HTTP_USER_AGENT'),'project/' + name)
+        
         context = {
-            'message' : '<h1>I have no knowledge about this project ! </h1> <h3 class="subheader"><a href="/portofolio">Click here</a> to view all my projects ! </h3>'
+            'message' : '<h1>I have no knowledge about this project ! </h1> <h3 class="subheader"><a href="/portofolio">Click here</a> to view all my projects ! </h3>',
+            'visitors' : 'Error'
         }
 
         return render(request, 'error.html', context)
@@ -64,13 +88,13 @@ def project_handler(request, name):
 def academic_career(request):
 
     sgpa = [9.32, 9.45, 9.83, 9.55, 9.20, 9.48]
-    credits = [21, 20, 24, 23, 25, 23]
+    credit_list = [21, 20, 24, 23, 25, 23]
 
     semwise = []
     for i, x in enumerate(sgpa):
         temp = []
         temp.append(sgpa[i])
-        temp.append(credits[i])
+        temp.append(credit_list[i])
         semwise.append(temp)
 
     course_left = [
@@ -112,7 +136,8 @@ def academic_career(request):
         'semwise' : semwise,
         'cgpa' : 9.47,
         'course_left' : course_left,
-        'course_right' : course_right
+        'course_right' : course_right,
+        'visitors' : record_visit(request, normal_visit.ACADEMIC_CAREER)
     }
 
     return render(request, 'academic_career.html', context)
@@ -121,41 +146,34 @@ def professional_career(request):
 
     context = {
         'page' : 'career',
+        'visitors' : record_visit(request, normal_visit.PROFESSIAL_CAREER)
     }
 
-    return render(request, 'professional_career.html', context)    
+    return render(request, 'professional_career.html', context)
 
 #View To Handle 404 Errors
-def anything(request):
+def anything(request, path):
 
+    error_404_visit.record_error(get_client_ip(request), request.META.get('HTTP_USER_AGENT'), path)
+    
     context = {
-        'message' : '<h1>The page doesn\'t seem to exist !</h1>'
+        'message' : '<h1>The page doesn\'t seem to exist !</h1>',
+        'visitors' : 'Error'
     }    
     return render(request, 'error.html', context)
 
 #View to draw Sunburst of skills
 def skill_chart(request):
-
     return render(request, 'sunburst.html', {})
 
 #View to Render the Blog
 def blog(request):
-
-    return render(request, 'blog.html', {})
-
-#Function to get IP Address of the request
-def get_client_ip(request):
-    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-    if x_forwarded_for:
-        ip = x_forwarded_for.split(',')[0]
-    else:
-        ip = request.META.get('REMOTE_ADDR')
-    return ip
+    return render(request, 'blog.html', {'visitors' : record_visit(request, normal_visit.BLOG)})
 
 #View to handle the contact page
 def contact(request):
 
-    context = {}
+    context = {'visitors' : record_visit(request, normal_visit.BLOG)}
 
     if 'submit' in request.POST:
         msg = message(name=request.POST['name'], email=request.POST['email'], message=request.POST['message'], ip=get_client_ip(request))
