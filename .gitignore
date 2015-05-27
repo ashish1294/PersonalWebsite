@@ -4,3 +4,4 @@ my_env/*
 .project
 .pydevproject
 *~
+website_certificate_files/*

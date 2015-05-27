@@ -92,7 +92,8 @@ USE_TZ = True
 
 PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = 'staticfiles'
-STATIC_URL = os.path.join(os.path.join(os.path.abspath(os.path.join(PROJECT_PATH, os.pardir)),'mysite/'),'files/')
+#STATIC_URL = os.path.join(os.path.join(os.path.abspath(os.path.join(PROJECT_PATH, os.pardir)),'mysite/'),'files/')
+STATIC_URL = "/static/"
 
 STATICFILES_DIRS = (
     os.path.join(os.path.join(os.path.abspath(os.path.join(PROJECT_PATH, os.pardir)),'mysite'),'files'),
