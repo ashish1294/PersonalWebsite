@@ -85,38 +85,29 @@
         <p class="back-top floatright">
             <a href="#top"><span></span></a>
         </p>
-        <div class="four columns">
+        <div class="three columns">
             <h1>THIS WEBSITE</h1>
-             Powered by django. <br/>
-             Credits : <a href="https://jquery.com/">JQuery</a>, <a href="http://www.wowthemes.net/">WowThemes</a>, <a href="https://github.com/">GitHub</a>
-           
+                 Powered by django. <br/>
+                 Credits : <a href="https://jquery.com/">JQuery</a>, <a href="http://www.wowthemes.net/">WowThemes</a>, <a href="https://github.com/">GitHub</a> <br />
+                 Server : Apache 2.4, DigitalOcean
+        </div>
+        <div class="two columns" style="display:table-cell; vertical-align:middle; text-align:center">
+            <img src="{% static 'images/PositiveSSL_tl_trans.png' %}" alt="Certified by Positive SSL" title="Certified by Positive SSL" border="0" />
+        </div>
+        <div class="three columns">
+            This connection is encrypted. This domain has a valid SSL Certificate issued by Positive SSL. <br />
+            Appropriate for audience of all ages.
         </div>
         <div class="four columns">
-            <h1>GET SOCIAL</h1>
-            <!--<div class="social facebook">
-                <a href="#"></a>
-            </div>
-            <div class="social twitter">
-                <a href="#"></a>
-            </div>
-            <div class="social deviantart">
-                <a href="#"></a>
-            </div>
-            <div class="social flickr">
-                <a href="#"></a>
-            </div>
-            <div class="social dribbble">
-                <a href="#"></a>
-            </div>-->
-        </div>
-        <div class="four columns">
-            <h1 class="newsmargin">NEWSLETTER</h1>
+            <h1 class="newsmargin">SEARCH THIS SITE</h1>
             <div class="row collapse newsletter floatright">
                 <div class="ten mobile-three columns">
-                    <input type="text" class="nomargin" placeholder="Enter your e-mail address...">
+                    <form action="/search" method="get" target="_blank">
+                        <input type="text" class="nomargin" name="q" placeholder="Enter Keyword...">
                 </div>
                 <div class="two mobile-one columns">
-                    <a href="#" class="postfix button expand">GO</a>
+
+                    <input type="submit" class="postfix button expand" value="GO">
                 </div>
             </div>
         </div>

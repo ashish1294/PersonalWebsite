@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from mysite.views import home, portofolio, project_handler, academic_career, skill_chart, contact, professional_career, anything, blog
+from mysite.views import home, portofolio, project_handler, academic_career, skill_chart, contact, professional_career, anything, blog, site_map, search
 
 urlpatterns = patterns('',
     # Examples:
@@ -15,6 +15,8 @@ urlpatterns = patterns('',
     url(r'^charts/skill$', skill_chart),
     url(r'blog/?$', blog),
     url(r'^contact/?$', contact),
+    url(r'^sitemap/?$', site_map),
+    url(r'^search/?', search),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^.*$', anything),
 )

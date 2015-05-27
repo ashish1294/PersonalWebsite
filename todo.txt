@@ -6,8 +6,5 @@ Add Blog Page
 Add About me Page
 Change Footer
 Add Globsyn Certificates
-<<<<<<< Updated upstream
 Add Links for Google Maps in Contact Page
-=======
 Add Feeds from Facebook, LinkedIn, Quora into About Me
->>>>>>> Stashed changes

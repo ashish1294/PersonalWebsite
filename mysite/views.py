@@ -7,8 +7,13 @@ from mysite.models import project, message
 import os
 
 # Create your views here.
-project 
+def site_map(request):
+    return render(request, 'sitemap.xml', {}, content_type='text/xml')
 
+def search(request) :
+    print "Rendering Search"
+    
+    return render(request, 'search.html', {})
 #Function to handle the home-page
 def home(request):
     return render(request, 'index.html', {'page' : 'home'})
