@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.templatetags.static import static
 from django.http import HttpResponse
 from django.core.exceptions import ObjectDoesNotExist
 from django.template.context_processors import csrf
@@ -7,7 +6,6 @@ from django.conf import settings
 from mysite.models import project, message, normal_visit, project_visit,\
   error_404_visit
 import os
-from pip.download import user_agent
 
 #Function to get IP Address of the request
 def get_client_ip(request):
@@ -61,24 +59,29 @@ def project_handler(request, name):
         for image in os.listdir(images_folder):
             images.append(os.path.join(images_folder, image))
 
-        project_visit(ip=get_client_ip(request), user_agent=request.META.get('HTTP_USER_AGENT'), project=proj)
+        project_visit(ip=get_client_ip(request),
+            user_agent=request.META.get('HTTP_USER_AGENT'), project=proj)
         project_visit.save()
         
         context = {
             'page' : 'portofolio',
             'project' : proj,
             'images' : images,
-            'visitors' : project_visit.objects.filter(project=proj).values('ip').distinct().count()
+            'visitors' : project_visit.objects.filter(project=proj)
+                .values('ip').distinct().count()
         }
 
         return render(request, name + '.html', context)
 
     except ObjectDoesNotExist:
         
-        error_404_visit.record_error(get_client_ip(request), request.META.get('HTTP_USER_AGENT'),'project/' + name)
+        error_404_visit.record_error(get_client_ip(request),
+            request.META.get('HTTP_USER_AGENT'),'project/' + name)
         
         context = {
-            'message' : '<h1>I have no knowledge about this project ! </h1> <h3 class="subheader"><a href="/portofolio">Click here</a> to view all my projects ! </h3>',
+            'message' : '''<h1>I have no knowledge about this project ! </h1>
+                <h3 class="subheader"> <a href="/portofolio">Click here</a>
+                to view all my projects ! </h3>''',
             'visitors' : 'Error'
         }
 
@@ -91,7 +94,7 @@ def academic_career(request):
     credit_list = [21, 20, 24, 23, 25, 23]
 
     semwise = []
-    for i, x in enumerate(sgpa):
+    for i in range(len(sgpa)):
         temp = []
         temp.append(sgpa[i])
         temp.append(credit_list[i])
@@ -176,12 +179,18 @@ def contact(request):
     context = {'visitors' : record_visit(request, normal_visit.BLOG)}
 
     if 'submit' in request.POST:
-        msg = message(name=request.POST['name'], email=request.POST['email'], message=request.POST['message'], ip=get_client_ip(request))
+        msg = message(name=request.POST['name'], email=request.POST['email'],
+            message=request.POST['message'], ip=get_client_ip(request))
         msg.save()
         context.update({'message' : 'Your message was recorded ! You will hear from me ASAP :)', 'messagetype' : 'success'})
 
     context.update(csrf(request))
     return render(request, 'contact.html', context)
+
+def about_me(request):
+    
+    return render(request, 'aboutme.html',
+        {'visitors' : record_visit(request, normal_visit.ABOUT_ME)})
 
 def add_stuff(request):
 
