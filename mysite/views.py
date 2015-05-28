@@ -57,11 +57,12 @@ def project_handler(request, name):
         images = []
 
         for image in os.listdir(images_folder):
-            images.append(os.path.join(images_folder, image))
+            images.append('images/projects/' + name + '/' + image)
+            print 'images/projects/' + name + '/' + image
 
-        project_visit(ip=get_client_ip(request),
+        vis = project_visit(ip=get_client_ip(request),
             user_agent=request.META.get('HTTP_USER_AGENT'), project=proj)
-        project_visit.save()
+        vis.save()
         
         context = {
             'page' : 'portofolio',
@@ -171,12 +172,20 @@ def skill_chart(request):
 
 #View to Render the Blog
 def blog(request):
-    return render(request, 'blog.html', {'visitors' : record_visit(request, normal_visit.BLOG)})
+
+    context = {
+        'visitors' : record_visit(request, normal_visit.BLOG),
+        'page' : 'blog'
+    }
+    return render(request, 'blog.html', context)
 
 #View to handle the contact page
 def contact(request):
 
-    context = {'visitors' : record_visit(request, normal_visit.BLOG)}
+    context = {
+        'visitors' : record_visit(request, normal_visit.BLOG),
+        'page' : 'contact'
+    }
 
     if 'submit' in request.POST:
         msg = message(name=request.POST['name'], email=request.POST['email'],

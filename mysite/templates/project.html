@@ -33,9 +33,9 @@
 		<p>For installation instructions, source code and other details<a href="{{project.link}}" target="_blank"> click here</a>.</p>
 		{% for image in images %}
 			{% if forloop.counter == 1%}
-				<p>To view the project gallery <a data-gal="prettyPhoto[gallery]" href="{{image}}"> click here</a>.</p>
+				<p>To view the project gallery <a data-gal="prettyPhoto[gallery]" href="{% static image %}"> click here</a>.</p>
 			{% else %}
-				<a data-gal="prettyPhoto[gallery]" href="{{image}}"></a>
+				<a data-gal="prettyPhoto[gallery]" href="{% static image %}"></a>
 			{% endif%}
 		{% endfor %}
 		{% block tabs %}{% endblock %}
@@ -46,7 +46,7 @@
 		<div class="slider-wrapper theme-default">
 			<div id="slider" class="nivoSlider detailslider">
 				{% for image in images %}
-					<img src="{{image}}" data-thumb="" alt=""/>
+					<img src="{% static image %}" data-thumb="" alt=""/>
 				{% endfor %}
 			</div>
 		</div>
