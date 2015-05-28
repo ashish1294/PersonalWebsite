@@ -37,13 +37,7 @@ class blog(models.Model):
   subtitle = models.TextField()
   time_added = models.DateTimeField(auto_now_add=True)
 
-class visit(models.Model):
-  
-  visit_time = models.DateTimeField(auto_now_add=True)
-  ip = models.CharField(max_length=25)
-  user_agent = models.TextField()
-
-class normal_visit(visit):
+class normal_visit(models.Model):
   
   HOME_PAGE = 'home'
   PROFESSIAL_CAREER = 'prof_career'
@@ -55,6 +49,9 @@ class normal_visit(visit):
   ABOUT_ME = 'about_me'
   SITE_MAP = 'sitemap'
   
+  visit_time = models.DateTimeField(auto_now_add=True)
+  ip = models.CharField(max_length=25)
+  user_agent = models.TextField()
   page = models.CharField(max_length=20)
   
   @classmethod
@@ -66,16 +63,25 @@ class normal_visit(visit):
   def unique_visit(cls, page):
     return normal_visit.objects.filter(page=page).values('ip').distinct().count()
 
-class project_visit(visit):
+class project_visit(models.Model):
   
+  visit_time = models.DateTimeField(auto_now_add=True)
+  ip = models.CharField(max_length=25)
+  user_agent = models.TextField()
   project = models.ForeignKey(project)
 
-class blog_visit(visit):
+class blog_visit(models.Model):
   
+  visit_time = models.DateTimeField(auto_now_add=True)
+  ip = models.CharField(max_length=25)
+  user_agent = models.TextField()
   blog = models.ForeignKey(blog)
 
-class error_404_visit(visit):
+class error_404_visit(models.Model):
   
+  visit_time = models.DateTimeField(auto_now_add=True)
+  ip = models.CharField(max_length=25)
+  user_agent = models.TextField()
   url_requested = models.TextField()
   
   @classmethod

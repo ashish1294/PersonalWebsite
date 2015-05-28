@@ -1,0 +1,27 @@
+Instructions :
+
+On Server :
+
+1. Install following Packages
+sudo apt-get install python python-pip
+sudo apt-get install mysql phpmyadmin
+sudo apt-get install apache2 libapache2-mod-wsgi apache2-utils
+sudo apt-get install rsync
+sudo apt-get install python-mysql
+sudo pip install django
+
+2. Edit Apache COnfiguration - 443, Static, WSGI
+
+3. Configure SSL Certificate files
+
+4. Configure Django settings for production --*Keep Production Setting Away from MYSQL*--
+
+5. Enter Static Data linke project to the database server
+
+6. setup phpmyadmin, setup htpasswd for phpmyadmin for more security - https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-12-04
+
+7. change password for VM Login, MySQl Server, Htaccess
+Change Links for PHPMyadmin
+
+Other Things:
+pip install virtualenv ----- extremely buggy with MySQL-python. Egg-Info error can be resolved with link
