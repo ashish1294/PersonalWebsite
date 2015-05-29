@@ -18,7 +18,7 @@ SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'yhq)6e49o24x6=70425d7$+d6-9n+oy!k$v6kj6c&n1s&ovh5='
+SECRET_KEY = 'just@a(random)secret&key'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -67,7 +67,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'personalwebsite',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'sumimenpc',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }

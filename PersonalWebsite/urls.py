@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from mysite.views import home, portofolio, project_handler, academic_career,\
     skill_chart, contact, professional_career, anything, blog, site_map, \
-    search, about_me, achievement, add_testimonial
+    search, about_me, add_testimonial, achievement
 
 urlpatterns = patterns('',
     # Examples:
@@ -29,7 +29,9 @@ urlpatterns = patterns('',
     url(r'^about_me/?$', about_me),
     url(r'^achievements/?$', achievement),
     url(r'^sitemap/?$', site_map),
+    url(r'^site_map/?$', site_map),
+    url(r'^sitemap.xml$', site_map),
     url(r'^search/?', search),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^ashish1294_secret/admin/?$', include(admin.site.urls)),
     url(r'^(.*)$', anything),
 )

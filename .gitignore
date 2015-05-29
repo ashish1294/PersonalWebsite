@@ -5,3 +5,4 @@ my_env/*
 .pydevproject
 *~
 website_certificate_files/*
+production_site/*

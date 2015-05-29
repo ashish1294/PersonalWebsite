@@ -1,14 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<url><loc>http://www.ashishkedia.me/</loc><changefreq>daily</changefreq><priority>1.00</priority></url>
-<url><loc>http://www.ashishkedia.me/</loc><changefreq>daily</changefreq><priority>1.00</priority></url>
-<url><loc>https://www.ashishkedia.me</loc><changefreq>daily</changefreq><priority>1.00</priority></url>
-<url><loc>https://www.ashishkedia.me/portofolio</loc><changefreq>daily</changefreq><priority>0.85</priority></url>
-<url><loc>https://www.ashishkedia.me/career/academic</loc><changefreq>daily</changefreq><priority>0.85</priority></url>
-<url><loc>https://www.ashishkedia.me/career/professional</loc><changefreq>daily</changefreq><priority>0.85</priority></url>
-<url><loc>https://www.ashishkedia.me/achievements</loc><changefreq>daily</changefreq><priority>0.85</priority></url>
-<url><loc>https://www.ashishkedia.me/blog</loc><changefreq>daily</changefreq><priority>0.85</priority></url>
-<url><loc>https://www.ashishkedia.me/contact</loc><changefreq>daily</changefreq><priority>0.85</priority></url>
-<url><loc>https://www.ashishkedia.me/aboutme</loc><changefreq>daily</changefreq><priority>0.85</priority></url>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<!-- Site Map of My Personal Website ~ Ashish Kedia -->
+<!-- Do you understand this s**t ? Cool ! Congrats, you're a nerd :P Let's get in touch :D -->
+
+<url>
+  <loc>https://www.ashishkedia.me/</loc>
+  <changefreq>daily</changefreq>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.ashishkedia.me/aboutme</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashishkedia.me/portofolio</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashishkedia.me/career/academic</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashishkedia.me/career/professional</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashishkedia.me/achievements</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashishkedia.me/blog</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashishkedia.me/contact</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashishkedia.me/add_testimonial</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashishkedia.me/sitemap</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ashishkedia.me/projects/dfc_query_builder</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ashishkedia.me/projects/web_service_retrieval</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ashishkedia.me/projects/chess</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ashishkedia.me/projects/taj_defender</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ashishkedia.me/projects/flint</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ashishkedia.me/projects/galaxian</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ashishkedia.me/projects/konnect</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ashishkedia.me/projects/digital_passbook</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ashishkedia.me/projects/online_banking</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ashishkedia.me/projects/sgc_app</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ashishkedia.me/projects/code_now</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
 </urlset>
- 
