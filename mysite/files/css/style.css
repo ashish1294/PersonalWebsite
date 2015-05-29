@@ -101,7 +101,7 @@ textarea { height: auto }
 select { width: 100% }
 /* Fieldsets */
 fieldset { border: solid 1px #ddd; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; padding: 12px 12px 0; margin: 18px 0; }
-fieldset legend { font-weight: bold; background: white; padding: 0 3px; margin: 0; margin-left: -3px; }
+fieldset legend { font-weight: bold;  padding: 0 3px; margin: 0; margin-left: -3px; }
 /* Errors */
 .error input,input.error,.error textarea,textarea.error { border-color: #c60f13; background-color: rgba(198, 15, 19, 0.1); }
 .error label,label.error { color: #c60f13 }
@@ -969,4 +969,11 @@ a:focus { outline: none }
 
 .webcontacttable a:hover{
   text-decoration: none;
+}
+
+.comptable img{
+	height : 20px;
+	vertical-align: middle;
+	padding-right: 20px;
+	padding-left: 10px;
 }

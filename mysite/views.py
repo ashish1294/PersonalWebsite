@@ -4,7 +4,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.template.context_processors import csrf
 from django.conf import settings
 from mysite.models import project, message, normal_visit, project_visit,\
-  error_404_visit
+  error_404_visit, testimonial
 import os
 
 #Function to get IP Address of the request
@@ -28,10 +28,14 @@ def search(request) :
     return render(request, 'search.html', {})
 #Function to handle the home-page
 def home(request):
-    return render(request, 'index.html', {
+
+    context = {
         'page' : 'home',
-        'visitors' : record_visit(request, normal_visit.HOME_PAGE)
-    })
+        'visitors' : record_visit(request, normal_visit.HOME_PAGE),
+        'testimonial_list' : testimonial.objects.filter(approved=True),
+    }
+
+    return render(request, 'index.html', context)
 
 #Function to handle past-project page
 def portofolio(request):
@@ -209,6 +213,27 @@ def achievement(request):
         'visitors': record_visit(request, normal_visit.ACHIEVEMENTS),
         'page' : 'achievements'
     })
+
+def add_testimonial(request):
+
+    context = {
+        'visitors' : record_visit(request, normal_visit.ADD_TESTIMONIAL),
+    }
+    context.update(csrf(request))
+
+    if 'submit' in request.POST:
+        test = testimonial(
+            author = request.POST['author'],
+            email = request.POST['email'],
+            conection = request.POST['connection'],
+            ip = get_client_ip(request),
+            content = request.POST['content']
+        )
+
+        test.save()
+        context.update({'message' : 'Your Testmonial has been successfully submitted for Approval !'})
+
+    return render(request, 'add_testimonial.html', context)
 
 def add_stuff(request):
 

@@ -1,8 +1,7 @@
 Add D3 Sunburst for Portfolio
 Add Chart for Class-Wise Performance
-Add Competitive Programming
 Add Blog Entries
-Add About me Page
-Add Globsyn Certificates
+Add Globsyn Certificates, other school certificate. Update Links
+Add images in academic career.
 Add Links for Google Maps in Contact Page
-Add Feeds from Facebook, LinkedIn, Quora into About Me
+Add Feeds from Facebook, LinkedIn into About Me - Have to use graph APIs

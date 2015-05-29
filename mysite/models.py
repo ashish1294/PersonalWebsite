@@ -31,6 +31,16 @@ class message(models.Model):
     ip = models.CharField(max_length=25)
     checked = models.BooleanField(default=False)
 
+class testimonial(models.Model):
+
+    author = models.CharField(max_length=200)
+    email = models.CharField(max_length=500)
+    conection = models.CharField(max_length=200)
+    time = models.DateTimeField(auto_now_add=True)
+    ip = models.CharField(max_length=25)
+    content = models.TextField()
+    approved = models.BooleanField(default=False)
+
 class blog(models.Model):
     
     title = models.CharField(max_length=150)
@@ -48,6 +58,7 @@ class normal_visit(models.Model):
     ACHIEVEMENTS = 'achievements'
     ABOUT_ME = 'about_me'
     SITE_MAP = 'sitemap'
+    ADD_TESTIMONIAL = 'add_testimonial'
     
     visit_time = models.DateTimeField(auto_now_add=True)
     ip = models.CharField(max_length=25)

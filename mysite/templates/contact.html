@@ -19,6 +19,11 @@
     <div class="row">
         <div class="twelve columns">
             <div class="wrapcontact">
+                {% if message %}
+                    <div class="done alert-box {{messagetype}}">
+                        {{message}} <a href="" class="close">x</a>
+                    </div>
+                {% endif %}
                 <h5>Ping me Quickly</h5>
                 <div class="sociallist twelve columns">
                     <span class="socialemail"></span>Email : <a href="mailto:ashish1294+homepage@gmail.com">ashish1294@gmail.com</a> <br /> <br />
@@ -47,11 +52,6 @@
                 </div>
                 
                 <h5>Or Leave A Message For Me</h5>
-                {% if message %}
-                    <div class="done alert-box {{messagetype}}">
-                        {{message}} <a href="" class="close">x</a>
-                    </div>
-                {% endif %}
                 <form method="post" action="/contact" id="contactform">
                     {% csrf_token %}
                     <div class="form">

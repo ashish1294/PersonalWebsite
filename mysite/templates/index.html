@@ -182,7 +182,18 @@
         <div class="centersectiontitle">
             <h4>Testimonials</h4>
         </div>
-        Here you see what my friends, relatives, colleagues and others have to say about me. <br/>
+        Here you can see what my friends, relatives, colleagues and others have to say about me. <br/> <br/>
+        {% if testimonial_list|length == 0 %}
+            No testimonial to display :( Be the first one to write a testimonial for me :) <br/> <br/>
+        {% else %}
+            {% for test in testimonial_list %}
+                <blockquote><i>"{{test.content}}"</i></blockquote>
+                <cite> ~ {{test.author}}, {{test.conection}}</cite>
+                <br />
+                <br />
+            {% endfor %}
+        {% endif %}
+        If you want to write a testimonial for me <a href="/add_testimonial">click here</a>.
     </div>
 </div>
     
