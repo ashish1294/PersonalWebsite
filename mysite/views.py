@@ -198,8 +198,17 @@ def contact(request):
 
 def about_me(request):
     
-    return render(request, 'aboutme.html',
-        {'visitors' : record_visit(request, normal_visit.ABOUT_ME)})
+    return render(request, 'aboutme.html', {
+        'visitors' : record_visit(request, normal_visit.ABOUT_ME),
+        'page' : 'aboutme'
+    })
+
+def achievement(request):
+    
+    return render(request, 'achievements.html', {
+        'visitors': record_visit(request, normal_visit.ACHIEVEMENTS),
+        'page' : 'achievements'
+    })
 
 def add_stuff(request):
 
