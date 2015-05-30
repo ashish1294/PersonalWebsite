@@ -95,7 +95,7 @@ span.prefix,span.postfix { background: #f2f2f2; border: 1px solid #cccccc; }
 .postfix { right: 2px; -moz-border-radius-topright: 2px; -webkit-border-top-right-radius: 2px; border-top-right-radius: 2px; -moz-border-radius-bottomright: 2px; -webkit-border-bottom-right-radius: 2px; border-bottom-right-radius: 2px; }
 input[type="text"],input[type="password"],input[type="date"],input[type="datetime"],input[type="email"],input[type="number"],input[type="search"],input[type="tel"],input[type="time"],input[type="url"],textarea { font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; border: 0px; -webkit-border-radius: 2px; -moz-border-radius: 2px; -ms-border-radius: 2px; -o-border-radius: 2px; border-radius: 2px; -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); color: rgba(0, 0, 0, 0.75); display: block; font-size: 14px; margin: 1px 0 12px 0; padding: 6px; height: 30px; width: 100%; -webkit-transition: all 0.3s linear; -moz-transition: all 0.3s linear; -o-transition: all 0.3s linear; transition: all 0.3s linear; }
 input[type="text"].oversize,input[type="password"].oversize,input[type="date"].oversize,input[type="datetime"].oversize,input[type="email"].oversize,input[type="number"].oversize,input[type="search"].oversize,input[type="tel"].oversize,input[type="time"].oversize,input[type="url"].oversize,textarea.oversize { font-size: 17px; padding: 4px 6px; }
-input[type="text"]:focus,input[type="password"]:focus,input[type="date"]:focus,input[type="datetime"]:focus,input[type="email"]:focus,input[type="number"]:focus,input[type="search"]:focus,input[type="tel"]:focus,input[type="time"]:focus,input[type="url"]:focus,textarea:focus { background: #fafafa; outline: none !important; border-color: #b3b3b3; -webkit-box-shadow: 0px 0px 11px 1px rgba(165,52,230,0.79);-moz-box-shadow: 0px 0px 11px 1px rgba(165,52,230,0.79); box-shadow: 0px 0px 11px 1px rgba(165,52,230,0.79);}
+input[type="text"]:focus,input[type="password"]:focus,input[type="date"]:focus,input[type="datetime"]:focus,input[type="email"]:focus,input[type="number"]:focus,input[type="search"]:focus,input[type="tel"]:focus,input[type="time"]:focus,input[type="url"]:focus,textarea:focus { background: #fafafa; outline: none !important; border-color: #b3b3b3; -webkit-box-shadow: 0px 0px 11px 1px rgba(255,115,115,0.79);-moz-box-shadow: 0px 0px 11px 1px rgba(255,115,115,0.79); box-shadow: 0px 0px 11px 1px rgba(255,115,115,0.79);}
 input[type="text"][disabled],input[type="password"][disabled],input[type="date"][disabled],input[type="datetime"][disabled],input[type="email"][disabled],input[type="number"][disabled],input[type="search"][disabled],input[type="tel"][disabled],input[type="time"][disabled],input[type="url"][disabled],textarea[disabled] { background-color: #ddd }
 textarea { height: auto }
 select { width: 100% }
@@ -796,7 +796,7 @@ a:focus { outline: none }
 #footer a:hover {text-decoration: none;}
 #footer h1 { font-size: 16px; color: #ccc; margin-bottom: 20px; }
 .newsmargin { margin-left: 46px }
-#footer .button { box-shadow: none; width: auto; nowhitespace: afterproperty; background: #a534e6; color: #FFF; cursor: pointer; display: inline-block; font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-size: 13px; font-weight: bold; line-height: 1; margin: 0; outline: none; padding: 10px 10px 11px; position: relative; text-align: center; text-decoration: none; -webkit-transition: background-color 0.15s ease-in-out; -moz-transition: background-color 0.15s ease-in-out; -o-transition: background-color 0.15s ease-in-out; transition: background-color 0.15s ease-in-out; }
+#footer .button { box-shadow: none; width: auto; nowhitespace: afterproperty; background: #FF7373; color: #FFF; cursor: pointer; display: inline-block; font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-size: 13px; font-weight: bold; line-height: 1; margin: 0; outline: none; padding: 10px 10px 11px; position: relative; text-align: center; text-decoration: none; -webkit-transition: background-color 0.15s ease-in-out; -moz-transition: background-color 0.15s ease-in-out; -o-transition: background-color 0.15s ease-in-out; transition: background-color 0.15s ease-in-out; }
 #footer input[type="text"] { background: #555; font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; border: 1px solid #333; -webkit-border-radius: 2px; -moz-border-radius: 2px; -ms-border-radius: 2px; -o-border-radius: 2px; border-radius: 2px; color: #FFF; display: block; font-size: 12px; margin: 0 0 12px 0; padding: 6px; height: 32px; width: 100%; -webkit-transition: all 0.15s linear; -moz-transition: all 0.15s linear; -o-transition: all 0.15s linear; transition: all 0.15s linear; box-shadow: none; }
 #footer input[type="text"]:focus { -webkit-box-shadow: 0px 0px 11px 1px rgba(205,255,255,0.79); -moz-box-shadow: 0px 0px 11px 1px rgba(255,255,255,0.85); box-shadow: 0px 0px 11px 1px rgba(255,255,255,0.85); }
 .copyright { background: #111; padding: 7px 0; border-top: 1px solid #181818; color: #444; }
@@ -868,13 +868,14 @@ a:focus { outline: none }
 .optionscolor {width:20px;height:20px;border:1px solid #fff; float:left;}
 
 .nav-bar li.current{
-    background:#a534e6;
+    background:#FF7373;
 }
-.nav-bar li.current a:hover{
+.nav-bar li.current a:hover, .nav-bar li.current a:focus{
     color: white;
 }
+
 .nav-bar li.current ul a:hover{
-	color:#a534e6;
+	color:#FF7373;
 }
 
 .sociallist{
