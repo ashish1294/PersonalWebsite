@@ -23,5 +23,7 @@ sudo pip install django
 7. change password for VM Login, MySQl Server, Htaccess
 Change Links for PHPMyadmin
 
+8. During Production - take care of Manual match for base.html - google analytics code
+
 Other Things:
 pip install virtualenv ----- extremely buggy with MySQL-python. Egg-Info error can be resolved with link
