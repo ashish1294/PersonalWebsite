@@ -1,0 +1,41 @@
+{% extends "project.html" %}
+{% load staticfiles %}
+{% block description %}
+  <p>
+        A Windows Store Application that uses Microsoft Kinnect v2 for Windows to prevent road accidents by determining in the driver is drowsy. 
+  </p>
+    <p>
+        This project was done as a part of the <i>Code.Fun.Do</i> hackathon organized by Microsoft during my 
+        undergraduation in February 2015. My team Bug Assassins was declared runners up for this application.
+    </p>
+    <p>
+        The application uses several data provided by the Microsoft Kinect SDK. The kinect is install in-front
+        of the driver and regularly monitors the drivers head. It extracts details from the driver's face to
+        determine if the driver is sleepy and if the driver is caught sleepy an alarm is triggered.
+    </p>
+{% endblock %}
+{% block tabs %}
+  <dl class="tabs">
+        <dd class="active"><a href="#simple1">Highlights</a></dd>
+        <dd><a href="#simple2">Basic Algorithms</a></dd>
+    </dl>
+    <ul class="tabs-content">
+        <li class="active" id="simple1Tab">
+            <ul class="disk">
+                <li>Uses many Windows UI features</li>
+                <li>Very low Calibration time - i.e., 10 secs</li>
+                <li>Real time application and less resource intensive</li>
+                <li>A gesture control for driver is under development</li>
+                <li>Detection of pulse using the variation in face color</li>
+            </ul>
+        </li>
+        <li id="simple2Tab">
+            <ul class="disk">
+                <li>Face Mesh Extracted with 79 points</li>
+                <li>Using depth and color gradient - process image to extract eye</li>
+                <li>Extracted face orientation to ensure head in looking front</li>
+                <li>Lip Curves are used to determine if the mouth is open - Yawning</li>
+            </ul>
+        </li>
+    </ul>
+{% endblock %}

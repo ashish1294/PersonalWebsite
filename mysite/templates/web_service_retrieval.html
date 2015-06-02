@@ -2,22 +2,32 @@
 {% load staticfiles %}
 {% block description %}
     <p>
-        It is a basic automatic web service retrieval mechanism based on 7-D vector space and co-sine similarity. OWL is a service-description document which describes the document using rish semantics. We used this document associated with each web service to search for desired service.
+        It is a basic automatic web service retrieval mechanism based on 7-D vector space and co-sine similarity. 
+        OWL is a service-description document which describes the document using rich semantics. We used this 
+        document associated with each web service to search for desired service.
     </p>
     <p>
         This project was done as a part of <i>Web Technologies and Applications</i> course between September to November, 2014.
+        This project was further improved as a part of <i>Web Services</i> course between January to April, 2015. 
     </p>
     <p>
-        Web Service Interfaces was used to search for similar services. The &lt;&lt;<b>profile:hasinput</b>&gt;&gt; and &lt;&lt;<b>profile:hasoutput</b>&gt;&gt; was extracted for around 1000+ OWL documents in our data-set. Keywords in those interfaces was used to search for services.
+        Web Service Interfaces was used to search for similar services. The &lt;&lt;<b>profile:hasinput</b>&gt;&gt; 
+        and &lt;&lt;<b>profile:hasoutput</b>&gt;&gt; was extracted for around 1000+ OWL documents in our data-set. 
+        Keywords in those interfaces was used to search for services. <br/>
+        Semantic search was done using text description of services using NLP techniques.
     </p>
     <p>
         To view the full version of final Project Report <a href="https://drive.google.com/open?id=0B6A-3_6rwie9UUtlYVVFOTRHSUE&authuser=0" target="_blank">click here</a>.
     </p>
+    <p>
+        To view a short presentation on the project <a href="https://drive.google.com/open?id=0B6A-3_6rwie9azVpRGdmTGZ4LWM&authuser=0" target="_blank">click here</a>.
+    </p>
 {% endblock %}
 {% block tabs %}
     <dl class="tabs">
-        <dd class="active"><a href="#simple1">Service Categories</a></dd>
+        <dd class="active"><a href="#simple1">Keywords</a></dd>
         <dd><a href="#simple2">Features</a></dd>
+        <dd><a href="#simple3">Semantics</a></dd>
     </dl>
     <ul class="tabs-content">
         <li class="active" id="simple1Tab">
@@ -32,6 +42,7 @@
                     <li>Travel</li>
                     <li>Weapon</li>
                 </ul>
+                Using these categories vectors for search and service is created and matched using cosine similarity.
             </div>
             <div class="six columns">
                 A 7-dimension vector space was considered where each of these mentioned category represents a dimension. Each service as well as user's query is represented as a vector in this vector space. After this, co-sine similarity is used to find services similar to user's query.
@@ -55,6 +66,16 @@
                     <img src="{% static 'images/check.png' %}" alt=""/> Bash scripts to search match keywords using regular expressions
                 </p>
             </div>
+        </li>
+        <li id="simple3Tab">
+        <p>
+            For semantic search we extracted the text description, disambiguated all the words and establish
+            the context for the service. We find services with similar context and combine with keyword search.
+        </p>
+        <p>
+            For service composition we construct a DAG with each service as node and edges representing similar
+            interfaces. To query, we do a DFS traversal and find the service with most similar output.
+        </p>  
         </li>
     </ul>
 {% endblock %}

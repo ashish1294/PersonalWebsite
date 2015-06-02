@@ -1,0 +1,69 @@
+{% extends "project.html" %}
+{% load staticfiles %}
+{% block description %}
+    <p>
+        A graph based storage engine for efficient storage of data in a Relational Database. This project was done as a
+        part of the <i>Minor Project</i> course during my undergraduation in 6<sup>th</sup> semester from February to
+        April 2015.
+    </p>
+    <p>
+        It is an ambitious research project that aims to minimize the cost of aggregate and join queries in a relational 
+        database. It also reduces data redundancy by storing each value in a relation only once.
+    </p>
+    <p>
+        A relational database is modeled as a graph in our proposed scheme. Columns of each table is represented as a singly
+        linked list. An actual row of a relational database is represented by a node in the main linked list (which represents 
+        a table) and the edges from that node to different attribute nodes which store the actual values. In our model, columns
+        can be shared between tables allowing us to model foreign key constraint.
+    </p>
+    <p>
+        We were able to retrieve results of join queries in O(n) relative to O(n<sup>2</sup>) in traditional relational database.
+        Our model is extremely scalable and has been tested with tens of GigaBytes of data 
+    </p>
+    <p>
+        To view an elaborate version of our report with all the details <a href="https://drive.google.com/open?id=0B6A-3_6rwie9eHg1bjZDWlJ0Zlk&authuser=0">click here</a>.
+    </p>
+    <p>
+        To view a short presentation on the project <a href="https://drive.google.com/open?id=0B6A-3_6rwie9dUtJSEpkMENUcFk&authuser=0">click here</a>.
+    </p>
+{% endblock %}
+{% block tabs %}
+	  <dl class="tabs">
+        <dd class="active"><a href="#simple1">Implementation</a></dd>
+        <dd><a href="#simple2">Features</a></dd>
+        <dd><a href="#simple3">Tools Used</a></dd>
+    </dl>
+    <ul class="tabs-content">
+        <li class="active" id="simple1Tab">
+            <p>
+                The whole implementation was done using C++. The whole implementation is
+                modular and strictly follows Object Oriented Paradigm. A few images on the
+                right illustrates our proposed model. Pointers we used extensively to represent
+                edges.
+            </p>
+        </li>
+        <li id="simple2Tab">
+            <ol>
+                <li>In-memory Graph Based Storage Engine in C++</li>
+                <li>Efficient constraint handling - Primary and Foreign Keys</li>
+                <li>Used Trie for optimal indexing of data values</li>
+                <li>Supported Operations like Intersection, Union and Projection of Records</li>
+                <li>Multiple graph traversal algorithms to perform Select Queries</li>
+                <li>Performance Measurement and Bench-marking of the proposed model<li>
+                <li>Tested to tens of GigaBytes of data</li>
+                <li>An SQL like query interface</li>
+            </ol>
+        </li>
+        <li id="simple3Tab">
+            <ol>
+                <li>Git for Version Control</li>
+                <li>Codeblocks and Sublime Text for Code Editing</li>
+                <li>Valgrind for testing Memory Leaks</li>
+                <li>GNU Debugger for ofcourse debugging</li>
+                <li>Latex and Kile IDE for documentation</li>
+                <li>GPLOT for plotting graphs results</li>
+                <li>Inkscape for vector graphics</li>
+            </ol>
+        </li>
+    </ul>
+{% endblock %}
