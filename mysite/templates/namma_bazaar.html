@@ -1,0 +1,45 @@
+{% extends "project.html" %}
+{% load staticfiles %}
+{% block description %}
+    <p>Namma Bazaar (translates to "<i>My Market</i>") is a JAVA based Super Market Management System. </p>
+
+    <p> This project was done as a part of <i>Software Engineering</i> course during my undergrad from January to March 2015.</p>
+
+    <p>
+        The main objective of the project was to learn about the software development life cycle. The methodology used was
+        Rapid Application Development.
+    </p>
+    <p>
+        To view a detailed design doc for the project <a href="">click here</a>.
+    </p>
+{% endblock %}
+{% block tabs %}
+    <dl class="tabs">
+        <dd class="active" style = "width: 50%;"><a href="#simple1">Development</a></dd>
+        <dd><a href="#simple2" style = "width : 100%;">Features</a></dd>
+    </dl>
+    <ul class="tabs-content">
+        <li class="active" id="simple1Tab">
+            <p>
+                <img src="{% static 'images/check.png' %}" alt="">Rapid Application Development Strategy
+            </p>
+            <p>
+                <img src="{% static 'images/check.png' %}" alt="">Gathered Requirement Specification
+            </p>
+            <p>
+                <img src="{% static 'images/check.png' %}" alt="">JUnit Framework used for Unit Testing
+            </p>
+            <p>
+                <img src="{% static 'images/check.png' %}" alt="">Tortoise SVN used for version control
+            </p>
+        </li>
+        <li id="simple2Tab">
+            <ul class="disk">
+                <li>Graphical User Interface using JAVA Swing</li>
+                <li>MySQL and JDBC for storing and managing data<li>
+                <li>Transaction Management System</li>
+                <li>Major Components - Inventory Management, Bill Generation, Product Search, Help Desk</li>
+            </ul>
+        </li>
+    </ul>
+{% endblock %}
