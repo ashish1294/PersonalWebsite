@@ -1,0 +1,43 @@
+{% extends "project.html" %}
+{% load staticfiles %}
+{% block description %}
+    <p>
+        A search engine for services for the intellectually disabled people in US.
+    </p>
+    <p>
+        This project was done in collaboration with students from two other international institutions - Penn State
+        University, US and Serajevo Institute of Technology, Bosnia. A major challenge in the project was to work from
+        distributed locations across the globe. Co-ordination was extremely difficult owing to the difference in time zone.
+    </p>
+    <p>
+        The project involved developing a web app that can match an potential service seeker (an intellectually disabled user)
+        to a service-provider who can satisfy user's need.
+    </p>
+    <p>
+        To view a certificate of excellence received on account of this project <a href="">click here</a>.
+    </p>
+{% endblock %}
+{% block tabs %}
+    <dl class="tabs">
+        <dd class="active"><a href="#simple1">Challenges</a></dd>
+        <dd><a href="#simple2">My Responsibilities</a></dd>
+    </dl>
+    <ul class="tabs-content">
+        <li class="active" id="simple1Tab">
+            <ul class="disk">
+                <li>Developing Intuitive GUI for Intellectually Disabled</li>
+                <li>Communination and Co-ordination difficulties among Developers</li>
+                <li>Lack of Specific Software Requirement Specifications</li>
+                <li>Ensuring User Privacy and securing all Private data</li>
+                <li>Testing - As proper real-world data was unavailable</li>
+            </ul>
+        </li>
+        <li id="simple2Tab">
+            <ul class="disk">
+                <li>Database Design - Defining the schema of the database (MySQL)</li>
+                <li>Sample Data - Scripts to insert sample data for simulation and testing </li>
+                <li>Automated Web App testing using tools like Selenium</li>
+            </ul>
+        </li>
+    </ul>
+{% endblock %}

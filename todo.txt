@@ -2,6 +2,7 @@ Add D3 Sunburst for Portfolio
 Add Chart for Class-Wise Performance
 Add Blog Entries
 Add Globsyn Certificates, other school certificate. Update Links
-Add images in academic career.
+Add GLF Certificate update links
+Add Google Analytics Code
 Add Links for Google Maps in Contact Page
 Add Feeds from Facebook, LinkedIn into About Me - Have to use graph APIs
