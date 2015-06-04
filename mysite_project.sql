@@ -59,7 +59,7 @@ INSERT INTO `mysite_project` (`id`, `name`, `tag`, `main_image`, `folder`, `styl
 (11, 'CodeChef Code Now', 'Chrome Extension for Code-Chef', 'codechef.jpeg', 'code_now', 'extra', 'Use your favorite IDE with CodeChef', 'Logo of Codechef', 'https://github.com/ashish1294/code-now-CodeChef'),
 (12, 'RDBMS Graph Storage', 'Graph Based Data Storage (RDBMS)', 'model.svg', 'graph_storage_rdbms', 'course', 'RDBMS Graph Storage', 'Major components of the Graph Based Storage Engine', 'https://github.com/Bug-Assassins/Relational-Graph-Database'),
 (13, 'Drive Assist', 'Windows App for Road Safety', 'kinect.jpg', 'drive_assist', 'extra', 'Drive Assist', 'Microsoft Kinect v2 for Windows', 'https://drive.google.com/open?id=0B6A-3_6rwie9fkhLU04wbDFWREh0SlZBNkJlVXN6bURhRFNZWVRDNkFyeE5MM3JvOVFWaDQ&authuser=1'),
-(14, 'Namma Bazar', 'Super Market Management System', 'super1.jpg', 'namma_bazar', 'course', 'Namma Bazar', 'Namma Bazar for Super Markets', 'https://drive.google.com/folderview?id=0B6A-3_6rwie9fkNiNml1YUlzU3QydVFuZjhzNmdLM3FSTmszSGlOQVBrdmY5bzZJZUVCSjQ&usp=sharing'),
+(14, 'Namma Bazaar', 'Super Market Management System', 'super1.jpg', 'namma_bazaar', 'course', 'Namma Bazaar', 'Namma Bazar for Super Markets', 'https://drive.google.com/folderview?id=0B6A-3_6rwie9fkNiNml1YUlzU3QydVFuZjhzNmdLM3FSTmszSGlOQVBrdmY5bzZJZUVCSjQ&usp=sharing'),
 (15, 'Global Learning Factory', 'Search Engine for Intellectually Disabled', 'screenshot.jpg', 'glf', 'extra', 'Global Learning Factory', 'Screenshot of the Search Engine GUI', 'https://drive.google.com/open?id=0B6A-3_6rwie9fnVTSEdRLWljb2JtSkNaaUdBdkVOVGtZNE1kM3RfeWxoMnlFQ2pISklldUU&authuser=1');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

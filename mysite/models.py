@@ -21,6 +21,7 @@ class project(models.Model):
     style = models.CharField(max_length = 200, choices = STYLE_CHOICES)
     alt_text = models.CharField(max_length = 500)
     link = models.CharField(max_length = 500)
+    display_rank = models.IntegerField(default=1)
 
 class message(models.Model):
 

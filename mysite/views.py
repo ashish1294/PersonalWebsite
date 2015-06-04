@@ -43,7 +43,7 @@ def portofolio(request):
     #Fetch all projects from database and load in context
     context = {
         'page' : 'portofolio',
-        'project_list' : project.objects.all(),
+        'project_list' : project.objects.filter(display_rank__gt=0).order_by('display_rank'),
         'visitors' : record_visit(request, normal_visit.PORTOFOLIO)
     }
 
@@ -54,7 +54,7 @@ def project_handler(request, name):
 
     #Fetch project details from database
     try:
-        proj = project.objects.get(folder = name)
+        proj = project.objects.get(folder = name, display_rank__gt=0)
         temp = os.path.join(os.path.join(settings.STATICFILES_DIRS[0], 'images'), 'projects')
         images_folder = os.path.join(temp, name)
 
@@ -91,6 +91,21 @@ def project_handler(request, name):
         }
 
         return render(request, 'error.html', context)
+    
+    except OSError:
+      
+      error_404_visit.record_error(get_client_ip(request),
+            request.META.get('HTTP_USER_AGENT'),'project/' + name)
+      
+      context = {
+            'message' : '''<h1>Page Currently Unavailable! </h1>
+                <h3 class="subheader">The page is being updated ! Check back later !</h3>
+                <h3 class="subheader"> <a href="/portofolio">Click here</a>
+                to view all my projects ! </h3>''',
+            'visitors' : 'Error'
+        }
+
+      return render(request, 'error.html', context)
 
 #View to handle Academic Career Page
 def academic_career(request):
