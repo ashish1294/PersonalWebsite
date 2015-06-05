@@ -7,110 +7,100 @@
 
 <!-- Site Map of My Personal Website ~ Ashish Kedia -->
 <!-- Do you understand this s**t ? Cool ! Congrats, you're a nerd :P Let's get in touch :D -->
-
 <url>
   <loc>https://www.ashishkedia.me/</loc>
   <changefreq>daily</changefreq>
-  <priority>1.00</priority>
 </url>
 <url>
   <loc>https://www.ashishkedia.me/aboutme</loc>
   <changefreq>daily</changefreq>
-  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.ashishkedia.me/portofolio</loc>
   <changefreq>daily</changefreq>
-  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.ashishkedia.me/career/academic</loc>
   <changefreq>daily</changefreq>
-  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.ashishkedia.me/career/professional</loc>
   <changefreq>daily</changefreq>
-  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.ashishkedia.me/achievements</loc>
   <changefreq>daily</changefreq>
-  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.ashishkedia.me/blog</loc>
   <changefreq>daily</changefreq>
-  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.ashishkedia.me/contact</loc>
   <changefreq>daily</changefreq>
-  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.ashishkedia.me/add_testimonial</loc>
   <changefreq>daily</changefreq>
-  <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.ashishkedia.me/sitemap</loc>
+  <loc>https://www.ashishkedia.me/projects/graph_storage_rdbms</loc>
   <changefreq>daily</changefreq>
-  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.ashishkedia.me/projects/dfc_query_builder</loc>
   <changefreq>daily</changefreq>
-  <priority>0.64</priority>
 </url>
 <url>
   <loc>https://www.ashishkedia.me/projects/web_service_retrieval</loc>
   <changefreq>daily</changefreq>
-  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.ashishkedia.me/projects/chess</loc>
+  <loc>https://www.ashishkedia.me/projects/drive_assist</loc>
   <changefreq>daily</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.ashishkedia.me/projects/taj_defender</loc>
-  <changefreq>daily</changefreq>
-  <priority>0.64</priority>
 </url>
 <url>
   <loc>https://www.ashishkedia.me/projects/flint</loc>
   <changefreq>daily</changefreq>
-  <priority>0.64</priority>
 </url>
 <url>
   <loc>https://www.ashishkedia.me/projects/galaxian</loc>
   <changefreq>daily</changefreq>
-  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ashishkedia.me/projects/chess</loc>
+  <changefreq>daily</changefreq>
 </url>
 <url>
   <loc>https://www.ashishkedia.me/projects/konnect</loc>
   <changefreq>daily</changefreq>
-  <priority>0.64</priority>
 </url>
 <url>
   <loc>https://www.ashishkedia.me/projects/digital_passbook</loc>
   <changefreq>daily</changefreq>
-  <priority>0.64</priority>
 </url>
 <url>
   <loc>https://www.ashishkedia.me/projects/online_banking</loc>
   <changefreq>daily</changefreq>
-  <priority>0.64</priority>
 </url>
 <url>
   <loc>https://www.ashishkedia.me/projects/sgc_app</loc>
   <changefreq>daily</changefreq>
-  <priority>0.64</priority>
 </url>
 <url>
   <loc>https://www.ashishkedia.me/projects/code_now</loc>
   <changefreq>daily</changefreq>
-  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ashishkedia.me/projects/namma_bazaar</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.ashishkedia.me/projects/glf</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.ashishkedia.me/projects/taj_defender</loc>
+  <changefreq>daily</changefreq>
 </url>
 </urlset>
