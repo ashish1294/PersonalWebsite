@@ -1,14 +1,14 @@
 {% extends "project.html" %}
 {% load staticfiles %}
 {% block description %}
-	<p>
+    <p>
         This project was more of an exploration than a concrete application. It was done as a part of the <i>Parallel Programming</i> course during October 2014. The main objective was to understand Parallel Programming and use it to optimize Linear algebra operations.
-	</p>
+    </p>
     <p>
         To start off, BLAS was installed and basic working was explored. Then Level 1 and Level 2 BLAS operations were used for simple vector and matrix operation and a comparison was made with the brute-force method. Parallel version of Bucket Sort was also implemented to get an understanding on OpenMP and it's directives.
     </p>
     <p>
-        FLINT (Fast Library for Integer Arithmetic) Library for C was explored. I contributed a bit to the Flint library - Patterson Stockmeyer Algorithm, Matrix Squaring, etc. Use of Level 3 BLAS in Matrix Multiplication (finite field arithmetic). The native matrix representation was converted into BLAS compatible (double) representation whenever possible and BLAS was used for basecase of Strassen-Winograd Method. It was a very crude implementation.
+        FLINT (Fast Library for Integer Arithmetic) Library for C was explored. I contributed a bit to the Flint library - Patterson Stockmeyer Algorithm, Matrix Squaring, etc. Use of Level 3 BLAS in Matrix Multiplication (finite field arithmetic). The native matrix representation was converted into BLAS compatible (double) representation whenever possible and BLAS was used for base case of Strassen-Winograd Method. It was a very crude implementation.
     </p>
     <p>
         The possibility of using Level 3 BLAS for optimizing computation of Eigen Vectors was also explored. It involved complex Matrix operation - Gaussian Elimination, Schur Decomposition, etc.

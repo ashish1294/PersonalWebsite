@@ -4,22 +4,22 @@
 {%block head%} {% endblock %}
 {% block content%}
 <div id="subheader">
-	<div class="row">
-		<div class="twelve columns">
-			<p class="left">
-				 Oh Snap ! There is an Error !
-			</p>
-			<p class="right">
-				<a href="/">Go back to Home</a>
-			</p>
-		</div>
-	</div>
+    <div class="row">
+        <div class="twelve columns">
+            <p class="left">
+                 Oh Snap ! There is an Error !
+            </p>
+            <p class="right">
+                <a href="/">Go back to Home</a>
+            </p>
+        </div>
+    </div>
 </div>
 <div class="hr">
 </div>
 <div class="row">
-	{% autoescape off %}{{message}}{% endautoescape %}
-	<h3 class="subheader"><a href="/">Click Here</a> to go back to Home !</h3>
-	<img src ="{% static 'images/404.png' %}" style="align : center; width: 100%;"/>
+    {% autoescape off %}{{message}}{% endautoescape %}
+    <h3 class="subheader"><a href="/">Click Here</a> to go back to Home !</h3>
+    <img src ="{% static 'images/404.png' %}" style="align : center; width: 100%;"/>
 </div>
 {% endblock%}

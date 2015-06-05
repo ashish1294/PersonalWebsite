@@ -3,7 +3,7 @@
 {% load staticfiles %}
 {% block head %}{% endblock %}
 {% block content %}
-	<div id="subheader">
+    <div id="subheader">
         <div class="row">
             <div class="twelve columns">
                 <p class="left">
@@ -17,37 +17,37 @@
     </div>
     <div class="hr"></div>
     <div class="row">
-    	<div class="twelve columns">
-    		{% if message %}
+        <div class="twelve columns">
+            {% if message %}
                 <div class="done alert-box success">
                     {{message}} <a href="" class="close">x</a> <br/> <br/>
                 </div>
             {% endif %}
-    		I am glad that you decided to write about me :) Thanks for your time. Please provide
-    		me with the following details and your testimonial will appear soon on my website !
-    		<form action="/add_testimonial" method="post">
-    			{% csrf_token %}
-    			<fieldset>
-	    			<legend>Add Testimonial</legend>
-	    			<div class="twelve columns">
-	    				<label>Name</label>
-	    				<input type="text" placeholder="Enter Your Name" class="smoothborder" name="author"/>
-	    				<br/>
-	    				<label>Email</label>
-	    				<input type="text" placeholder="Enter Your Email Address" class="smoothborder" name="email"/>
-	    				<br/>
-	    				<label>Relation with Ashish</label>
-	    				<input type="text" placeholder="Eg. Friend, Mentor, Cousin" class="smoothborder" name="connection"/>
-	    				<br/>
-	    				<label>Content</label>
-	    				<textarea placeholder="Write testimonial here" class="smoothborder" name="content" rows="8"></textarea>
-	    				<br/>
-	    				<input type="submit" id="submit" class="readmore" value="Submit" name="submit">
-	    				<br/> <br/>
-	    			</div>
-    			</fieldset>
-    		</form>
-    	</div>
+            I am glad that you decided to write about me :) Thanks for your time. Please provide
+            me with the following details and your testimonial will appear soon on my website !
+            <form action="/add_testimonial" method="post">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>Add Testimonial</legend>
+                    <div class="twelve columns">
+                        <label>Name</label>
+                        <input type="text" placeholder="Enter Your Name" class="smoothborder" name="author"/>
+                        <br/>
+                        <label>Email</label>
+                        <input type="text" placeholder="Enter Your Email Address" class="smoothborder" name="email"/>
+                        <br/>
+                        <label>Relation with Ashish</label>
+                        <input type="text" placeholder="Eg. Friend, Mentor, Cousin" class="smoothborder" name="connection"/>
+                        <br/>
+                        <label>Content</label>
+                        <textarea placeholder="Write testimonial here" class="smoothborder" name="content" rows="8"></textarea>
+                        <br/>
+                        <input type="submit" id="submit" class="readmore" value="Submit" name="submit">
+                        <br/> <br/>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
     </div>
 {% endblock %}
 {% block scripts %} {% endblock %}

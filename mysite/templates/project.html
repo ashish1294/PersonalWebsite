@@ -2,63 +2,63 @@
 {%block title%}Ashish Kedia | {{project.name}}{%endblock%}
 {% load staticfiles %}
 {%block head%}
-	<link rel="stylesheet" type="text/css" href="{% static 'css/nivoslider.css' %}"><!-- nivo slider stylesheet -->
-	<link rel="stylesheet" type="text/css" href="{% static 'css/prettyphoto.css' %}"><!-- for gallery -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/nivoslider.css' %}"><!-- nivo slider stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/prettyphoto.css' %}"><!-- for gallery -->
 {%endblock%}
 {%block content%}
 <!-- SUBHEADER
 ================================================== -->
 <div id="subheader">
-	<div class="row">
-		<div class="twelve columns">
-			<p class="left">
-				 Summary of {{project.name}}
-			</p>
-			<p class="right">
-				<a href="/portofolio">View more projects</a>
-			</p>
-		</div>
-	</div>
+    <div class="row">
+        <div class="twelve columns">
+            <p class="left">
+                 Summary of {{project.name}}
+            </p>
+            <p class="right">
+                <a href="/portofolio">View more projects</a>
+            </p>
+        </div>
+    </div>
 </div>
 <div class="hr">
 </div>
 <div class="row">
-	<!-- PROJECT DESCRIPTION-->
-	<div class="six columns">
-		<div class="sectiontitle">
-			<h4>{{project.name}}</h4>
-		</div>
-			{% block description %}{% endblock %}
+    <!-- PROJECT DESCRIPTION-->
+    <div class="six columns">
+        <div class="sectiontitle">
+            <h4>{{project.name}}</h4>
+        </div>
+            {% block description %}{% endblock %}
 
-		<p>For installation instructions, source code and other details<a href="{{project.link}}" target="_blank"> click here</a>.</p>
-		{% for image in images %}
-			{% if forloop.counter == 1%}
-				<p>To view the project gallery <a data-gal="prettyPhoto[gallery]" href="{% static image %}"> click here</a>.</p>
-			{% else %}
-				<a data-gal="prettyPhoto[gallery]" href="{% static image %}"></a>
-			{% endif%}
-		{% endfor %}
-		{% block tabs %}{% endblock %}
-	</div>
-	<!-- end main content-->
-	<!-- SLIDER-->
-	<div class="six columns">
-		<div class="slider-wrapper theme-default">
-			<div id="slider" class="nivoSlider detailslider">
-				{% for image in images %}
-					<img src="{% static image %}" data-thumb="" alt=""/>
-				{% endfor %}
-			</div>
-		</div>
-	</div>
-	<!-- end sliderr-->
+        <p>For installation instructions, source code and other details<a href="{{project.link}}" target="_blank"> click here</a>.</p>
+        {% for image in images %}
+            {% if forloop.counter == 1%}
+                <p>To view the project gallery <a data-gal="prettyPhoto[gallery]" href="{% static image %}"> click here</a>.</p>
+            {% else %}
+                <a data-gal="prettyPhoto[gallery]" href="{% static image %}"></a>
+            {% endif%}
+        {% endfor %}
+        {% block tabs %}{% endblock %}
+    </div>
+    <!-- end main content-->
+    <!-- SLIDER-->
+    <div class="six columns">
+        <div class="slider-wrapper theme-default">
+            <div id="slider" class="nivoSlider detailslider">
+                {% for image in images %}
+                    <img src="{% static image %}" data-thumb="" alt=""/>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- end sliderr-->
 </div>
 <div class="hr">
 </div>
 {%endblock%}
 {%block scripts%}
-	<script src="{% static 'js/jquery.isotope.min.js' %}"></script>
+    <script src="{% static 'js/jquery.isotope.min.js' %}"></script>
     <script src="{% static 'js/jquery.prettyPhoto.js' %}"></script>
     <script src="{% static 'js/custom.js' %}"></script>
-	<script src="{% static 'js/jquery.nivo.slider.pack.js' %}"></script>
+    <script src="{% static 'js/jquery.nivo.slider.pack.js' %}"></script>
 {%endblock%}

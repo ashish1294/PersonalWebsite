@@ -1,7 +1,7 @@
 {% extends "project.html" %}
 {% load staticfiles %}
 {% block description %}
-	  <p>
+      <p>
         It is an android application for Amateur Astronomy Club (formerly known as Star Gazing Club), NITK Surathkal. 
         The purpose of this application was to spread awareness about the events conducted by the club throughout 
         the year and keep the users updated.
@@ -12,9 +12,9 @@
     </p>
 {% endblock %}
 {% block tabs %}
-	<dl class="tabs">
+    <dl class="tabs">
         <dd class="active"><a href="#simple1">Features</a></dd>
-        <dd><a href="#simple2"></a></dd>
+        <dd><a href="#simple2">Tech Stuff</a></dd>
     </dl>
     <ul class="tabs-content">
         <li class="active" id="simple1Tab">
@@ -30,14 +30,26 @@
             <p>
                 <img src="{% static 'images/check.png' %}" alt=""> Contact Amateur Astronomy Club, NITK directly from the application
             </p>
+        </li>
+        <li id="simple2Tab">
             <p>
                 <img src="{% static 'images/check.png' %}" alt=""> Custom Styles for GUI Elements - New Icons and stuff like that
             </p>
             <p>
                 <img src="{% static 'images/check.png' %}" alt=""> Custom animations in List Views and Activity transitions
             </p>
-        </li>
-        <li id="simple2Tab">
+            <p>
+                <img src="{% static 'images/check.png' %}" alt=""> Data Synchronization using Sync Adapters
+            </p>
+            <p>
+                <img src="{% static 'images/check.png' %}" alt=""> SQLite Database used for storing Data
+            </p>
+            <p>
+                <img src="{% static 'images/check.png' %}" alt=""> Content Providers used to share data
+            </p>
+            <p>
+                <img src="{% static 'images/check.png' %}" alt=""> Fetching Network files asynchronously
+            </p>
         </li>
     </ul>
 {% endblock %}

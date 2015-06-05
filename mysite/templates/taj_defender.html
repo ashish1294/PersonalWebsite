@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% block description %}
     <p>
-        A sand-boxing mechanism to run malicious/untrusted C and C++ codes. The main objective was to run a C/C++ code whose 
+        A sand-boxing mechanism to run malicious / untrusted C and C++ codes. The main objective was to run a C/C++ code whose 
         origin or content is not known as such such codes pose serious threats to system's security.
     </p>
     <p>
@@ -10,7 +10,7 @@
     </p>
     <p>
         <h5>Basic Working</h5>
-        The excution of a typical C program is depicted in one of the images. Our program compiles the given code and prevents any 
+        The execution of a typical C program is depicted in one of the images. Our program compiles the given code and prevents any 
         system calls made by the function except read-write from standard input and standard output. For memory allocation we provide 
         a custom implementation of malloc.h. If any system call is detected, the program is terminated with run time error.
     </p>
