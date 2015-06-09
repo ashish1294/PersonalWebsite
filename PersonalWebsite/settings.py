@@ -48,6 +48,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'htmlmin.middleware.HtmlMinifyMiddleware',
+    'htmlmin.middleware.MarkRequestMiddleware',
 )
 
 ROOT_URLCONF = 'PersonalWebsite.urls'
@@ -57,6 +59,29 @@ WSGI_APPLICATION = 'PersonalWebsite.wsgi.application'
 TEMPLATE_DIRS = (
     os.path.join(os.path.join(os.path.join(SITE_ROOT, '..'),'mysite'),'templates'),
 )
+
+TEMPLATES = [{
+    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    'DIRS': [os.path.join(os.path.join(os.path.join(SITE_ROOT, '..'),'mysite'),'templates')],
+    'OPTIONS': {
+        'loaders': [
+            ('django.template.loaders.cached.Loader', [
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+            ]),
+        ],
+        'context_processors': [
+            'django.contrib.auth.context_processors.auth',
+            'django.template.context_processors.request',
+            'django.template.context_processors.debug',
+            'django.template.context_processors.i18n',
+            'django.template.context_processors.media',
+            'django.template.context_processors.static',
+            'django.template.context_processors.tz',
+            'django.contrib.messages.context_processors.messages',
+        ],
+    },
+}]
 
 
 # Database
@@ -85,6 +110,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+HTML_MINIFY = True
 
 
 # Static files (CSS, JavaScript, Images)

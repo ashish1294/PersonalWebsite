@@ -13,16 +13,6 @@
     <title>{% block title%}{%endblock%}</title>
     <!-- CSS Files-->
     {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    {%block head%}{%endblock%}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/skins/pink.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
-    <link rel="icon" type="image/png" href="{% static 'images/face.png' %}">
-    <script type="text/javascript">
-        console.log('Woah ! Look at You!');
-        console.log('I like meeting coders, developers and hackers :)');
-        console.log("Let's get in touch ! Visit https://www.ashishkedia.me/contact/");
-    </script>
 </head>
 <body background="{% static 'images/bg.png' %}">
     <!-- HIDDEN PANEL 
@@ -169,5 +159,15 @@
         }
         window.onload = set_footer_location();
     </script>
+    <script type="text/javascript">
+        console.log('Woah ! Look at You!');
+        console.log('I like meeting coders, developers and hackers :)');
+        console.log("Let's get in touch ! Visit https://www.ashishkedia.me/contact/");
+    </script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {%block head%}{%endblock%}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/skins/pink.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/face.png' %}">
 </body>
 </html>
