@@ -9,6 +9,7 @@ sudo apt-get install apache2 libapache2-mod-wsgi apache2-utils
 sudo apt-get install rsync
 sudo apt-get install python-mysql
 sudo pip install django
+sudo pip install django-htmlmin
 
 2. Edit Apache COnfiguration - 443, Static, WSGI
 
@@ -24,6 +25,11 @@ sudo pip install django
 Change Links for PHPMyadmin
 
 8. During Production - take care of Manual match for base.html - google analytics code
+
+9. Change Secret Key
+10. Handle the Base.html Manually
+11. enable expires and headers using e2enmod
+12. Templates stuff deployement
 
 Other Things:
 pip install virtualenv ----- extremely buggy with MySQL-python. Egg-Info error can be resolved with link
