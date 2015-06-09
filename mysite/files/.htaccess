@@ -1,0 +1,52 @@
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 20 hours"
+# Feed
+  ExpiresByType application/atom+xml      "access plus 10 hours"
+  ExpiresByType application/rss+xml       "access plus 10 hours"
+ 
+# Favicon (cannot be renamed)
+  ExpiresByType image/x-icon              "access plus 1 week"
+ 
+# Media: images, video, audio
+  ExpiresByType audio/ogg                 "access plus 1 month"
+  ExpiresByType image/gif                 "access plus 1 month"
+  ExpiresByType image/jpeg                "access plus 1 month"
+  ExpiresByType image/png                 "access plus 1 month"
+  ExpiresByType video/mp4                 "access plus 1 month"
+  ExpiresByType video/ogg                 "access plus 1 month"
+  ExpiresByType video/webm                "access plus 1 month"
+  ExpiresByType application/x-shockwave-flash "access plus 1 month"
+ 
+# HTC files  (css3pie)
+  ExpiresByType text/x-component          "access plus 1 month"
+ 
+# Webfonts
+  ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
+  ExpiresByType application/x-font-ttf    "access plus 1 month"
+  ExpiresByType application/x-font-woff   "access plus 1 month"
+  ExpiresByType font/opentype             "access plus 1 month"
+  ExpiresByType image/svg+xml             "access plus 1 month"
+ 
+# CSS and JavaScript
+  ExpiresByType application/javascript    "access plus 20 hours”
+  ExpiresByType text/css                  "access plus 20 hours”
+  ExpiresByType application/x-javascript  "access plus 20 hours”
+ 
+</IfModule>
+<IfModule mod_headers.c>
+        <FilesMatch "\\.(ico|jpg|jpeg|png|gif|swf)$">
+                Header set Cache-Control "max-age=2678400, public"
+        </FilesMatch>
+        <FilesMatch "\\.(css)$">
+                Header set Cache-Control "max-age=72000, public"
+        </FilesMatch>
+        <FilesMatch "\\.(js)$">
+                Header set Cache-Control "max-age=72000, private"
+        </FilesMatch>
+        <FilesMatch "\\.(x?html?|php)$">
+                Header set Cache-Control "max-age=60, private, must-revalidate"
+        </FilesMatch>
+                Header unset ETag
+                Header unset Last-Modified
+</IfModule>
