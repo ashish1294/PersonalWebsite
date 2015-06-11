@@ -1,0 +1,40 @@
+{% extends "blog/blog_template.html" %}
+{% block post %}
+{% autoescape off %}
+    <p>
+        So my first post is a sort of Meta-Post. A post on my website about my website (<a href='https://www.ashishkedia.me' target='_blank' title="My Personal Website">https://www.ashishkedia.me</a>). The website is mostly static with a very little dynamic content. I used Django for the backend. It took me around 3 months of part time work to get the website ready. I wanted to ensure a good browsing experience across all types of devices. I am not a very creative designer. I had multiple options available for front-end. Material Design was my top preference, however there was a steep learning curve involved and I couldn’t afford to give that much time to this project owing to a hectic academic schedule. So I chose a simple responsive theme and customized it a lot to get what I wanted. I wanted an aesthetically pleasing portfolio for my website. I used multiple javascript APIs to get the desired effect. Here is a list of APIs that I used along with their purpose:
+    </p>
+    <p>
+        <ul style="padding-left: 20px;">
+            <li>JQuery (<a href='https://jquery.com/' target='_blank' title='JQuery'>https://jquery.com/</a>) - As it says, write less do more</li>
+            <li>Smart Resize (<a href='https://github.com/louisremi/jquery-smartresize' target='_blank' title='Smart Resize Repo'>https://github.com/louisremi/jquery-smartresize</a>) - Fetches full size image but displays a stretchable small image in the slideshow.</li>
+            <li>Highcharts (<a href='http://www.highcharts.com/' target='_blank' title='HighCharts Website'>http://www.highcharts.com/</a>) - Drawing downloadable SVG Charts was never so easy</li>
+            <li>CrouFredSel (<a href='http://dev7studios.com/products/caroufredsel-wordpress-plugin/' target='_blank' title='CrouFredSel Homepage'>http://dev7studios.com/products/caroufredsel-wordpress-plugin/</a>) - Easy Carousels for Images - Used to create project gallery</li>
+            <li>JQuery Cycle Plugin (<a href='http://jquery.malsup.com/cycle/' target='_blank' title='JQuery Cycle Plugin'>http://jquery.malsup.com/cycle/</a>) - Cycle through image properties - zooming, fading and many other effects</li>
+            <li>Nivo Slider (<a href='http://dev7studios.com/products/nivo-slider-wordpress-plugin' target='_blank' title='Nivo Slider Page'>http://dev7studios.com/products/nivo-slider-wordpress-plugin</a>) - Multiple images sliding in the same frame with a nice transition effect</li>
+            <li>Responsive Accordion (<a href='https://github.com/joemottershaw/responsive-accordion' target='_blank' title='Responsive Accordion Repo'>https://github.com/joemottershaw/responsive-accordion</a>) - A cool accordion menu by someone. I used a customized version of it</li>
+        </ul>
+    </p>
+    <p>
+        Accordion Menu was one of the most annoying parts during development. The theme already had an accordion menu, but it was not good enough. I had to write a lot of styling rules to make it look better. I had to handle a variety of events associated with each item on the menu. Finally, I was able to get everything working after a week of struggle. Another annoying part was charts and graphs. Originally, I had planned a number of charts for the website to give a quick visual representation of data. However, I could add only one chart - which was for my academic performance. It was the simplest of all charts planned. I used Highcharts to draw a simple histogram. Highcharts offer a lot of customization options which was really helpful in ensuring a proper color selection, according to the website theme. Another good alternative was D3 (<a href='http://d3js.org' target='_blank' title='Data Driven Documents'>http://d3js.org</a>). I am currently adding codes for a sunburst chart using D3. D3 is really cool for dynamic or real-time graphs however I do not need dynamic graphs.
+    </p>
+    <p>
+        Images like always consumed way more time than expected. Searching, Selecting, Filtering, Cropping, Editing (enhancing) and Resizing - It is a long boring process. The most annoying of all images are those small ones which usually aid styling such as background, shapes, logos, etc. With more than 120 images on the website - I was once on the verge of discarding the whole repository owing to the frustration. I discovered a lot of issues with vector graphics - particularly with the transparency and background which forced me to switch to scalar jpeg/png format. The nivoslider was also lagging with vector images (may be because vector images have to be parsed).
+    </p>
+    <p>
+        I opted for MySQL as back-end for storing data. I used a database to store portfolio data - which allows me to expand my portfolio without making changes to individual HTML pages. Another benefit of using database was that I could rearrange the display order of elements in my portfolio without changing any codes. I also used a database to store the visit records  (which allows me to monitor traffic), testimonials (which visitors may write) and messages (visitors may leave a message to contact me). The back-end is very simple and took only a week.
+    </p>
+    <p>
+        Another feature that I think is very cool was adding a search functionality on the website. There are multiple good search apps on Django which can be used for this purpose. They provide a lot of customization options and one can exactly control what to include in the result. However, being a Google intern I decided to use the Google Custom Search. I used the two-page format. A made a custom search box and placed it in the footer which queries and displays result in a separate page. I had to manually add links to pages that should be displayed in the result. I think GCS is very powerful especially for static websites like this. They also offer a few search insights.
+    </p>
+    <p>
+        I added a custom 404 error page. If the URL requested fails to match any resource on my site this page is displayed. Again tracking visits to error pages allows me to determine if I should rename resources. I also added several aliases for example /portofolio and /skills lead to the same resource. Django's url.py file is the place to define all this stuff. The website’s source code is available at <a href='https://github.com/ashish1294/PersonalWebsite' target='_blank' title='Website Code'>https://github.com/ashish1294/PersonalWebsite</a>.
+    </p>
+    <p>
+        There were many other things I learned from the project. I had no idea about Cross Site Request Forgery before this project. I learned a lot of occasionally used HTML tags. Now I can write mobile-friendly HTML pages. The most important takeaway from this project was learning best practices for website deployment and using a lot of webmaster tools. I will cover my experience with deployment and optimization in another post.
+    </p>
+    <p>
+        Future plans for the enhancing website includes adding a website tour for first-time visitors. Due to visit records I can easily track first-time visitors and provide a quick tour or quick links to the resources appropriate for them. Another item on my to-do list is to fetch latest feed from social networks and display it. I want to create a latest news section and use Facebook graph API to fetch updates and display. The Friend Request button can also be provided. Facebook do provide a simple &lt;iframe&gt; for this but that API is deprecated and will stop working in July. This leave me no choice but to use Graph API (which I think is very cool). Another idea was to use 'sweetalert' to push important info to users via an alert. It is one of the sweetest and simplest plug-in that supports custom Alert Boxes. Google has released Polymer 1.0 and Angular Material. I really want to change the whole GUI to leverage one of these frameworks however given the academic pressure, I doubt if I will do it anytime soon.
+    </p>
+{% endautoescape %}
+{% endblock %}

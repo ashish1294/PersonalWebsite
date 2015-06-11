@@ -47,6 +47,7 @@ class blog(models.Model):
     title = models.CharField(max_length=150)
     subtitle = models.TextField()
     time_added = models.DateTimeField(auto_now_add=True)
+    template_file = models.CharField(max_length=50)
 
 class normal_visit(models.Model):
     

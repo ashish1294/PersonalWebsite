@@ -1,8 +1,8 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from mysite.views import home, portofolio, project_handler, academic_career,\
-    skill_chart, contact, professional_career, anything, blog, site_map, \
-    search, about_me, add_testimonial, achievement
+    skill_chart, contact, professional_career, anything, blog_list, site_map, \
+    search, about_me, add_testimonial, achievement, blog_post
 
 urlpatterns = patterns('',
     # Examples:
@@ -20,7 +20,10 @@ urlpatterns = patterns('',
     url(r'^career/academic/?$', academic_career),
     url(r'^career/professional/?$', professional_career),
     url(r'^charts/skill$', skill_chart),
-    url(r'blog/?$', blog),
+    url(r'^life_of_a_debugger/?$', blog_list),
+    url(r'^blog/?$', blog_list),
+    url(r'^blog/([a-zA-Z0-9_]+)/?$', blog_post),
+    url(r'^life_of_a_debugger/([a-zA-Z0-9_]+)/?$', blog_post),
     url(r'^addtestimonial/?$', add_testimonial),
     url(r'^add_testimonial/?$', add_testimonial),
     url(r'^testimonial_add/?$', add_testimonial),

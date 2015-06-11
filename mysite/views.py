@@ -4,7 +4,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.template.context_processors import csrf
 from django.conf import settings
 from mysite.models import project, message, normal_visit, project_visit,\
-  error_404_visit, testimonial
+  error_404_visit, testimonial, blog, blog_visit
 import os
 
 #Function to get IP Address of the request
@@ -23,8 +23,7 @@ def record_visit(request, page):
 def site_map(request):
     return render(request, 'sitemap.xml', {}, content_type='text/xml')
 
-def search(request) :
-    print "Rendering Search"  
+def search(request) :  
     return render(request, 'search.html', {})
 #Function to handle the home-page
 def home(request):
@@ -62,7 +61,6 @@ def project_handler(request, name):
 
         for image in os.listdir(images_folder):
             images.append('images/projects/' + name + '/' + image)
-            print 'images/projects/' + name + '/' + image
 
         vis = project_visit(ip=get_client_ip(request),
             user_agent=request.META.get('HTTP_USER_AGENT'), project=proj)
@@ -190,11 +188,12 @@ def skill_chart(request):
     return render(request, 'sunburst.html', {})
 
 #View to Render the Blog
-def blog(request):
+def blog_list(request):
 
     context = {
         'visitors' : record_visit(request, normal_visit.BLOG),
-        'page' : 'blog'
+        'page' : 'blog',
+        'post_list' : blog.objects.all(),
     }
     return render(request, 'blog.html', context)
 
@@ -249,6 +248,53 @@ def add_testimonial(request):
         context.update({'message' : 'Your Testmonial has been successfully submitted for Approval !'})
 
     return render(request, 'add_testimonial.html', context)
+
+def blog_post(request, post_name):
+
+    try:
+        post = blog.objects.get(template_file=post_name)
+
+        vis = blog_visit(ip=get_client_ip(request),
+            user_agent=request.META.get('HTTP_USER_AGENT'), blog=post)
+        vis.save()
+        
+        context = {
+            'page' : 'blog',
+            'post' : post,
+            'visitors' : blog_visit.objects.filter(blog=post)
+                .values('ip').distinct().count()
+        }
+
+        return render(request, os.path.join('blog', post_name) + '.html', context)
+
+    except ObjectDoesNotExist:
+        
+        error_404_visit.record_error(get_client_ip(request),
+            request.META.get('HTTP_USER_AGENT'),'project/' + post_name)
+        
+        context = {
+            'message' : '''<h1>I have not posted any such article ! </h1>
+                <h3 class="subheader"> <a href="/blog">Click here</a>
+                to view all my post ! </h3>''',
+            'visitors' : 'Error'
+        }
+
+        return render(request, 'error.html', context)
+    
+    except OSError:
+      
+      error_404_visit.record_error(get_client_ip(request),
+            request.META.get('HTTP_USER_AGENT'),'project/' + post_name)
+      
+      context = {
+            'message' : '''<h1>Page Currently Unavailable! </h1>
+                <h3 class="subheader">The page is being updated ! Check back later !</h3>
+                <h3 class="subheader"> <a href="/blog">Click here</a>
+                to view my blog ! </h3>''',
+            'visitors' : 'Error'
+        }
+
+      return render(request, 'error.html', context)
 
 def add_stuff(request):
 

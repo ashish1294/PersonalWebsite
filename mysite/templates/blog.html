@@ -1,13 +1,34 @@
 {% extends 'base.html' %}
-{% block title%}Ashish Kedia | Path of Errors  | Blog{% endblock %}
+{% block title%}Ashish Kedia | Life of A Debugger  | Blog{% endblock %}
 {% load staticfiles %}
-{% block head %}{% endblock %}
+{% block head %}
+    <style>
+        .blogtitle{
+            font-size: 25px;
+            color : black;
+        }
+        .post_entry{
+            padding-top: 22px;
+        }
+        .post_entry:hover {
+            background: rgba(255, 115, 115, 0.1);
+        }
+        .arrow {
+            -ms-transform: rotate(270deg); /* IE 9 */
+            -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+            transform: rotate(270deg);
+            float: right;
+            vertical-align: middle;
+            height: 100%;
+        }
+    </style>
+{% endblock %}
 {% block content %}
     <div id="subheader">
         <div class="row">
             <div class="twelve columns">
                 <p class="left">
-                     Path of Errors
+                     <a href='/'>Home</a> / <a href='/blog'>Life of A Debugger</a>
                 </p>
                 <p class="right">
                      My Blog !
@@ -15,9 +36,28 @@
             </div>
         </div>
     </div>
-    <h1>
-        Coming Soon!
-    </h1> <br/>
-    <h3 class="subheader">Keep Watching this space for updates!</h3> <br />
-    <h3 class="subheader"><a href="/">Click Here</a> to head home.</h3> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
+    <br/>
+    <div class="row">
+        <h1 style="text-align: center; margin: auto;">
+            Life of A Debugger
+        </h1>
+        <hr style="margin-bottom: 0px;"/>
+        {% for post in post_list %}
+            <div class="twelve columns post_entry" onclick="location.href='/blog/{{post.template_file}}';" style="cursor:pointer;">
+                <div style="float:left;">
+                    <a href="/blog/{{post.template_file}}" title="{{post.title}}" class="blogtitle">{{post.title}}</a>
+                    {% if post.subtitle and post.subtitle != '' %}
+                        <br/>
+                        <p class="blogsubtitle"> {{post.subtitle}} </p>
+                    {% endif %}
+                </div>
+                <div style="float: right; height : 100%; vertical-align: middle;">
+                    <img src="{% static 'images/arrow.png' %}" class="arrow"/>
+                </div>
+            </div>
+            <hr style="margin-bottom: 0px;"/>
+        {% endfor %}
+    </div>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    
 {% endblock %}

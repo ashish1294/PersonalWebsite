@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{%block title%}Ashish Kedia | Life of a Debugger | {{post.title}} {% endblock %}
+{% load staticfiles %}
+{%block head%}
+    <style>
+        .blog_post p, .blog_post li{
+            font-size: 16px;
+        }
+        .blog_post p ul {
+            padding-left: 10px;
+        }
+        .blog_post li {
+            list-style-position: inside;
+            text-indent: -0.9em;
+            padding-left: 1em;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+<div id="subheader">
+    <div class="row">
+        <div class="twelve columns">
+            <p class="left">
+                 {{post.title}}
+            </p>
+            <p class="right">
+                <a href="/blog">View All Posts</a>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="hr"></div>
+<div class="row">
+	<div class="twelve columns blog_post">
+		<div class="centersectiontitle">
+            <h4>{{post.title}}</h4>
+        </div>
+        {% if post.subtitle and post.subtitle != '' %}
+        	<p style="margin: auto; font-size: 15px; font-weight: bold; text-align: center;">
+        		&ldquo;<i>{{post.subtitle}}</i>&rdquo;
+        	</p>
+        {% endif %}
+        <br />
+        {% block post %} {% endblock %}
+	</div>
+</div>
+{% endblock %}
+{% block scripts %}{% endblock %}
