@@ -1,4 +1,5 @@
 {% extends "base.html"%}
+{% block meta_description %}Ashish Kedia's (ashish1294) Personal Website. A coder. Disconnected and Determined. Find out all about me !{% endblock %}
 {%block title%}Ashish Kedia | Home{%endblock%}
 {% load staticfiles %}
 {%block head%}
@@ -89,7 +90,7 @@
         <div class="twelve columns">
             <ul class="ca-menu" id="hell">
                 <li>
-                <a href="/aboutme">
+                <a href="/aboutme" title='About Me'>
                 <span class="ca-icon">U</span>
                 <div class="ca-content">
                     <h2 class="ca-main">Know Me</h2>
@@ -148,7 +149,7 @@
                 Batch of 2016
             </p>
             <p>
-                <a href="/career/academic" class="readmore">Learn more</a>
+                <a href="/career/academic" class="readmore" title="Ashish Kedia's Academic Career">Learn more</a>
             </p>
         </div>
         <div class="four columns">
@@ -159,7 +160,7 @@
                 Currently living in the city of Mangalore, Karnataka, India.
             </p>
             <p>
-                <a href="/aboutme" class="readmore">Know more</a>
+                <a href="/aboutme" class="readmore" title="Ashish Kedia's Personal Life">Know more</a>
             </p>
         </div>
         <div class="four columns">
@@ -171,7 +172,7 @@
                 Open Source Contributions
             </p>
             <p>
-                <a href="/career/professional" class="readmore">See more</a>
+                <a href="/career/professional" class="readmore" title="Ashish Kedia's Professional Career">See more</a>
             </p>
         </div>
     </div>
@@ -193,7 +194,7 @@
                 <br />
             {% endfor %}
         {% endif %}
-        If you want to write a testimonial for me <a href="/add_testimonial">click here</a>.
+        If you want to write a testimonial for me <a href="/add_testimonial" title="Write Testimionial for Ashish Kedia">click here</a>.
     </div>
 </div>
     

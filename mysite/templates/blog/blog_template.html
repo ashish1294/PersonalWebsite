@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block meta_description %}Ashish Kedia's Blog. {{post.subtitle}}{% endblock %}
 {%block title%}Ashish Kedia | Life of a Debugger | {{post.title}} {% endblock %}
 {% load staticfiles %}
 {%block head%}
@@ -40,8 +41,14 @@
         		&ldquo;<i>{{post.subtitle}}</i>&rdquo;
         	</p>
         {% endif %}
-        <br />
+        <br/>
         {% block post %} {% endblock %}
+        <hr/>
+        <h5>Share on Social Media</h5>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.ashishkedia.me/blog/{{post.template_file}}" title="Share on Facebook" class="readmore">Facebook</a>
+        <a href="https://twitter.com/home?status=https://www.ashishkedia.me/blog/{{post.template_file}}" title="Share on Twitter" class="readmore">Twitter</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.ashishkedia.me/blog/{{post.template_file}}&title={{post.title}}&summary={{post.subtitle}}&source=" title="Share on LinkedIn" class="readmore">Linked In</a>
+        <a href="https://plus.google.com/share?url=https://www.ashishkedia.me/blog/{{post.template_file}}" title="Share on Google+" class="readmore">Google+</a>
 	</div>
 </div>
 {% endblock %}

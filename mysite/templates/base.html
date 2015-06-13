@@ -7,17 +7,24 @@
 -->
 <html class="no-js" lang="en" style="min-height: 100%;">
 <head>
+
+    {% load staticfiles %}
     <meta charset="utf-8"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="content-script-type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <meta http-equiv="content-language" content="nl" />
     <!-- Set the viewport width to device width for mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Meta Data For Search Engine -->
     <meta name="author" content="Ashish Kedia">
-    <meta name="description" content="Ashish Kedia's (ashish1294) Personal Website. A coder. Disconnected and Determined. Find out all about me !">
+    <meta name="description" content="{% block meta_description %}{% endblock %}">
+    <meta name="robots" content="index, follow" />
+    <meta name="revisit-after" content="2 days" />
+    <link rel="icon" type="image/png" href="{% static 'images/face.png' %}">
 
     <title>{% block title%}{%endblock%}</title>
-    <!-- CSS Files-->
-    {% load staticfiles %}
 </head>
 <body background="{% static 'images/bg.png' %}">
     <!-- HIDDEN PANEL 
@@ -137,7 +144,6 @@
     {%block head%}{%endblock%}
     <link rel="stylesheet" type="text/css" href="{% static 'css/skins/pink.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
-    <link rel="icon" type="image/png" href="{% static 'images/face.png' %}">
     <!-- JAVASCRIPTS 
     ================================================== -->
     <!-- Javascript files placed here for faster loading -->
