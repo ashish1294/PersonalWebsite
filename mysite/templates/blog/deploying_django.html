@@ -1,0 +1,85 @@
+{% extends "blog/blog_template.html" %}
+{% load staticfiles %}
+{% block blog_head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/highlight.min.css' %}">
+{% endblock %}
+{% block post %}
+{% autoescape off %}
+    <p>
+        I spent last two weeks trying to deploy a Django Application on a dedicated server. I am sharing my experience which might be helpful for someone trying to do the same. I will list all the resources that contain important information in this regard.
+    </p>
+    <h5>Choosing Web Hosting Platform</h5>
+    <p>
+        Firstly, one has to choose a django-friendly web hosting platform. There are tons of option. I prefer hosting on a dedicated VPS which allows me to control all the external libraries and Django version I am using. I am able to configure everything by myself by accessing the VPS using ssh. There are many cloud platforms to choose from. Google Compute Engine, Digitalocean, AWS, etc. Google App Engine is a scalable platform that can run Django. It offers 1GB of free data transfer which might be enough for many applications. I used a $5/month droplet on Digitalocean. I configured it to run Ubuntu 15.04 stack. So first step is choosing server. Django recommends nginx and gunicorn however I like to use Apache.
+    </p>
+    <h5>Configuring Virtual Machine</h5>
+    <p>
+        So we have to ssh into our machine and install the required packages.
+        <pre><code class="bash">
+                sudo apt-get install python python-pip
+                sudo apt-get install mysql phpmyadmin
+                sudo apt-get install apache2 libapache2-mod-wsgi apache2-utils
+                sudo apt-get install rsync
+                sudo apt-get install python-mysql
+                sudo pip install django
+            </code></pre>
+    </p>
+    <p>
+        You can also install virtualenv if you want to run your server is a virtual environment. rsync is a tool to synchronize files between your development machine and production server. It transfers only the updated files and it is really effective in reducing the bandwidth required for each deployment cycle. Once the virtual machine is configured, transfer your application code to the server using rsync. Apache usually runs as a separate user. To avoid permission issues, transfer your application to a universal location. /var/www is usually a good candidate.
+    </p>
+    <h5>Domain Name and SSL Certificate</h5>
+    <p>
+        Again a lot of options available. I bought a domain name from Namecheap and a Positive SSL certificate for $9/year each. We can either use the DNS provided by the domain registrar or we can also use DNS provided by the Cloud Platform we are using (Digitalocean). We need to point the domain from registrar to the Digitalocean’s nameservers. Instructions to do this has been listed here : <a href="https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars" target="_blank" title="Poiting To Digital Ocean Nameservers">https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars</a>
+    </p>
+    <p>
+        SSL Certificates have to bought activated. A form with all the domain details has to be filled along with the server’s key files and some certificate providers require the customer to verify that they own the domain against which the certificate is being issued. A useful resource related to this are : <a href="https://www.namecheap.com/support/knowledgebase/article.aspx/9446/0/apache-opensslmodsslnginx" target="_blank" title="Configuring OpenSSL for Apache">https://www.namecheap.com/support/knowledgebase/article.aspx/9446/0/apache-opensslmodsslnginx</a> and <a href="https://www.namecheap.com/support/knowledgebase/article.aspx/804/67/ssl-certificate-activation-and-installation-for-domain-hosted-on-namecheap-hosting-servers" target="_blank" title="Namecheap SSL Certificate Installation">https://www.namecheap.com/support/knowledgebase/article.aspx/804/67/ssl-certificate-activation-and-installation-for-domain-hosted-on-namecheap-hosting-servers</a>
+    </p>
+    <p>
+        Next step is to set up the host-name on DigitalOcean. Instructions to do this has been listed here : <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-host-name-with-digitalocean" targer="_blank" title="Setting Up host name on digital ocean">https://www.digitalocean.com/community/tutorials/how-to-set-up-a-host-name-with-digitalocean</a>. <br/>
+        Remember to add both www and non-www versions of the website. Subdomains can also be registered here.
+    </p>
+    <h5>Installing SSL Certificate on Server</h5>
+    <p>
+        Once we have the certificate files from the certifying authority (files will probably be emailed to the email id provided) we have to turn on the SSL Engine on Apache. Instructions to do this can be found here : <a href="https://www.positivessl.com/ssl-certificate-support/cert_installation/apache-ssl.php" target="_blank" title="Apache SSL">https://www.positivessl.com/ssl-certificate-support/cert_installation/apache-ssl.php</a> and <a href="https://www.digitalocean.com/community/tutorials/how-to-create-a-ssl-certificate-on-apache-for-ubuntu-12-04" target="_blank" title="Creating SSL Certificate">https://www.digitalocean.com/community/tutorials/how-to-create-a-ssl-certificate-on-apache-for-ubuntu-12-04</a>
+    </p>
+    <h5>Serving Static Files</h5>
+    <p>
+        Django recommends using a different server instance to serve your static files. However, if your website is small and/or you do not have a separate server instance, you can also use the same apache instance to serve the static content. Django offers a simple ‘collectstatic’ command that gathers all your static content into one single directory. I usually prefer keeping all the static files associated with a django app in a single directory right from the start of development - this allows me to ensure faster deployment. To configure Apace, following Alias should be added to the server’s configuration file (/etc/apache2/site-enabled).
+    </p>
+    <p>
+        <pre><code class="apache">
+                Alias /STATIC_URL/  /path/to/your/static/folder
+            </code></pre>
+    </p>
+    <p>
+        STATIC_URL is the URL from your Django’s settings.py. If STATIC_URL configuration seems confusing to you, just write following in your Django’s settings.py :
+        <pre><code class="python">
+                STATIC_URL = ‘/static/’
+            </code></pre>
+    </p>
+    <p>
+        And write your alias as :
+        <pre><code class="apache">
+                Alias /static/   /path/to/your/static/folder
+            </code></pre>
+    </p>
+    <h5>Setting up PhpMyAdmin</h5>
+    <p>
+        If you are using MySQL database for your Django Website, you would probably want to set up PhpMyAdmin. It provides a web-based GUI to browse through and maintain your database. It is a very helpful tool for database administrators. Older versions of PhpMyAdmin have serious bugs that can allow an attacker to gain access to your system. So ensure that you set-up the latest version and secure your installation. The instructions to do this are here : <a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-14-04" target="_blank" title="Installing and Securing PhpMyAdmin">https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-14-04</a>
+    </p>
+    <h5>Changing Application Settings</h5>
+    <p>
+        The last step is to configure your application for deployment. DO NOT DEPLOY YOUR APPS WITH DEBUG = TRUE. Set the debug and template debug parameters as False. Change the Database credentials if applicable. Also remember to change the secret key in the application’s setting.py. The secret key should be kept secret and should be changed frequently. Create appropropriate Database for your application using PhpMyAdmin. Run the migration scripts using the makemigrations and migrate command. The syncdb command will soon be removed in Django 1.9. Finally, restart the apache server using the following command
+        <pre><code class="zsh">
+                sudo service apache2 restart
+            </code></pre>
+    </p>
+    <p>
+        Congratulations. Your setup is now complete. Go visit and admire your newly deployed Django App.
+    </p>
+{% endautoescape %}
+{% endblock %}
+{% block scripts %}
+    <script type="text/javascript" src="{% static 'js/highlight.min.js' %}"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+{% endblock %}

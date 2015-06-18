@@ -16,6 +16,7 @@
             padding-left: 1em;
         }
     </style>
+    {% block blog_head %}{% endblock %}
 {% endblock %}
 {% block content %}
 <div id="subheader">
@@ -44,11 +45,18 @@
         <br/>
         {% block post %} {% endblock %}
         <hr/>
-        <h5>Share on Social Media</h5>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.ashishkedia.me/blog/{{post.template_file}}" title="Share on Facebook" class="readmore">Facebook</a>
-        <a href="https://twitter.com/home?status=https://www.ashishkedia.me/blog/{{post.template_file}}" title="Share on Twitter" class="readmore">Twitter</a>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.ashishkedia.me/blog/{{post.template_file}}&title={{post.title}}&summary={{post.subtitle}}&source=" title="Share on LinkedIn" class="readmore">Linked In</a>
-        <a href="https://plus.google.com/share?url=https://www.ashishkedia.me/blog/{{post.template_file}}" title="Share on Google+" class="readmore">Google+</a>
+        <div class="six columns">
+            <h5>Share on Social Media</h5>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.ashishkedia.me/blog/{{post.template_file}}" title="Share on Facebook" class="readmore">Facebook</a>
+            <a href="https://twitter.com/home?status=https://www.ashishkedia.me/blog/{{post.template_file}}" title="Share on Twitter" class="readmore">Twitter</a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.ashishkedia.me/blog/{{post.template_file}}&title={{post.title}}&summary={{post.subtitle}}&source=" title="Share on LinkedIn" class="readmore">Linked In</a>
+            <a href="https://plus.google.com/share?url=https://www.ashishkedia.me/blog/{{post.template_file}}" title="Share on Google+" class="readmore">Google+</a>
+        </div>
+        <div class="six columns">
+            <h5>Posted At</h5>
+            {% load tz%}
+            {{post.time_added | localtime}}
+        </div>
 	</div>
 </div>
 {% endblock %}

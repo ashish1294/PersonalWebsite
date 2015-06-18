@@ -10,6 +10,7 @@
         }
         .post_entry{
             padding-top: 22px;
+            padding-bottom: 19px;
         }
         .post_entry:hover {
             background: rgba(255, 115, 115, 0.1);
@@ -18,9 +19,14 @@
             -ms-transform: rotate(270deg); /* IE 9 */
             -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
             transform: rotate(270deg);
-            float: right;
-            vertical-align: middle;
-            height: 100%;
+            position: absolute;
+            height: 32px;
+            top: 50%;
+            margin-top: -16px;
+            right: 20px;
+        }
+        .blogsubtitle {
+            margin-bottom: 0px;
         }
     </style>
 {% endblock %}
@@ -48,9 +54,10 @@
                 <div style="float:left;">
                     <a href="/blog/{{post.template_file}}" title="{{post.title}}" class="blogtitle">{{post.title}}</a>
                     {% if post.subtitle and post.subtitle != '' %}
-                        <br/>
                         <p class="blogsubtitle"> {{post.subtitle}} </p>
                     {% endif %}
+                    {% load tz%}
+                    {{post.time_added | localtime}}
                 </div>
                 <div style="float: right; height : 100%; vertical-align: middle;">
                     <img src="{% static 'images/arrow.png' %}" class="arrow"/>
