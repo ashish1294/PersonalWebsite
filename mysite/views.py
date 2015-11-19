@@ -197,7 +197,7 @@ def blog_list(request):
     context = {
         'visitors' : record_visit(request, normal_visit.BLOG),
         'page' : 'blog',
-        'post_list' : blog.objects.all(),
+        'post_list' : blog.objects.order_by('-time_added'),
     }
     return render(request, 'blog.html', context)
 
