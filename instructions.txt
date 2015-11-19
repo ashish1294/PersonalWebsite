@@ -30,6 +30,7 @@ Change Links for PHPMyadmin
 10. Handle the Base.html Manually
 11. enable expires and headers using e2enmod
 12. Templates stuff deployement
+13. Take care of admin website
 
 Other Things:
 pip install virtualenv ----- extremely buggy with MySQL-python. Egg-Info error can be resolved with link
