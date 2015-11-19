@@ -15,15 +15,15 @@ def get_client_ip(request):
     else:
         ip = request.META.get('REMOTE_ADDR')
     return ip
-  
+
 def record_visit(request, page):
     normal_visit.new_visit(get_client_ip(request), page, request.META.get('HTTP_USER_AGENT'))
     return normal_visit.unique_visit(page)
-  
+
 def site_map(request):
     return render(request, 'sitemap.xml', {}, content_type='text/xml')
 
-def search(request) :  
+def search(request) :
     return render(request, 'search.html', {})
 #Function to handle the home-page
 def home(request):
@@ -65,7 +65,7 @@ def project_handler(request, name):
         vis = project_visit(ip=get_client_ip(request),
             user_agent=request.META.get('HTTP_USER_AGENT'), project=proj)
         vis.save()
-        
+
         context = {
             'page' : 'portofolio',
             'project' : proj,
@@ -77,10 +77,10 @@ def project_handler(request, name):
         return render(request, name + '.html', context)
 
     except ObjectDoesNotExist:
-        
+
         error_404_visit.record_error(get_client_ip(request),
             request.META.get('HTTP_USER_AGENT'),'project/' + name)
-        
+
         context = {
             'message' : '''<h1>I have no knowledge about this project ! </h1>
                 <h3 class="subheader"> <a href="/portofolio">Click here</a>
@@ -89,12 +89,12 @@ def project_handler(request, name):
         }
 
         return render(request, 'error.html', context)
-    
+
     except OSError:
-      
+
       error_404_visit.record_error(get_client_ip(request),
             request.META.get('HTTP_USER_AGENT'),'project/' + name)
-      
+
       context = {
             'message' : '''<h1>Page Currently Unavailable! </h1>
                 <h3 class="subheader">The page is being updated ! Check back later !</h3>
@@ -132,7 +132,9 @@ def academic_career(request):
         'IT 253 - Paradigms of Programming Part II',
         'IT 254 - Computer Graphics',
         'IT 306 - Object Oriented Analysis and Design',
-        'IT 290 - Seminar'
+        'IT 290 - Seminar',
+        'IT 411 - Mobile Adhoc Networks',
+        'IT 355 - Soft Computing'
     ]
 
     course_right = [
@@ -149,7 +151,9 @@ def academic_career(request):
         'IT 351 - Human Computer Interaction',
         'IT 352 - Information Assurance and Security',
         'IT 399 - Minor Project',
-        'IT 450 - Web Services'
+        'IT 450 - Web Services',
+        'IT 414 - Rich Internet Applications',
+        'EC 400 - Number Theory and Applications'
     ]
 
     context = {
@@ -176,11 +180,11 @@ def professional_career(request):
 def anything(request, path):
 
     error_404_visit.record_error(get_client_ip(request), request.META.get('HTTP_USER_AGENT'), path)
-    
+
     context = {
         'message' : '<h1>The page doesn\'t seem to exist !</h1>',
         'visitors' : 'Error'
-    }    
+    }
     return render(request, 'error.html', context)
 
 #View to draw Sunburst of skills
@@ -215,14 +219,14 @@ def contact(request):
     return render(request, 'contact.html', context)
 
 def about_me(request):
-    
+
     return render(request, 'aboutme.html', {
         'visitors' : record_visit(request, normal_visit.ABOUT_ME),
         'page' : 'aboutme'
     })
 
 def achievement(request):
-    
+
     return render(request, 'achievements.html', {
         'visitors': record_visit(request, normal_visit.ACHIEVEMENTS),
         'page' : 'achievements'
@@ -257,7 +261,7 @@ def blog_post(request, post_name):
         vis = blog_visit(ip=get_client_ip(request),
             user_agent=request.META.get('HTTP_USER_AGENT'), blog=post)
         vis.save()
-        
+
         context = {
             'page' : 'blog',
             'post' : post,
@@ -268,10 +272,10 @@ def blog_post(request, post_name):
         return render(request, os.path.join('blog', post_name) + '.html', context)
 
     except ObjectDoesNotExist:
-        
+
         error_404_visit.record_error(get_client_ip(request),
             request.META.get('HTTP_USER_AGENT'),'project/' + post_name)
-        
+
         context = {
             'message' : '''<h1>I have not posted any such article ! </h1>
                 <h3 class="subheader"> <a href="/blog">Click here</a>
@@ -280,12 +284,12 @@ def blog_post(request, post_name):
         }
 
         return render(request, 'error.html', context)
-    
+
     except OSError:
-      
+
       error_404_visit.record_error(get_client_ip(request),
             request.META.get('HTTP_USER_AGENT'),'project/' + post_name)
-      
+
       context = {
             'message' : '''<h1>Page Currently Unavailable! </h1>
                 <h3 class="subheader">The page is being updated ! Check back later !</h3>
