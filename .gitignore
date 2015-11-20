@@ -7,3 +7,4 @@ my_env/*
 website_certificate_files/*
 production_site/*
 *.DS_Store
+*password.py

@@ -107,6 +107,21 @@ USE_TZ = True
 
 HTML_MINIFY = True
 
+# Setting Email SMTP for Django
+# Using the restricted GMAIL SMTP Server
+# No authentication and only to gmail users
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+import password
+EMAIL_HOST_USER = password.EMAIL_ID
+EMAIL_HOST_PASSWORD = password.PASSWORD
+SERVER_EMAIL = 'djangoreport@ashishkedia.me'
+SEND_BROKEN_LINK_EMAILS = True
+ADMINS = (
+    ('Ashish Kedia', password.EMAIL_ID),
+)
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
