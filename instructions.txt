@@ -32,5 +32,13 @@ Change Links for PHPMyadmin
 12. Templates stuff deployement
 13. Take care of admin website
 
+Apache Modules to use while deployements-
+Pagespeed
+libapache2-modsecurity
+limitipconn
+https://www.digitalocean.com/community/tutorials/how-to-install-configure-and-use-modules-in-the-apache-web-server
+Digital ocean metafiles
+Configure apache status module
+
 Other Things:
 pip install virtualenv ----- extremely buggy with MySQL-python. Egg-Info error can be resolved with link
