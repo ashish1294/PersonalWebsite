@@ -8,4 +8,4 @@ The site uses Django framework. There is only one app names mysite. All static f
 
 Static Data in Database for the Site to work has been provided in the sql script.
 
-Please report errors / bugs if you find any
+Please report errors / bugs if you find any thankyou
